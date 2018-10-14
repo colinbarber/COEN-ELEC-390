@@ -1,48 +1,7 @@
+# Tag You're Lit - Smart Laser Tag System
+
 This project aims to create a mobile application-based laser tag system for 2 or more players. 
 <br><br>
-
-### Team Members
-
-***
-
-<table style="width:100%">
-  <tr>
-    <th>Username</th>
-    <th>Name</th> 
-    <th>Student ID</th>
-  </tr>
-  <tr>
-    <td>colinbarber</td>
-    <td>Colin Barber</td> 
-    <td>27735731</td>
-  </tr>
-  <tr>
-    <td>croumeliotis</td>
-    <td>Dina Roumeliotis</td> 
-    <td>40002536</td>
-  </tr>
-  <tr>
-    <td>williambergamin</td>
-    <td>William 'Sparkles' Bergamin</td> 
-    <td>40026727</td>
-  </tr>
-  <tr>
-    <td>jnchengtarantino</td>
-    <td>John-Nicholas Cheng-Tarantino</td> 
-    <td>40029435</td>
-  </tr>
-  <tr>
-    <td>yasminegha</td>
-    <td>Yasmine Ghassemi</td> 
-    <td>40028336</td>
-  </tr>
-  <tr>
-    <td>alexgendron6</td>
-    <td>Alex Gendron</td> 
-    <td>40029114</td>
-  </tr>
-</table>
-<br>
 
 ### Design
 
