@@ -55,7 +55,7 @@ _**User/Login Creation**_<br>
 
 ***
 
-![image](https://user-images.githubusercontent.com/29033135/46922035-f546b880-cfd0-11e8-8c41-f290efedf192.png)<br>
+![image](https://user-images.githubusercontent.com/29033135/46922035-f546b880-cfd0-11e8-8c41-f290efedf192.png)<br><br>
 
 ●	_Use Case 1:_ User interaction, the user must be able to interact with his profile, other users and teams in order to create matches and keep track of who has the best team. Interaction between actor, phone and database.
 
