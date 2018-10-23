@@ -12,7 +12,7 @@ def default():
 
 #this method is being called in clientregi.html and registers a user to the database.
 #the link is established from the route this method was given -- it is the same as the html file
-@app.route('/createclient/', methods=['GET'])
+@app.route('/createclient/', methods=['POST'])
 def addUserToDB():
 
     firstname = request.form['firstName']
