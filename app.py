@@ -11,7 +11,7 @@ def default():
     return "helloworld"
 
 #this method is being called in and registers a user to the database.
-@app.route('/createclient/', methods=['POST'])
+@app.route('/createclient', methods=['POST'])
 def addUserToDB():
     content = request.get_json()
     username = content['Username']
@@ -29,8 +29,8 @@ def addUserToDB():
 #I dont know why I wrote this
 @app.route('/deleteTable', methods=['DELETE'])
 def deleteTable():
-    Game.__table__.drop(db.engine)
-    return "DONE"
+    #Game.__table__.drop(db.engine)
+    return "YOU HAVE BEEN FOOLED PUNK"
 
 #tested
 @app.route('/find_game/<int:post_id>', methods=['GET'])

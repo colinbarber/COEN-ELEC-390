@@ -1,22 +1,32 @@
-# Tag You're Lit - Smart Laser Tag System
+# TAGit - Smart scavenger hunt System
 
-This project aims to create a mobile application-based laser tag system for 2 or more players. 
+This is the fask application used to manage the database of the app
 <br><br>
+
+##Endpoints
+***
+| endpoint                              | type   | Function                                                        |
+| --------------------------------------|--------|----------------------------------------------------------------|
+| https://coen390-a-team.herokuapp.com/ | GET    | return helloworld as a string                                   |
+| find_game/\<id of the game\>          | GET    | returns the name of the game and the questions in an array      |
+| /createclient                         | POST   | creates a user in the database you must pass it the proper json |
+| /add_game                             | POST   | creates a game in the database you must pass it the proper json |
+| /deleteTable                          | DELETE | selfexplanatory |
+
+
+***
 
 ### Design
 
 ***
 
-![image](https://user-images.githubusercontent.com/29033135/46921913-84eb6780-cfcf-11e8-99eb-fe53093a8ba5.png)
-![image](https://user-images.githubusercontent.com/29033135/46921924-b19f7f00-cfcf-11e8-9799-0d9bb3b5b685.png)
-![image](https://user-images.githubusercontent.com/29033135/46921930-c419b880-cfcf-11e8-8f9a-991647adf297.png)
 <br><br>
 
 ### System Architecture
 
 ***
 
-![image](https://user-images.githubusercontent.com/29033135/46921951-13f87f80-cfd0-11e8-9ef7-436e948d53fa.png)
+
 <br><br>
 
 ### Hardware Architecture
@@ -34,8 +44,7 @@ _**User/Login Creation**_<br>
 
 
 _**Team Creation**_<br>
-![image](https://user-images.githubusercontent.com/29033135/46921980-5ae67500-cfd0-11e8-8623-471956a6c095.png)<br>
-
+!
 _**Finding A Match**_<br>
 
 _**Sensor Detects Hit**_<br>
