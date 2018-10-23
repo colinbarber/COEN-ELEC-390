@@ -31,16 +31,14 @@ TBD
 ***
 
 _**User/Login Creation**_<br>
-![image](https://user-images.githubusercontent.com/29033135/46921973-4609e180-cfd0-11e8-8639-c9e715e8391c.png)<br>
+
 
 _**Team Creation**_<br>
 ![image](https://user-images.githubusercontent.com/29033135/46921980-5ae67500-cfd0-11e8-8623-471956a6c095.png)<br>
 
 _**Finding A Match**_<br>
-![image](https://user-images.githubusercontent.com/29033135/46921986-689bfa80-cfd0-11e8-8abb-5dda92b48505.png)<br>
 
 _**Sensor Detects Hit**_<br>
-![image](https://user-images.githubusercontent.com/29033135/46922004-76ea1680-cfd0-11e8-9f87-8fd2a4c218e7.png)<br>
 <br><br>
 
 ### Class Diagrams
@@ -48,14 +46,12 @@ _**Sensor Detects Hit**_<br>
 ***
 
 _**User/Login Creation**_<br>
-![image](https://user-images.githubusercontent.com/29033135/46922027-c0d2fc80-cfd0-11e8-856f-19a2f17239f5.png)<br>
 <br><br>
 
 ### Use Cases
 
 ***
 
-![image](https://user-images.githubusercontent.com/29033135/46922035-f546b880-cfd0-11e8-8c41-f290efedf192.png)<br><br>
 
 ●	_Use Case 1:_ User interaction, the user must be able to interact with his profile, other users and teams in order to create matches and keep track of who has the best team. Interaction between actor, phone and database.
 
