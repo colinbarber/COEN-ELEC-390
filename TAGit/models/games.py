@@ -1,4 +1,4 @@
-from Server.TAGit._init_ import db
+from TAGit._init_ import db
 
 # this is a python reprisentation of the user table in the database
 class Game(db.Model):

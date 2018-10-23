@@ -1,7 +1,7 @@
 from flask import request
-from Server.TAGit._init_ import app, db
-from Server.TAGit.models.games import Game
-from Server.TAGit.models.user import User
+from TAGit._init_ import app, db
+from TAGit.models.games import Game
+from TAGit.models.user import User
 from flask import jsonify
 
 
@@ -34,7 +34,7 @@ def deleteTable():
 
 #tested
 @app.route('/find_game/<int:post_id>', methods=['GET'])
-def searchUserById(post_id):
+def searchGamerById(post_id):
     g = Game.query.filter_by(id=post_id).first()
     json = jsonify(
                     {
@@ -44,8 +44,8 @@ def searchUserById(post_id):
                    )
     return json
 
-@app.route('/add_game/<int:post_id>', methods=['POST'])
-def searchUserById(post_id):
+@app.route('/add_game', methods=['POST'])
+def addGame():
     content = request.get_json()
     name = content['name']
     question0 = content['question0']

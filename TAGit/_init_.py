@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import exc
-from Server.config import LOCAL_DATABASE_URI
+from config import LOCAL_DATABASE_URI
 
 app = Flask(__name__)
 # sets up the connection to the database
