@@ -14,6 +14,21 @@ This is the fask application used to manage the database of the app
 | /deleteTable                          | DELETE | selfexplanatory |
 
 
+
+●	To obtain the first hint and start the game: /getfirsthint/<int:game_id>
+
+●	To obtain the second hint you must send thefirst tag: /gethint
+{
+   "gameId": 1,
+   "tags": [420]
+}
+
+●	To finish the game send the first and second tag: /gethint 
+{
+   "gameId": 1,
+   "tags": [420, 1017]
+}
+<br><br>
 ***
 
 ### Design

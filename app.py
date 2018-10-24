@@ -2,6 +2,7 @@ from flask import request
 from TAGit._init_ import app, db
 from TAGit.models.games import Game
 from TAGit.models.user import User
+from TAGit.models.tags import Tag
 from flask import jsonify
 
 
@@ -26,20 +27,69 @@ def addUserToDB():
     db.session.commit()
     return "user created"
 
-#I dont know why I wrote this
-@app.route('/deleteTable', methods=['DELETE'])
-def deleteTable():
-    #Game.__table__.drop(db.engine)
-    return "YOU HAVE BEEN FOOLED PUNK"
+#{
+#    "gameId": id,
+#    "tags": [tag0, tag1,...]
+#}
+# You need all the tags to get the next hint if the hint are not in order it will be a bad hint message
+# If this is the last tag it will return congradulations since the game is over
+@app.route('/gethint', methods=['POST'])
+def getGameNextHint():
+    content = request.get_json()
+    gameid = content['gameId']
+    tags = content['tags']
+
+    thetag = Tag.query.filter_by(GameId=gameid).first()
+    thetag.setTags()
+    game = Game.query.filter_by(id=gameid).first()
+    game.setHints()
+
+    for tag in tags:
+        if thetag.notLastNext():
+            if str(tag) != str(thetag.next()):
+                return jsonify(
+                    {
+                        "hint": "BAD_TAG"
+                    })
+        else:
+            if str(tag) != str(thetag.next()):
+                return jsonify(
+                    {
+                        "hint": "BAD_TAG"
+                    })
+            return jsonify(
+                {
+                    "hint": "CONGRADULATION"
+                })
+
+    return jsonify(
+        {
+            "hint": game.hints[thetag.counter]
+        })
+
+
+#returns the first hint and tag of a game
+@app.route('/getfirsthint/<int:game_id>', methods=['GET'])
+def getGameFirstHint(game_id):
+    g = Game.query.filter_by(id=game_id).first()
+    g.setHints()
+
+    json = jsonify(
+        {
+            "hint": str(g.hints[0]),
+        }
+    )
+    return json
 
 #tested
 @app.route('/find_game/<int:post_id>', methods=['GET'])
 def searchGamerById(post_id):
     g = Game.query.filter_by(id=post_id).first()
+    g.setHints()
     json = jsonify(
                     {
-                        "name": g.name,
-                        "questions": [g.question0, g.question1]
+                        "name": str(g.Name),
+                        "questions": str(g.hints)
                     }
                    )
     return json
@@ -48,12 +98,12 @@ def searchGamerById(post_id):
 def addGame():
     content = request.get_json()
     name = content['name']
-    question0 = content['question0']
-    question1 = content['question1']
+    hint0 = content['hint0']
+    hint1 = content['hint1']
 
     mygame = Game(name=name,
-                  question0=question0,
-                  question1=question1)
+                  hint0=hint0,
+                  hint1=hint1)
     db.session.add(mygame)
     db.session.commit()
     return "game created"
