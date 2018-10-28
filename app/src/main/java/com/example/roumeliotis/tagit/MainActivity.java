@@ -27,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 import android.nfc.NfcAdapter;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView hint;
     private String url;
     private List tagList = new ArrayList<String>();
+    private String scannedTag;
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -120,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             jsonsend.put("gameId", gameId);
-            jsonsend.put("tags", tagList.toString());
+            jsonsend.put("tags", new JSONArray(tagList));
+            Log.e(TAG,jsonsend.toString());
         } catch (JSONException e) {
             Log.d(TAG,e.toString());
         }
@@ -267,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
             if (result != null) {
                 Log.d(TAG,"Result: "+result);
                 tagList.add(result);
+                scannedTag = result;
                 url = baseURL + nextHintURL;
                 nextHintGET(url);
             }
