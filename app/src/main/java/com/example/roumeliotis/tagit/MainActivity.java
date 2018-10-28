@@ -22,15 +22,19 @@ import com.android.volley.Response;
 
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import android.nfc.NfcAdapter;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
     private RequestQueue queue;
     protected Button joinGameButton;
-    private String getFirstHintURL = "https://coen390-a-team.herokuapp.com/getfirsthint/";
+    private final String baseURL = "https://coen390-a-team.herokuapp.com";
+    private final String firstHintURL = "/getfirsthint/";
+    private final String nextHintURL = "/gethint";
     private int gameId = 1;
     private TextView hint;
     private String url;
+    private List tagList = new ArrayList<String>();
+    private String scannedTag;
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -52,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         hint = findViewById(R.id.hint);
 
-        url = getFirstHintURL + gameId;
+        url = baseURL + firstHintURL + gameId;
         Log.d(TAG,url);
         queue = Volley.newRequestQueue(this);
         joinGameButton = findViewById(R.id.joinGameButton);
@@ -106,7 +114,42 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG,error.toString());
             }
         });
+        queue.add(jsonObjectRequest);
+    }
 
+    public void nextHintGET(String url){
+        JSONObject jsonsend = new JSONObject();
+
+        try {
+            jsonsend.put("gameId", gameId);
+            jsonsend.put("tags", new JSONArray(tagList));
+            Log.e(TAG,jsonsend.toString());
+        } catch (JSONException e) {
+            Log.d(TAG,e.toString());
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+                url, jsonsend, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    Log.d(TAG, "hintGET response: "+response);
+                    String res = response.get("hint").toString();
+                    if("BAD_TAG".equals(res)){
+                        tagList.remove(tagList.size()-1);
+                    }
+                    hint.setText(res);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG,error.toString());
+            }
+        });
+        queue.add(jsonObjectRequest);
     }
 
     @Override
@@ -226,8 +269,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d(TAG,"Result: "+result);
-                url = getFirstHintURL + result;
-                hintGET(url);
+                tagList.add(result);
+                scannedTag = result;
+                url = baseURL + nextHintURL;
+                nextHintGET(url);
             }
         }
     }
