@@ -42,4 +42,4 @@ class Tag(db.Model):
         return self.counter-1
 
     def __repr__(self):
-        return '<User %r>' % (self.Email)
+        return '<Tag %r>' % (self.GameId)

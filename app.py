@@ -11,6 +11,7 @@ from flask import jsonify
 def default():
     return "helloworld"
 
+
 #this method is being called in and registers a user to the database.
 @app.route('/createclient', methods=['POST'])
 def addUserToDB():
@@ -26,6 +27,7 @@ def addUserToDB():
     db.session.add(myuser)
     db.session.commit()
     return "user created"
+
 
 #{
 #    "gameId": id,
@@ -81,18 +83,23 @@ def getGameFirstHint(game_id):
     )
     return json
 
+
 #tested
-@app.route('/find_game/<int:post_id>', methods=['GET'])
-def searchGamerById(post_id):
-    g = Game.query.filter_by(id=post_id).first()
+@app.route('/find_game/<int:gamet_id>', methods=['GET'])
+def searchGamerById(game_id):
+    g = Game.query.filter_by(id=game_id).first()
+    t = Tag.query.filter_by(GameId=game_id).first()
     g.setHints()
+    t.setTags()
     json = jsonify(
                     {
                         "name": str(g.Name),
-                        "questions": str(g.hints)
+                        "hints": str(g.hints),
+                        "tags": str(t.tags)
                     }
                    )
     return json
+
 
 @app.route('/add_game', methods=['POST'])
 def addGame():
