@@ -131,7 +131,11 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     Log.d(TAG, "hintGET response: "+response);
-                    hint.setText(response.get("hint").toString());
+                    String res = response.get("hint").toString();
+                    if("BAD_TAG".equals(res)){
+                        tagList.remove(tagList.size()-1);
+                    }
+                    hint.setText(res);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

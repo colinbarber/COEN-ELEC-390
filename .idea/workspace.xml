@@ -31,15 +31,15 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/roumeliotis/tagit/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+            <state relative-caret-position="224">
+              <caret line="103" column="66" lean-forward="true" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="66" />
               <folding>
                 <element signature="e#3291#3472#0" expanded="true" />
                 <element signature="e#3471#3472#0" expanded="true" />
-                <element signature="e#4042#4438#0" expanded="true" />
-                <element signature="e#4437#4438#0" expanded="true" />
-                <element signature="e#4049#4230#0" expanded="true" />
-                <element signature="e#4229#4230#0" expanded="true" />
+                <element signature="e#4067#4623#0" expanded="true" />
+                <element signature="e#4622#4623#0" expanded="true" />
+                <element signature="e#4625#4806#0" expanded="true" />
+                <element signature="e#4805#4806#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2649,15 +2649,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/roumeliotis/tagit/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
+        <state relative-caret-position="224">
+          <caret line="103" column="66" lean-forward="true" selection-start-line="103" selection-start-column="20" selection-end-line="103" selection-end-column="66" />
           <folding>
             <element signature="e#3291#3472#0" expanded="true" />
             <element signature="e#3471#3472#0" expanded="true" />
-            <element signature="e#4042#4438#0" expanded="true" />
-            <element signature="e#4437#4438#0" expanded="true" />
-            <element signature="e#4049#4230#0" expanded="true" />
-            <element signature="e#4229#4230#0" expanded="true" />
+            <element signature="e#4067#4623#0" expanded="true" />
+            <element signature="e#4622#4623#0" expanded="true" />
+            <element signature="e#4625#4806#0" expanded="true" />
+            <element signature="e#4805#4806#0" expanded="true" />
           </folding>
         </state>
       </provider>
