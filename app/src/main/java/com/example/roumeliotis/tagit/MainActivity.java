@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private int gameId = 1;
     private TextView hint;
     private String url;
-    private List tagList = new ArrayList();
+    private List tagList = new ArrayList<String>();
     private NfcAdapter mNfcAdapter;
 
     @Override
@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             jsonsend.put("gameId", gameId);
-            jsonsend.put("tags", tagList.toArray());
+            jsonsend.put("tags", tagList.toString());
         } catch (JSONException e) {
             Log.d(TAG,e.toString());
         }
