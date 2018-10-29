@@ -34,7 +34,7 @@ def addUserToDB():
 #    "tags": [tag0, tag1,...]
 #}
 # You need all the tags to get the next hint if the hint are not in order it will be a bad hint message
-# If this is the last tag it will return congradulations since the game is over
+# If this is the last tag it will return congratulations since the game is over
 @app.route('/gethint', methods=['POST'])
 def getGameNextHint():
     content = request.get_json()
@@ -61,7 +61,7 @@ def getGameNextHint():
                     })
             return jsonify(
                 {
-                    "hint": "CONGRADULATION"
+                    "hint": "CONGRATULATIONS! YOU WIN"
                 })
 
     return jsonify(
