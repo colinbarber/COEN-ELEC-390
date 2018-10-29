@@ -39,13 +39,14 @@
 
     <TextView
         android:id="@+id/hint"
-        android:layout_width="138dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="222dp"
         android:textColor="@color/colorPrimary"
-        android:text="cool cool"
+        android:textAlignment="center"
+        android:text=""
         android:textSize="20dp" />
 
 </RelativeLayout>
