@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RequestQueue queue;
     protected Button joinGameButton;
+    protected Button createGameButton;
     private final String baseURL = "https://coen390-a-team.herokuapp.com";
     private final String firstHintURL = "/getfirsthint/";
     private final String nextHintURL = "/gethint";
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG,url);
         queue = Volley.newRequestQueue(this);
         joinGameButton = findViewById(R.id.joinGameButton);
+        createGameButton = findViewById(R.id.createGameButton);
         joinGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 url = baseURL + firstHintURL + gameId;
                 tagList = new ArrayList<String>();
                 hintGET(url);
+                goToJoinGameActivity();
+            }
+        });
+        createGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "createGameButtonOnClick");
+                goToCreateGameActivity();
             }
         });
 
@@ -82,10 +92,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
             finish();
             return;
-
         }
 
         handleIntent(getIntent());
+    }
+    void goToJoinGameActivity(){
+        Log.d(TAG, "Go to Join Game Activity");
+        Intent intent = new Intent(MainActivity.this, JoinGame.class);
+        startActivity(intent);
+    }
+    void goToCreateGameActivity(){
+        Log.d(TAG, "Go to Create Game Activity");
+        Intent intent = new Intent(MainActivity.this, CreateGame.class);
+        startActivity(intent);
     }
 
     protected void onResume(){
