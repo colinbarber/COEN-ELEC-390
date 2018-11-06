@@ -1,10 +1,23 @@
 from TAGit._init_ import db
-from werkzeug.security import generate_password_hash, \
-     check_password_hash
+
 
 # this is a python reprisentation of the user table in the database
 class Tag(db.Model):
-    __tablename__ = 'Tags'
+    __tablename__ = 'Tag'
+
+    id = db.Column(db.Integer, primary_key=True)
+    hint = db.Column(db.String(64), unique=False)
+    tag = db.Column(db.String(64), unique=False)
+
+    def __init__(self, hint, tag):
+        self.hint = hint
+        self.tag = tag
+
+
+"""
+# this is a python reprisentation of the user table in the database
+class Tag(db.Model):
+    __tablename__ = 'Tag'
 
     id = db.Column(db.Integer, primary_key=True)
     GameId = db.Column(db.Integer, unique=False)
@@ -43,3 +56,4 @@ class Tag(db.Model):
 
     def __repr__(self):
         return '<Tag %r>' % (self.GameId)
+"""

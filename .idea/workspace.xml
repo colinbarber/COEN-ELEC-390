@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="22773108-7dec-4726-a818-50b67364b71f" name="Default Changelist" comment="" />
+    <list default="true" id="22773108-7dec-4726-a818-50b67364b71f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TAGit/models/teams.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/_init_.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/_init_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/models/games.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/models/games.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/models/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/models/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,64 +16,104 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/COEN_ELEC_390$coen390.coverage" NAME="coen390 Coverage Results" MODIFIED="1540476391558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COEN_ELEC_390$coen390.coverage" NAME="coen390 Coverage Results" MODIFIED="1541467811255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="428622608">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Procfile" value="1" />
           <entry key="md" value="1" />
-          <entry key="py" value="15" />
+          <entry key="py" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="15" />
+          <entry key="Python" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="1" />
+          <entry key="dummy" value="2" />
           <entry key="md" value="802" />
-          <entry key="py" value="2038" />
+          <entry key="py" value="5472" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="802" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="2038" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="5472" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Procfile">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+            <state relative-caret-position="252">
+              <caret line="119" column="56" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+                <marker date="1541468081639" expanded="true" signature="1069:1274" ph="..." />
+                <marker date="1541468081639" expanded="true" signature="2649:3215" ph="..." />
+                <marker date="1541468081639" expanded="true" signature="3662:3886" ph="..." />
+                <marker date="1541468081639" expanded="true" signature="3921:4167" ph="..." />
+                <marker date="1541468081639" expanded="true" signature="4184:4262" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="1220" selection-start-line="1220" selection-end-line="1220" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/cli.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="323" selection-start-line="323" selection-end-line="323" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="261" selection-start-line="261" selection-end-line="261" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TAGit/Exception.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -75,37 +122,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/psycopg2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="143" selection-start-line="143" selection-end-line="143" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/socketserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6840">
-              <caret line="462" selection-start-line="462" selection-end-line="462" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/ext/declarative/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6330">
-              <caret line="435" selection-start-line="435" selection-end-line="435" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TAGit/models/games.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
+            <state relative-caret-position="281">
+              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -124,17 +144,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TAGit/models/tags.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="19" />
+            <state relative-caret-position="75">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/_init_.py">
+        <entry file="file://$PROJECT_DIR$/TAGit/models/teams.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="39" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="39" />
+            <state relative-caret-position="180">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="43" />
+              <folding>
+                <marker date="1541439042214" expanded="true" signature="478:567" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,6 +176,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -164,6 +194,10 @@
         <option value="$PROJECT_DIR$/Server/TAGit/models/games.py" />
         <option value="$PROJECT_DIR$/Server/TAGit/models/user.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/TAGit/_init_.py" />
+        <option value="$PROJECT_DIR$/TAGit/Exception.py" />
+        <option value="$PROJECT_DIR$/TAGit/models/team.py" />
+        <option value="$PROJECT_DIR$/TAGit/models/teams.py" />
         <option value="$PROJECT_DIR$/TAGit/models/tags.py" />
         <option value="$PROJECT_DIR$/TAGit/models/games.py" />
         <option value="$PROJECT_DIR$/app.py" />
@@ -177,16 +211,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="111" />
-    <option name="y" value="96" />
-    <option name="width" value="1189" />
-    <option name="height" value="619" />
+    <option name="x" value="23" />
+    <option name="y" value="23" />
+    <option name="width" value="1333" />
+    <option name="height" value="734" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,7 +249,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,12 +259,12 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/TAGit/models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Server" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TAGit/models" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -254,9 +288,9 @@
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
@@ -287,31 +321,56 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="111" y="96" width="1189" height="619" extended-state="0" />
+    <frame x="23" y="23" width="1333" height="734" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2755013" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18435322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32827324" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49956408" weight="0.056925997" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.288162" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49956408" weight="0.32827324" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49956408" weight="0.3271028" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50043595" side_tool="true" weight="0.32827324" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32827324" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827324" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32827324" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29380995" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32827324" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.288162" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49956408" weight="0.3271028" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50043595" side_tool="true" weight="0.32827324" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32827324" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32827324" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32827324" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -325,27 +384,10 @@
     <entry file="file://$PROJECT_DIR$/Server/TAGit/_init_.py" />
     <entry file="file://$PROJECT_DIR$/Server/TAGit/models/games.py" />
     <entry file="file://$PROJECT_DIR$/Server/TAGit/models/user.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18300">
-          <caret line="1249" selection-start-line="1249" selection-end-line="1249" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/runpy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2820">
           <caret line="192" selection-start-line="192" selection-end-line="192" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/psycopg2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="143" selection-start-line="143" selection-end-line="143" />
         </state>
       </provider>
     </entry>
@@ -356,6 +398,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/ext/declarative/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6330">
@@ -363,11 +408,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/user.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/exceptions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="1185">
+          <caret line="83" column="15" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.2/python_stubs/-1199943126/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13440">
+          <caret line="896" column="6" selection-start-line="896" selection-start-column="6" selection-end-line="896" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/psycopg2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1545">
+          <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/_init_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -382,33 +449,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/_init_.py">
+    <entry file="file://$PROJECT_DIR$/TAGit/models/model.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/cli.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="39" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="39" />
+        <state relative-caret-position="120">
+          <caret line="323" selection-start-line="323" selection-end-line="323" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/games.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="50" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="50" />
+        <state relative-caret-position="180">
+          <caret line="261" selection-start-line="261" selection-end-line="261" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TAGit/models/tags.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="19" />
+        <state relative-caret-position="75">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/teams.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <marker date="1541439042214" expanded="true" signature="478:567" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/Exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="1220" selection-start-line="1220" selection-end-line="1220" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+        <state relative-caret-position="252">
+          <caret line="119" column="56" selection-start-line="119" selection-start-column="56" selection-end-line="119" selection-end-column="56" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1541468081639" expanded="true" signature="1069:1274" ph="..." />
+            <marker date="1541468081639" expanded="true" signature="2649:3215" ph="..." />
+            <marker date="1541468081639" expanded="true" signature="3662:3886" ph="..." />
+            <marker date="1541468081639" expanded="true" signature="3921:4167" ph="..." />
+            <marker date="1541468081639" expanded="true" signature="4184:4262" ph="..." />
           </folding>
         </state>
       </provider>
