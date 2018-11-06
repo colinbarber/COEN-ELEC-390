@@ -9,8 +9,9 @@ public class Game {
     private int team_id = -1;       //Placeholder for if Game object is used during gameplay, TODO remove if only used for db handling
     private Date time_end= null;    //Should be input and output as milliseconds
 
-    public Game(long id, String username, String name, long time_end) {
+    public Game(long id, long remote_id, String username, String name, long time_end) {
         this.id = id;
+        this.remote_id = remote_id;
         this.username = username;
         this.name = name;
         this.time_end = new Date(time_end);

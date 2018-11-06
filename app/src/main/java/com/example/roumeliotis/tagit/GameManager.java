@@ -140,6 +140,40 @@ public class GameManager extends SQLiteOpenHelper{
         return id;
     }
 
+    public List<Game> getAllGames(){
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        try {
+
+            cursor = sqLiteDatabase.query(GameManagerConfigs.TABLE_GAME, null, null, null, null, null, null, null);
+            if(cursor!=null)
+                if(cursor.moveToFirst()){
+                    List<Game> courseList = new ArrayList<>();
+                    do {
+                        long id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_ID_COLUMN));
+                        long remote_id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_REMOTE_ID));
+                        String username = cursor.getString(cursor.getColumnIndex(GameManagerConfigs.GAME_OWNER_NAME_COLUMN));
+                        String name = cursor.getString(cursor.getColumnIndex(GameManagerConfigs.GAME_NAME_COLUMN));
+                        long time_end = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_ENDTIME_COLUMN));
+
+                        courseList.add(new Game(id,remote_id,username, name,time_end));
+                    }   while (cursor.moveToNext());
+
+                    return courseList;
+                }
+        } catch (Exception e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+
+        return Collections.emptyList();
+    }
+
     public Game getGameByID(long id){
 
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
@@ -158,7 +192,7 @@ public class GameManager extends SQLiteOpenHelper{
                 String name = cursor.getString((cursor.getColumnIndex(GameManagerConfigs.GAME_NAME_COLUMN)));
                 long time_end = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_ENDTIME_COLUMN));
 
-               game = new Game(id, username, name, time_end);
+               game = new Game(id, remote_id, username, name, time_end);
             }
         } catch (Exception e){
             Log.d(TAG,"Exception: " + e.getMessage());
