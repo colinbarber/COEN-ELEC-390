@@ -1,6 +1,7 @@
 package com.example.roumeliotis.tagit;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -88,17 +89,17 @@ public class GameManager extends SQLiteOpenHelper{
         return id;
     }
 
-    public long insertTeam(long game_id, long remote_id, String name, String colour){
+    public long insertTeam(Team team){
         Log.d(TAG, "insertTeam");
 
         long id = -1;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(GameManagerConfigs.TEAM_GAME_ID, game_id);
-        contentValues.put(GameManagerConfigs.TEAM_REMOTE_ID, remote_id);
-        contentValues.put(GameManagerConfigs.TEAM_NAME, name);
-        contentValues.put(GameManagerConfigs.TEAM_COLOUR, colour);
+        contentValues.put(GameManagerConfigs.TEAM_GAME_ID, team.getGame_id());
+        contentValues.put(GameManagerConfigs.TEAM_REMOTE_ID, team.getRemote_id());
+        contentValues.put(GameManagerConfigs.TEAM_NAME, team.getName());
+        contentValues.put(GameManagerConfigs.TEAM_COLOUR, team.getColour());
 
         try {
             id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_TEAM, null, contentValues);
@@ -112,16 +113,16 @@ public class GameManager extends SQLiteOpenHelper{
         return id;
     }
 
-    public long insertTag(long game_id, long remote_id, String hint){
+    public long insertTag(NFCTag tag){
         Log.d(TAG, "insertTeam");
 
         long id = -1;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(GameManagerConfigs.TAG_GAME_ID, game_id);
-        contentValues.put(GameManagerConfigs.TAG_REMOTE_ID, remote_id);
-        contentValues.put(GameManagerConfigs.TAG_HINT, hint);
+        contentValues.put(GameManagerConfigs.TAG_GAME_ID, tag.getGame_id());
+        contentValues.put(GameManagerConfigs.TAG_REMOTE_ID, tag.getRemote_id());
+        contentValues.put(GameManagerConfigs.TAG_HINT, tag.getHint());
         contentValues.put(GameManagerConfigs.TAG_POINT, 0);
 
         try {
@@ -135,5 +136,7 @@ public class GameManager extends SQLiteOpenHelper{
 
         return id;
     }
+
+
 
 }
