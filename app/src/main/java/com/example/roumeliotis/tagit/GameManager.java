@@ -26,6 +26,7 @@ public class GameManager extends SQLiteOpenHelper{
         //Create Game Table
         String CREATE_GAME_TABLE = "CREATE TABLE " + GameManagerConfigs.TABLE_GAME + "(" +
                 GameManagerConfigs.GAME_ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                GameManagerConfigs.GAME_REMOTE_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.GAME_NAME_COLUMN + " TEXT NOT NULL, " +
                 GameManagerConfigs.OWNER_NAME_COLUMN + " TEXT NOT NULL, " +
                 GameManagerConfigs.ENDTIME_COLUMN + " INTEGER NOT NULL)";
@@ -49,7 +50,7 @@ public class GameManager extends SQLiteOpenHelper{
                 GameManagerConfigs.TAG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 GameManagerConfigs.TAG_REMOTE_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.TAG_GAME_ID + " INTEGER NOT NULL, " +
-                GameManagerConfigs.TAG_HINT + " TEXT NOT NULL, " + 
+                GameManagerConfigs.TAG_HINT + " TEXT NOT NULL, " +
                 GameManagerConfigs.TAG_POINT +  "INTEGER NOT NULL)";
 
         Log.d(TAG,CREATE_TAG_TABLE);
@@ -64,17 +65,67 @@ public class GameManager extends SQLiteOpenHelper{
     }
 
     public long insertGame(Game game){
+        Log.d(TAG, "insertGame");
 
         long id = -1;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(GameManagerConfigs.GAME_NAME_COLUMN, game.getName());
+        contentValues.put(GameManagerConfigs.GAME_REMOTE_ID, game.getRemote_id());
         contentValues.put(GameManagerConfigs.OWNER_NAME_COLUMN, game.getUsername());
         contentValues.put(GameManagerConfigs.ENDTIME_COLUMN, game.getTime_end());
 
         try {
             id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_GAME, null, contentValues);
+        } catch (SQLiteException e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            sqLiteDatabase.close();
+        }
+
+        return id;
+    }
+
+    public long insertTeam(long game_id, long remote_id, String name, String colour){
+        Log.d(TAG, "insertTeam");
+
+        long id = -1;
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(GameManagerConfigs.TEAM_GAME_ID, game_id);
+        contentValues.put(GameManagerConfigs.TEAM_REMOTE_ID, remote_id);
+        contentValues.put(GameManagerConfigs.TEAM_NAME, name);
+        contentValues.put(GameManagerConfigs.TEAM_COLOUR, colour);
+
+        try {
+            id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_TEAM, null, contentValues);
+        } catch (SQLiteException e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            sqLiteDatabase.close();
+        }
+
+        return id;
+    }
+
+    public long insertTag(long game_id, long remote_id, String hint){
+        Log.d(TAG, "insertTeam");
+
+        long id = -1;
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(GameManagerConfigs.TAG_GAME_ID, game_id);
+        contentValues.put(GameManagerConfigs.TAG_REMOTE_ID, remote_id);
+        contentValues.put(GameManagerConfigs.TAG_HINT, hint);
+        contentValues.put(GameManagerConfigs.TAG_POINT, 0);
+
+        try {
+            id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_TAG, null, contentValues);
         } catch (SQLiteException e){
             Log.d(TAG,"Exception: " + e.getMessage());
             Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
