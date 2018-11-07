@@ -55,8 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     private Boolean gameStart = false;
 
-    protected Button goToTestButton; //TODO DELETE
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,18 +82,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "createGameButtonOnClick");
                 goToCreateGameActivity();
-            }
-        });
-
-
-        //TO BRING TO TEST PAGE
-        //TODO DELETE
-        goToTestButton = findViewById(R.id.goToTestButton);
-        goToTestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TestActivity.class);
-                startActivity(intent);
             }
         });
 
@@ -244,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @param activity The corresponding {@link BaseActivity} requesting to stop the foreground dispatch.
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
