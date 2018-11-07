@@ -1,6 +1,7 @@
+import traceback
 from flask import jsonify
-from werkzeug.exceptions import default_exceptions
-from werkzeug.exceptions import HTTPException
+from jsonschema import ValidationError
+from werkzeug.exceptions import HTTPException, BadRequest
 from TAGit._init_ import app
 
 
@@ -23,16 +24,34 @@ class InvalidUsage(Exception):
 
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
+    app.logger.error(traceback.format_exc())
+    app.logger.error("{0} | Code: {1} ".format(error.message, error.status_code))
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
     return response
 
 
-@app.errorhandler(HTTPException)
-def handle_bad_request(error):
-    response = jsonify(message=str(error))
-    response.status_code = error.code if isinstance(error, HTTPException) else 500
+@app.errorhandler(ValidationError)
+def handle_bad_validation(error):
+    app.logger.error(traceback.format_exc())
+    app.logger.error("{0} | Code: {1}".format(error.message, 404))
+    response = jsonify({
+        "message": "Internal Server Error 💩"
+    })
+    response.status_code = 500
     return response
 
 
+@app.errorhandler(HTTPException)
+def handle_bad_request(error):
+    if isinstance(error, HTTPException) or isinstance(error, BadRequest):
+        app.logger.error(traceback.format_exc())
+        app.logger.error("{0} | Code: {1}".format(error.description, error.code))
+    else:
+        app.logger.error("Not an HTTPException | Code: " + str(500))
+    response = jsonify({
+        "message": "Internal Server Error 💩"
+        })
+    response.status_code = 500
+    return response
 

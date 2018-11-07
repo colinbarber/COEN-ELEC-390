@@ -1,9 +1,7 @@
 from TAGit._init_ import db
-from werkzeug.security import generate_password_hash, \
-     check_password_hash
 
 
-# this is a python reprisentation of the user table in the database
+# this is a python representation of the Team table in the database
 class Team(db.Model):
     __tablename__ = 'Team'
 
@@ -18,4 +16,4 @@ class Team(db.Model):
         self.points = points
 
     def __repr__(self):
-        return '<Team %r>' % (self.name)
+        return '<Team %r>' % self.name

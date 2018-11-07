@@ -1,8 +1,8 @@
-import os
+from logging.config import dictConfig
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import LOCAL_DATABASE_URI
-from logging.config import dictConfig
 
 dictConfig({
     'version': 1,
@@ -21,10 +21,7 @@ dictConfig({
 })
 
 app = Flask(__name__)
-# sets up the connection to the database
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_DATABASE_URI'] = LOCAL_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 
 db = SQLAlchemy(app)
