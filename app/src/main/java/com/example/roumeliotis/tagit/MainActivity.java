@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     private Boolean gameStart = false;
 
+    protected Button goToTestButton; //TODO DELETE
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +86,19 @@ public class MainActivity extends AppCompatActivity {
                 goToCreateGameActivity();
             }
         });
+
+
+        //TO BRING TO TEST PAGE
+        //TODO DELETE
+        goToTestButton = findViewById(R.id.goToTestButton);
+        goToTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         //Ensure that device is nfc compatible

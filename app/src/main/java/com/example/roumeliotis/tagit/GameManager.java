@@ -56,7 +56,7 @@ public class GameManager extends SQLiteOpenHelper{
                 GameManagerConfigs.TAG_REMOTE_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.TAG_GAME_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.TAG_HINT + " TEXT NOT NULL, " +
-                GameManagerConfigs.TAG_POINT +  "INTEGER NOT NULL)";
+                GameManagerConfigs.TAG_POINT +  " INTEGER NOT NULL)";
 
         Log.d(TAG,CREATE_TAG_TABLE);
         db.execSQL(CREATE_TAG_TABLE);
@@ -89,7 +89,7 @@ public class GameManager extends SQLiteOpenHelper{
         } finally {
             sqLiteDatabase.close();
         }
-
+        Log.d(TAG, "success");
         return id;
     }
 
@@ -114,11 +114,12 @@ public class GameManager extends SQLiteOpenHelper{
             sqLiteDatabase.close();
         }
 
+        Log.d(TAG, "success");
         return id;
     }
 
     public long insertTag(NFCTag tag){
-        Log.d(TAG, "insertTeam");
+        Log.d(TAG, "insertTag");
 
         long id = -1;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -137,10 +138,12 @@ public class GameManager extends SQLiteOpenHelper{
         } finally {
             sqLiteDatabase.close();
         }
+        Log.d(TAG, "success");
         return id;
     }
 
     public List<Game> getAllGames(){
+        Log.d(TAG,"getAllGames");
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -160,6 +163,8 @@ public class GameManager extends SQLiteOpenHelper{
                         courseList.add(new Game(id,remote_id,username, name,time_end));
                     }   while (cursor.moveToNext());
 
+
+                    Log.d(TAG, "success");
                     return courseList;
                 }
         } catch (Exception e){
@@ -176,6 +181,7 @@ public class GameManager extends SQLiteOpenHelper{
 
     public Game getGameByID(long id){
 
+        Log.d(TAG, "getGameByID");
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -207,6 +213,7 @@ public class GameManager extends SQLiteOpenHelper{
 
     public List<Team> getTeamsByGameID(long gameId){
 
+        Log.d(TAG, "getTeamsByGameID");
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor = null;
@@ -243,6 +250,7 @@ public class GameManager extends SQLiteOpenHelper{
 
     public List<NFCTag> getTagsByGameID(long gameId){
 
+        Log.d(TAG, "getTagsByGameID");
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 
         Cursor cursor = null;
