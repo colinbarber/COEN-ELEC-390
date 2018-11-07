@@ -18,7 +18,6 @@ def default():
             "message": "hello world"
         })
 
-
 # returns a json containing the info of this game
 @app.route('/game/<string:game_name>', methods=['GET'])
 def get_game(game_name):
