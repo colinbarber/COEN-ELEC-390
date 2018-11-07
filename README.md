@@ -4,7 +4,7 @@ This is the flask application used to manage the database of the app
 <br><br>
 https://coen390-a-team.herokuapp.com
 
-##Endpoints
+## Endpoints
 ***
 | endpoint                              | type   | Function                                                       |
 | --------------------------------------|--------|----------------------------------------------------------------|
