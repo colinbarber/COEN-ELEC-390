@@ -17,7 +17,9 @@
         android:roundIcon="@drawable/tagitroundlaunder"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:label="TAGit">
+        <activity
+            android:name=".MainActivity"
+            android:label="TAGit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,9 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
@@ -34,15 +38,28 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
 
-        <activity android:name=".CreateGame" android:label="CREATE GAME">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".CreateGame" />
+        <activity
+            android:name=".CreateGame"
+            android:label="CREATE GAME">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CreateGame" />
         </activity>
-        <activity android:name=".JoinGame" android:label="JOIN GAME">
+        <activity
+            android:name=".JoinGame"
+            android:label="JOIN GAME">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JoinGame" />
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.roumeliotis.tagit.MainActivity" />
         </activity>
     </application>
 

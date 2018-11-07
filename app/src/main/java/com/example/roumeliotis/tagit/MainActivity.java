@@ -85,13 +85,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         //Ensure that device is nfc compatible
         if (mNfcAdapter == null) {
             // Stop here, we definitely need NFC
             Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
-            finish();
-            return;
+
+            ///////////////// Closes app if not NFC compatible ///////////////////
+            //finish();
+            //return;
         }
 
         handleIntent(getIntent());
@@ -227,7 +230,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @param activity The corresponding {@link BaseActivity} requesting to stop the foreground dispatch.
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
