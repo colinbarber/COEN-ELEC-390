@@ -211,6 +211,38 @@ public class GameManager extends SQLiteOpenHelper{
         return game;
     }
 
+    public Game getGameByRemoteID(long remote_id){
+
+        Log.d(TAG, "getGameByRemoteID");
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        Game game = null;
+        try {
+            String SELECT_QUERY = String.format("SELECT * FROM %s WHERE %s = %s",GameManagerConfigs.TABLE_GAME,
+                    GameManagerConfigs.GAME_REMOTE_ID, remote_id);
+            cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null);
+
+
+            if(cursor.moveToFirst()){
+                long id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_ID_COLUMN));
+                String username = cursor.getString(cursor.getColumnIndex(GameManagerConfigs.GAME_OWNER_NAME_COLUMN));
+                String name = cursor.getString((cursor.getColumnIndex(GameManagerConfigs.GAME_NAME_COLUMN)));
+                long time_end = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.GAME_ENDTIME_COLUMN));
+
+                game = new Game(id, remote_id, username, name, time_end);
+            }
+        } catch (Exception e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+        return game;
+    }
+
     public List<Team> getTeamsByGameID(long gameId){
 
         Log.d(TAG, "getTeamsByGameID");
