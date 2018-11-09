@@ -243,6 +243,69 @@ public class GameManager extends SQLiteOpenHelper{
         return game;
     }
 
+    public Team getTeamByRemoteID(long remote_id){
+
+        Log.d(TAG, "getTeamByRemoteID");
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        Team team = null;
+        try {
+            String SELECT_QUERY = String.format("SELECT * FROM %s WHERE %s = %s",GameManagerConfigs.TABLE_TEAM,
+                    GameManagerConfigs.TEAM_REMOTE_ID, remote_id);
+            cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null);
+
+
+            if(cursor.moveToFirst()){
+                long id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.TEAM_ID));
+                String team_name = cursor.getString(cursor.getColumnIndex(GameManagerConfigs.TEAM_NAME));
+                String team_colour = cursor.getString((cursor.getColumnIndex(GameManagerConfigs.TEAM_COLOUR)));
+                long game_id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.TEAM_GAME_ID));
+
+                team = new Team(id, game_id, remote_id, team_name, team_colour);
+            }
+        } catch (Exception e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+        return team;
+    }
+
+    public NFCTag getTagByRemoteID(long remote_id){
+
+        Log.d(TAG, "getTagByRemoteID");
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        NFCTag nfcTag = null;
+        try {
+            String SELECT_QUERY = String.format("SELECT * FROM %s WHERE %s = %s",GameManagerConfigs.TABLE_TAG,
+                    GameManagerConfigs.TAG_REMOTE_ID, remote_id);
+            cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null);
+
+
+            if(cursor.moveToFirst()){
+                long id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.TAG_ID));
+                String hint = cursor.getString((cursor.getColumnIndex(GameManagerConfigs.TAG_HINT)));
+                long game_id = cursor.getLong(cursor.getColumnIndex(GameManagerConfigs.TAG_GAME_ID));
+
+                nfcTag = new NFCTag(id, remote_id, game_id, hint);
+            }
+        } catch (Exception e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+        return nfcTag;
+    }
+
     public List<Team> getTeamsByGameID(long gameId){
 
         Log.d(TAG, "getTeamsByGameID");
@@ -317,5 +380,28 @@ public class GameManager extends SQLiteOpenHelper{
         }
 
         return Collections.emptyList();
+    }
+
+    public void updateTagPoints(NFCTag nfcTag){
+        int points = nfcTag.getPoints();
+        long id = nfcTag.getId();
+
+        Log.d(TAG, "updateTagPoints");
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        String UPDATE_QUERY = "UPDATE " + GameManagerConfigs.TABLE_TAG +
+                " SET " + GameManagerConfigs.TAG_POINT +
+                " = " + points +
+                " WHERE " + GameManagerConfigs.TAG_ID +
+                " = " + id;
+        try {
+            sqLiteDatabase.execSQL(UPDATE_QUERY);
+        } catch (SQLiteException e){
+            Log.d(TAG,"Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            sqLiteDatabase.close();
+        }
+        Log.d(TAG, "success");
     }
 }
