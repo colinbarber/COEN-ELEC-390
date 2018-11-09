@@ -98,4 +98,23 @@ public class ServerHelper {
         Log.d(TAG, "request: " + request.toString());
         VolleySingleton.getInstance(context).addToQueue(request);
     }
+
+    public void pushTeamScore(final long team_remote_id, final long tag_remote_id, final Context context, final VolleyCallback callback){
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, base_url + team_remote_id + "/" + tag_remote_id, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        callback.onSuccess(response);
+                    }
+                }
+                , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onError(error);
+            }
+        });
+
+        Log.d(TAG, "request: " + request.toString());
+        VolleySingleton.getInstance(context).addToQueue(request);
+    }
 }
