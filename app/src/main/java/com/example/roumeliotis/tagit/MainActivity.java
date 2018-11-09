@@ -42,18 +42,13 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     public static final String MIME_TEXT_PLAIN = "text/plain";
 
-    private RequestQueue queue;
     protected Button joinGameButton;
     protected Button createGameButton;
-    private final String baseURL = "https://coen390-a-team.herokuapp.com";
-    private final String firstHintURL = "/getfirsthint/";
-    private final String nextHintURL = "/gethint";
-    private int gameId = 1;
     private TextView hint;
-    private String url;
-    private List tagList = new ArrayList<String>();
     private NfcAdapter mNfcAdapter;
     private Boolean gameStart = false;
+    private GameManager gameManager;
+    private ServerHelper serverHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,19 +56,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         hint = findViewById(R.id.hint);
+        gameManager = new GameManager(this);
 
-        url = baseURL + firstHintURL + gameId;
-        Log.d(TAG,url);
-        queue = Volley.newRequestQueue(this);
+        serverHelper = new ServerHelper();
+
         joinGameButton = findViewById(R.id.joinGameButton);
         createGameButton = findViewById(R.id.createGameButton);
         joinGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "joinGameButtonOnClick");
-                url = baseURL + firstHintURL + gameId;
-                tagList = new ArrayList<String>();
-                hintGET(url);
                 goToJoinGameActivity();
             }
         });
@@ -120,82 +112,87 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
-    public void hintGET(String url){
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-                url,
-                null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    gameStart = true;
-                    Toast toast=Toast.makeText(getApplicationContext(),"New Game started!",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
-                    Log.d(TAG, "hintGET response: "+response);
-                    hint.setText(response.get("hint").toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener(){
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.d(TAG,error.toString());
-            }
-        });
-        queue.add(jsonObjectRequest);
+    protected void handleNFC(String result){
+        //TODO
     }
 
-    public void nextHintGET(String url){
-        JSONObject jsonsend = new JSONObject();
-        if (gameStart) {
-            try {
-                jsonsend.put("gameId", gameId);
-                jsonsend.put("tags", new JSONArray(tagList));
-                Log.e(TAG, jsonsend.toString());
-            } catch (JSONException e) {
-                Log.d(TAG, e.toString());
-            }
-
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                    url, jsonsend, new Response.Listener<JSONObject>() {
-                @Override
-                public void onResponse(JSONObject response) {
-                    try {
-                        Log.d(TAG, "hintGET response: " + response);
-                        String res = response.get("hint").toString();
-                        if ("BAD_TAG".equals(res)) {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Wrong tag, try again :(", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            tagList.remove(tagList.size() - 1);
-                        }
-                        else if ("CONGRATULATIONS! YOU WIN".equals(res)){
-                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            hint.setText(res);
-                            gameStart = false;
-                        }
-                        else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            hint.setText(res);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.d(TAG, error.toString());
-                }
-            });
-            queue.add(jsonObjectRequest);
-        }
-    }
+    //TODO REMOVE
+//    public void hintGET(String url){
+//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
+//                url,
+//                null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    gameStart = true;
+//                    Toast toast=Toast.makeText(getApplicationContext(),"New Game started!",Toast.LENGTH_SHORT);
+//                    toast.setGravity(Gravity.CENTER, 0, 0);
+//                    toast.show();
+//                    Log.d(TAG, "hintGET response: "+response);
+//                    hint.setText(response.get("hint").toString());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener(){
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.d(TAG,error.toString());
+//            }
+//        });
+//        queue.add(jsonObjectRequest);
+//    }
+//
+//    public void nextHintGET(String url){
+//        JSONObject jsonsend = new JSONObject();
+//        if (gameStart) {
+//            try {
+//                jsonsend.put("gameId", gameId);
+//                jsonsend.put("tags", new JSONArray(tagList));
+//                Log.e(TAG, jsonsend.toString());
+//            } catch (JSONException e) {
+//                Log.d(TAG, e.toString());
+//            }
+//
+//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+//                    url, jsonsend, new Response.Listener<JSONObject>() {
+//                @Override
+//                public void onResponse(JSONObject response) {
+//                    try {
+//                        Log.d(TAG, "hintGET response: " + response);
+//                        String res = response.get("hint").toString();
+//                        if ("BAD_TAG".equals(res)) {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Wrong tag, try again :(", Toast.LENGTH_SHORT);
+//                            toast.setGravity(Gravity.CENTER, 0, 0);
+//                            toast.show();
+//                            tagList.remove(tagList.size() - 1);
+//                        }
+//                        else if ("CONGRATULATIONS! YOU WIN".equals(res)){
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
+//                            toast.setGravity(Gravity.CENTER, 0, 0);
+//                            toast.show();
+//                            hint.setText(res);
+//                            gameStart = false;
+//                        }
+//                        else {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
+//                            toast.setGravity(Gravity.CENTER, 0, 0);
+//                            toast.show();
+//                            hint.setText(res);
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    Log.d(TAG, error.toString());
+//                }
+//            });
+//            queue.add(jsonObjectRequest);
+//        }
+//    }
 
     @Override
     protected void onNewIntent(Intent intent){
@@ -313,9 +310,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d(TAG,"Result: "+result);
-                tagList.add(result);
-                url = baseURL + nextHintURL;
-                nextHintGET(url);
+                handleNFC(result);
             }
         }
     }
