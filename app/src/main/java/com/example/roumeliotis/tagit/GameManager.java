@@ -31,8 +31,8 @@ public class GameManager extends SQLiteOpenHelper{
         //Create Game Table
         String CREATE_GAME_TABLE = "CREATE TABLE " + GameManagerConfigs.TABLE_GAME + "(" +
                 GameManagerConfigs.GAME_ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                GameManagerConfigs.GAME_REMOTE_ID + " INTEGER NOT NULL, " +
-                GameManagerConfigs.GAME_NAME_COLUMN + " TEXT NOT NULL, " +
+                GameManagerConfigs.GAME_REMOTE_ID + " INTEGER NOT NULL UNIQUE, " +
+                GameManagerConfigs.GAME_NAME_COLUMN + " TEXT NOT NULL UNIQUE, " +
                 GameManagerConfigs.GAME_OWNER_NAME_COLUMN + " TEXT NOT NULL, " +
                 GameManagerConfigs.GAME_ENDTIME_COLUMN + " INTEGER NOT NULL)";
 
@@ -42,7 +42,7 @@ public class GameManager extends SQLiteOpenHelper{
         //Create Team Table
         String CREATE_TEAM_TABLE = "CREATE TABLE " + GameManagerConfigs.TABLE_TEAM + "(" +
                 GameManagerConfigs.TEAM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                GameManagerConfigs.TEAM_REMOTE_ID + " INTEGER NOT NULL, " +
+                GameManagerConfigs.TEAM_REMOTE_ID + " INTEGER NOT NULL UNIQUE, " +
                 GameManagerConfigs.TEAM_GAME_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.TEAM_NAME + " TEXT NOT NULL, " +
                 GameManagerConfigs.TEAM_COLOUR + " TEXT NOT NULL)";
@@ -53,7 +53,7 @@ public class GameManager extends SQLiteOpenHelper{
         //Create Tag Table
         String CREATE_TAG_TABLE = "CREATE TABLE " + GameManagerConfigs.TABLE_TAG + "(" +
                 GameManagerConfigs.TAG_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                GameManagerConfigs.TAG_REMOTE_ID + " INTEGER NOT NULL, " +
+                GameManagerConfigs.TAG_REMOTE_ID + " INTEGER NOT NULL UNIQUE, " +
                 GameManagerConfigs.TAG_GAME_ID + " INTEGER NOT NULL, " +
                 GameManagerConfigs.TAG_HINT + " TEXT NOT NULL, " +
                 GameManagerConfigs.TAG_POINT +  " INTEGER NOT NULL)";
