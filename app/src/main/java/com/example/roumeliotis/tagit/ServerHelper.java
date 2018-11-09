@@ -94,5 +94,8 @@ public class ServerHelper {
                 callback.onError(error);
             }
         } );
+
+        Log.d(TAG, "request: " + request.toString());
+        VolleySingleton.getInstance(context).addToQueue(request);
     }
 }
