@@ -90,7 +90,9 @@ public class JoinGame extends AppCompatActivity {
 
                         @Override
                         public void onError(VolleyError error) {
-
+                            Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
                         }
                     });
                 }
