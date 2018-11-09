@@ -1,3 +1,4 @@
+
 from flask import request
 from TAGit.Exception import InvalidUsage
 from flask_expects_json import expects_json
@@ -12,7 +13,7 @@ from TAGit.schema import create_game_schema
 # default route
 @app.route('/', methods=['GET'])
 def default():
-    app.logger.info("IP address: " + str(request.remote_addr))
+    app.logger.info("IP address: " + str(request.url))
     return jsonify(
         {
             "message": "hello world"
@@ -22,6 +23,7 @@ def default():
 # returns a json containing the info of this game
 @app.route('/game/<string:game_name>', methods=['GET'])
 def get_game(game_name):
+    app.logger.info(str(request.url))
     app.logger.info("Game name requested" + game_name)
     game = Game.query.filter_by(name=game_name).first()
     if game is None:
@@ -33,12 +35,13 @@ def get_game(game_name):
     return jsonify(
         {
             "game_id": game.id,
+            "game_owner": game.user_name,
             "tag_ids": hint_ids,
-            "hints": hint_tag[0],
-            "tags": hint_tag[1],
+            "hints": hint_tag,
             "team_ids": team_ids,
             "team_names": team[0],
-            "team_colours": team[1]
+            "team_colours": team[1],
+            "end_time": game.time_end
         })
 
 
@@ -65,6 +68,7 @@ def get_team_scores(team_id):
 @app.route('/game', methods=['PUT'])
 @expects_json(create_game_schema)
 def create_game():
+    app.logger.info(str(request.url))
     content = request.get_json()
     app.logger.info("Game name of hints requested", content)
     g_name = content["name"]
@@ -73,9 +77,8 @@ def create_game():
     teams = content["teams"]
     colours = content["colours"]
     hints = content["hints"]
-    tags = content["tags"]
     team_ids = create_team(teams, colours)
-    tag_ids = create_tag(hints, tags)
+    tag_ids = create_tag(hints)
     game = Game(name=g_name,
                 user_name=u_name,
                 team_ids=to_comma_separated_str(team_ids),
@@ -92,6 +95,7 @@ def create_game():
 # Posts the hint that has been found as found by the team
 @app.route('/hint/<int:team_id>/<int:tag_id>', methods=['POST'])
 def put_team_hint(team_id, tag_id):
+    app.logger.info(str(request.url))
     app.logger.info("team id: " + str(team_id))
     app.logger.info("tag id: " + str(tag_id))
     team = Team.query.get(team_id)

@@ -20,10 +20,10 @@ def get_team(team_ids):
 
 
 # Takes a list of hints and a list of tags creates the tags in the database and returns a list of their ids
-def create_tag(hints, tags):
+def create_tag(hints):
     tag_id = []
-    for i in range(0, len(hints)):
-        tag = Tag(hint=hints[i], tag=tags[i])
+    for hint in hints:
+        tag = Tag(hint=hint)
         db.session.add(tag)
         db.session.flush()
         tag_id.append(tag.id)
@@ -54,9 +54,7 @@ def to_int(my_list):
 # takes in a list of tag ids and returns a toggle containing a list of their hints and a list of their tags
 def get_hint_and_tag(ids):
     hints = []
-    tags = []
     for i in ids:
         tag = Tag.query.get(i)
-        tags.append(tag.tag)
         hints.append(tag.hint)
-    return hints, tags
+    return hints
