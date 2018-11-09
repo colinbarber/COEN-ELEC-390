@@ -11,7 +11,7 @@ public interface VolleyCallback {
 
 //An interface that must be implemented when expecting a response from the server
 //Functions onSuccess and onError will be called after the server responds and must be overridden
-/* Standard override:
+/* Typical instantiation:
 
 new VolleyCallback(){
     @Override
