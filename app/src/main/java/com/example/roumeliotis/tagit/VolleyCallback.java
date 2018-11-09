@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 public interface VolleyCallback {
     void onSuccess(JSONObject response);
-    void onError(VolleyError response);
+    void onError(VolleyError error);
 }
 
 //An interface that must be implemented when expecting a response from the server

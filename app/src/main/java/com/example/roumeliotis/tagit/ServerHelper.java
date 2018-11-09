@@ -31,7 +31,7 @@ public class ServerHelper {
             @Override
             public void onResponse(JSONObject response){
                 try {
-                    Game game = new Game(-1, response.getLong("game_id"), "Username", gameName,0 ); //TODO ADD USERNAME CALL AND ENDTIME CALLS WHEN SERVER RESPONSE IS CHANGED
+                    Game game = new Game(-1, response.getLong("game_id"), response.getString("game_owner"), gameName,response.getLong("end_time") );
                     JSONArray jsonTeamIds = response.getJSONArray("team_ids");
                     JSONArray jsonTeamNames = response.getJSONArray("team_names");
                     JSONArray jsonTeamColours = response.getJSONArray("team_colours");
@@ -79,8 +79,11 @@ public class ServerHelper {
                     JSONArray hints_arr = response.getJSONArray("hints_id");
                     for (int i = 0; i < hints_arr.length(); i++) {
                         NFCTag nfcTag = gm.getTagByRemoteID(hints_arr.getLong(i));
-                        nfcTag.markPoint();
-                        gm.updateTagPoints(nfcTag);
+                        if(nfcTag != null) {
+                            nfcTag.markPoint();
+                            gm.updateTagPoints(nfcTag);
+                            Log.d(TAG, "updating tag " + hints_arr.getLong(i));
+                        }
                     }
                     callback.onSuccess(response);
                 }catch(JSONException e){
@@ -100,7 +103,7 @@ public class ServerHelper {
     }
 
     public void pushTeamScore(final long team_remote_id, final long tag_remote_id, final Context context, final VolleyCallback callback){
-        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, base_url + team_remote_id + "/" + tag_remote_id, null,
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, base_url +"hint/"+ team_remote_id + "/" + tag_remote_id, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
