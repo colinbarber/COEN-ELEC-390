@@ -52,15 +52,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JoinGame" />
         </activity>
-        <activity
-            android:name=".TestActivity"
-            android:label="@string/title_activity_test"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.roumeliotis.tagit.MainActivity" />
-        </activity>
     </application>
 
 </manifest>
