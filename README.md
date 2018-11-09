@@ -20,21 +20,18 @@ https://coen390-a-team.herokuapp.com
 GET game endpoint will return a json similar to: 
 ```
 {
-    "game_id": 16,
+    "end_time": 1514825676008,
+    "game_id": 18,
+    "game_owner": "jn",
     "hints": [
         "EV basment",
         "ECA office",
         "Roof of hall"
     ],
     "tag_ids": [
-        82,
-        83,
-        84
-    ],
-    "tags": [
-        "1h3w4",
-        "3h4iw8",
-        "3h4j5"
+        88,
+        89,
+        90
     ],
     "team_colours": [
         "color1",
@@ -42,9 +39,9 @@ GET game endpoint will return a json similar to:
         "color3"
     ],
     "team_ids": [
-        80,
-        81,
-        82
+        86,
+        87,
+        88
     ],
     "team_names": [
         "team1",

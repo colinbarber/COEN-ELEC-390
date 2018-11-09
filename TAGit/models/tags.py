@@ -7,11 +7,9 @@ class Tag(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     hint = db.Column(db.String(64), unique=False)
-    tag = db.Column(db.String(64), unique=False)
 
-    def __init__(self, hint, tag):
+    def __init__(self, hint):
         self.hint = hint
-        self.tag = tag
 
     def __repr__(self):
         return '<Game %r>' % self.id
