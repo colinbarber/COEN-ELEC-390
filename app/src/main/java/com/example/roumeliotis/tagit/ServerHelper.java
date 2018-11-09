@@ -70,4 +70,29 @@ public class ServerHelper {
     }
 
 
+    public void fetchTeamScore(final long remote_id, final Context context, final VolleyCallback callback){
+        final JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, base_url + "team_score/" + remote_id, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    GameManager gm = new GameManager(context);
+                    JSONArray hints_arr = response.getJSONArray("hints_id");
+                    for (int i = 0; i < hints_arr.length(); i++) {
+                        NFCTag nfcTag = gm.getTagByRemoteID(hints_arr.getLong(i));
+                        nfcTag.markPoint();
+                        gm.updateTagPoints(nfcTag);
+                    }
+                    callback.onSuccess(response);
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        },new Response.ErrorListener(){
+            @Override
+            public void onErrorResponse(VolleyError error){
+                Log.d(TAG,error.toString());
+                callback.onError(error);
+            }
+        } );
+    }
 }

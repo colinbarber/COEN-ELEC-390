@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    //TODO REMOVE
 //    public void hintGET(String url){
 //        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
 //                url,
