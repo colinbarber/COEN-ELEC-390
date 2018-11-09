@@ -7,9 +7,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.example.roumeliotis.tagit.GameManagerConfigs;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
