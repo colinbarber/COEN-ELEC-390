@@ -44,9 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected Button joinGameButton;
     protected Button createGameButton;
-    private final String baseURL = "https://coen390-a-team.herokuapp.com/";
     private TextView hint;
-    private String url;
     private NfcAdapter mNfcAdapter;
     private Boolean gameStart = false;
     private GameManager gameManager;
@@ -68,19 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "joinGameButtonOnClick");
-                //TODO
-                serverHelper.fetchGame("bitch", getApplicationContext(), new VolleyCallback() {
-                    @Override
-                    public void onSuccess(JSONObject response) {
-                        Log.d(TAG,"response: " + response.toString());
-                    }
-
-                    @Override
-                    public void onError(VolleyError response) {
-                        Log.d(TAG, "response: " + response.toString());
-                    }
-                });
-                //goToJoinGameActivity();
+                goToJoinGameActivity();
             }
         });
         createGameButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause(){
         stopForegroundDispatch(this, mNfcAdapter);
         super.onPause();
+    }
+
+    protected void handleNFC(String result){
+        //TODO
     }
 
     //TODO REMOVE
@@ -320,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.d(TAG,"Result: "+result);
-                //TODO
+                handleNFC(result);
             }
         }
     }
