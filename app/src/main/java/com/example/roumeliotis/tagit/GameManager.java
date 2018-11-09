@@ -79,7 +79,7 @@ public class GameManager extends SQLiteOpenHelper{
         contentValues.put(GameManagerConfigs.GAME_ENDTIME_COLUMN, game.getTime_end());
 
         try {
-            id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_GAME, null, contentValues);
+            id = sqLiteDatabase.replaceOrThrow(GameManagerConfigs.TABLE_GAME, null, contentValues);
         } catch (SQLiteException e){
             Log.d(TAG,"Exception: " + e.getMessage());
             Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -103,7 +103,7 @@ public class GameManager extends SQLiteOpenHelper{
         contentValues.put(GameManagerConfigs.TEAM_COLOUR, team.getColour());
 
         try {
-            id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_TEAM, null, contentValues);
+            id = sqLiteDatabase.replaceOrThrow(GameManagerConfigs.TABLE_TEAM, null, contentValues);
         } catch (SQLiteException e){
             Log.d(TAG,"Exception: " + e.getMessage());
             Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -128,7 +128,7 @@ public class GameManager extends SQLiteOpenHelper{
         contentValues.put(GameManagerConfigs.TAG_POINT, 0);
 
         try {
-            id = sqLiteDatabase.insertOrThrow(GameManagerConfigs.TABLE_TAG, null, contentValues);
+            id = sqLiteDatabase.replaceOrThrow(GameManagerConfigs.TABLE_TAG, null, contentValues);
         } catch (SQLiteException e){
             Log.d(TAG,"Exception: " + e.getMessage());
             Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();

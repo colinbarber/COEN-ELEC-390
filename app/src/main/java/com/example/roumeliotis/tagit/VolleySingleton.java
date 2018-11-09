@@ -34,4 +34,6 @@ public class VolleySingleton {
     public void addToQueue(JsonObjectRequest req){
         getRequestQueue().add(req);
     }
+
+    //TODO add cancel all pending requests function to be used for when the app is closed
 }
