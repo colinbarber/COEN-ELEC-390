@@ -86,6 +86,8 @@ public class JoinGame extends AppCompatActivity {
                                 toast.setGravity(Gravity.CENTER, 0, 0);
                                 toast.show();
                             }
+
+                            goToSignInActivity(mGame);
                         }
 
                         @Override
@@ -98,5 +100,19 @@ public class JoinGame extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    //method to switch activity
+    void goToSignInActivity(Game game)
+    {
+        Intent intent = new Intent(this, SignInActivity.class);
+
+        intent.putExtra("Game_id", Long.toString(game.getId()));
+        intent.putExtra("Game_remote_id", Long.toString(game.getRemote_id()));
+        intent.putExtra("Game_username", game.getUsername());
+        intent.putExtra("Game_name", game.getName());
+        intent.putExtra("Game_time_end", Long.toString(game.getTime_end()));
+
+        startActivity(intent);
     }
 }
