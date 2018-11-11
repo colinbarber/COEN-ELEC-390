@@ -3,7 +3,6 @@ package com.example.roumeliotis.tagit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -19,14 +18,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class GameHints extends AppCompatActivity implements AdapterView.OnItemClickListener{
+public class GameHints extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private TextView CountDown;
     private ListView HintView;
@@ -45,13 +43,13 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         Intent intent = getIntent();
         tags = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
-        game = (Game) intent.getParcelableExtra("Game");
+        game = intent.getParcelableExtra("Game");
 
-        HintView = (ListView) findViewById(R.id.hint_list);
-        CountDown = (TextView) findViewById(R.id.count_down);
+        HintView = findViewById(R.id.hint_list);
+        CountDown = findViewById(R.id.count_down);
         HintView.setOnItemClickListener(this);
 
-        //inicialise count down
+        //initialise count down
         startCountDown();
 
     }
@@ -62,39 +60,40 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         setHintsInListView();
     }
 
-    public void fetchHints(){
-        server.fetchTeamScore(team.getId(),GameHints.this, new VolleyCallback() {
-                    @Override
-                    public void onSuccess(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("hints_id");
-                            if (jsonArray != null) {
-                                int len = jsonArray.length();
-                                for (int i=0;i<len;i++){
-                                    hintsTagged.add(Long.parseLong(jsonArray.get(i).toString()));
-                                }
-                            }
-                            if(hintsTagged.containsAll(tags)){
-                                countDownTimer.cancel();
-                                Intent intent = new Intent(GameHints.this, GameWon.class);
-                                startActivity(intent);
-                            }
-                            // TODO display all hints that have been found in a textview
-                            
-
-                        } catch(JSONException e){
-                            e.printStackTrace();
-                            Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
+    public void fetchHints() {
+        server.fetchTeamScore(team.getId(), GameHints.this, new VolleyCallback() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("hints_id");
+                    if (jsonArray != null) {
+                        int len = jsonArray.length();
+                        for (int i = 0; i < len; i++) {
+                            hintsTagged.add(Long.parseLong(jsonArray.get(i).toString()));
                         }
                     }
-                    @Override
-                    public void onError(VolleyError error) {
-                        Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                    if (hintsTagged.containsAll(tags)) {
+                        countDownTimer.cancel();
+                        Intent intent = new Intent(GameHints.this, GameWon.class);
+                        startActivity(intent);
                     }
+                    // TODO display all hints that have been found in a textview
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void onError(VolleyError error) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
         });
     }
 
@@ -109,7 +108,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         startActivity(intent);
     }
 
-    public void setHintsInListView(){
+    public void setHintsInListView() {
         List<NFCTag> hints = tags;
         ArrayAdapter<NFCTag> adapter = new ArrayAdapter<NFCTag>(this,
                 android.R.layout.simple_list_item_1, hints);
@@ -117,11 +116,10 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     }
 
     //starts countdown
-    private void startCountDown(){
-        long currenttime = Calendar.getInstance().getTimeInMillis();
-        long timeremainingatstart = game.getTime_end() - currenttime;
+    private void startCountDown() {
+        long timeremainingatstart = game.getTime_end() - Calendar.getInstance().getTimeInMillis();
 
-        if(timeremainingatstart > 0) {
+        if (timeremainingatstart > 0) {
             countDownTimer = new CountDownTimer(timeremainingatstart, 1000) {
                 long days;
                 long hours;
@@ -151,7 +149,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                 }
             };
             countDownTimer.start();
-        }else{
+        } else {
             goToGameOver();
         }
     }
