@@ -53,6 +53,34 @@
                 android:value=".JoinGame" />
         </activity>
         <activity android:name=".SignInActivity"></activity>
+        <activity
+            android:name=".GameHints"
+            android:label="Game Hints">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameHints" />
+        </activity>
+        <activity
+            android:name=".GameWon"
+            android:label="Game Won">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameWon" />
+        </activity>
+        <activity
+            android:name=".GameOver"
+            android:label="Game Over">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameOver" />
+        </activity>
+        <activity
+            android:name=".ScanHint"
+            android:label="Scan Hint">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ScanHint" />
+        </activity>
     </application>
 
 </manifest>

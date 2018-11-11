@@ -1,6 +1,7 @@
 package com.example.roumeliotis.tagit;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,6 +16,7 @@ import com.android.volley.VolleyError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -79,6 +81,13 @@ public class JoinGame extends AppCompatActivity {
 
                                 gameDisplayTextView.setText(gameText);
                                 gameDisplayTextView.setVisibility(View.VISIBLE);
+
+                                Intent intent = new Intent();
+                                intent.setClass(JoinGame.this, GameHints.class);
+                                intent.putExtra("Game", (Parcelable) mGame);
+                                // intent.putExtra("Team", (Parcelable) team?);
+                                intent.putExtra("Hint", (Serializable) tags);
+                                startActivity(intent);
 
                             } catch(JSONException e){
                                 e.printStackTrace();
