@@ -120,7 +120,6 @@ public class JoinGame extends AppCompatActivity {
         intent.putExtra("Game", (Parcelable) mGame);
         intent.putExtra("Team", (Serializable) team);
         intent.putExtra("Hint", (Serializable) tags);
-        intent.putExtra("end_time", mGame.getTime_end());
         startActivity(intent);
     }
 }

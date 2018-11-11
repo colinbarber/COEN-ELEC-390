@@ -18,13 +18,6 @@ public class NFCTag implements Serializable{
         this.hint = hint;
     }
 
-    protected NFCTag(Parcel in) {
-        id = in.readLong();
-        remote_id = in.readLong();
-        game_id = in.readLong();
-        hint = in.readString();
-        points = in.readInt();
-    }
 
     public long getId() {
         return id;
@@ -56,6 +49,14 @@ public class NFCTag implements Serializable{
     }
 
     /*
+    protected NFCTag(Parcel in) {
+        id = in.readLong();
+        remote_id = in.readLong();
+        game_id = in.readLong();
+        hint = in.readString();
+        points = in.readInt();
+    }
+
     @Override
     public int describeContents() {
         return 0;
