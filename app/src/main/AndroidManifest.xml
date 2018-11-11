@@ -52,6 +52,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".JoinGame" />
         </activity>
+        <activity android:name=".SignInActivity"></activity>
         <activity
             android:name=".GameHints"
             android:label="Game Hints">
