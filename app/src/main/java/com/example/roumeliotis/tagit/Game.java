@@ -1,7 +1,10 @@
 package com.example.roumeliotis.tagit;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class Game {
+public class Game implements Parcelable {
     private long id = -1;            //Game id, -1 is default unassigned value
     private long remote_id = -1;     //ID in server database
     private String username = null; //Name of game owner
@@ -16,6 +19,26 @@ public class Game {
         this.name = name;
         this.time_end = new Date(time_end);
     }
+
+    protected Game(Parcel in) {
+        id = in.readLong();
+        remote_id = in.readLong();
+        username = in.readString();
+        name = in.readString();
+        team_id = in.readInt();
+    }
+
+    public static final Creator<Game> CREATOR = new Creator<Game>() {
+        @Override
+        public Game createFromParcel(Parcel in) {
+            return new Game(in);
+        }
+
+        @Override
+        public Game[] newArray(int size) {
+            return new Game[size];
+        }
+    };
 
     public long getId() {
         return id;
@@ -63,5 +86,20 @@ public class Game {
 
     public void setRemote_id(long remote_id) {
         this.remote_id = remote_id;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(id);
+        parcel.writeLong(remote_id);
+        parcel.writeString(username);
+        parcel.writeString(name);
+        parcel.writeInt(team_id);
+        // TODO time_end
     }
 }

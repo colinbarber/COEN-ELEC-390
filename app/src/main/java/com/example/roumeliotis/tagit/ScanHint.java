@@ -6,102 +6,44 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
+import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
-import com.android.volley.toolbox.Volley;
-import android.nfc.NfcAdapter;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ScanHint extends AppCompatActivity {
 
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "ScanHint";
     public static final String MIME_TEXT_PLAIN = "text/plain";
 
-    protected Button joinGameButton;
-    protected Button createGameButton;
-    private TextView hint;
+    NFCTag hint;
     private NfcAdapter mNfcAdapter;
-    private Boolean gameStart = false;
-    private GameManager gameManager;
-    private ServerHelper serverHelper;
+    private TextView hintView;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scan_hint);
 
-        hint = findViewById(R.id.hint);
-        gameManager = new GameManager(this);
+        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mytoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        serverHelper = new ServerHelper();
+        Intent intent = getIntent();
+        hint = (NFCTag) intent.getSerializableExtra("Hint");
 
-        joinGameButton = findViewById(R.id.joinGameButton);
-        createGameButton = findViewById(R.id.createGameButton);
-        joinGameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "joinGameButtonOnClick");
-                goToJoinGameActivity();
-            }
-        });
-        createGameButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "createGameButtonOnClick");
-                goToCreateGameActivity();
-            }
-        });
+        hintView = findViewById(R.id.hintView);
+        hintView.setText(hint.toString());
 
-
-        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
-        //Ensure that device is nfc compatible
-        if (mNfcAdapter == null) {
-            // Stop here, we definitely need NFC
-            Toast.makeText(this, "This device doesn't support NFC.", Toast.LENGTH_LONG).show();
-
-            ///////////////// Closes app if not NFC compatible ///////////////////
-            //finish();
-            //return;
-        }
-
-        handleIntent(getIntent());
     }
-    void goToJoinGameActivity(){
-        Log.d(TAG, "Go to Join Game Activity");
-        Intent intent = new Intent(MainActivity.this, JoinGame.class);
-        startActivity(intent);
-    }
-    void goToCreateGameActivity(){
-        Log.d(TAG, "Go to Create Game Activity");
-        Intent intent = new Intent(MainActivity.this, CreateGame.class);
-        startActivity(intent);
-    }
-
     protected void onResume(){
         super.onResume();
         setupForegroundDispatch(this, mNfcAdapter);
@@ -141,57 +83,6 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //        queue.add(jsonObjectRequest);
-//    }
-//
-//    public void nextHintGET(String url){
-//        JSONObject jsonsend = new JSONObject();
-//        if (gameStart) {
-//            try {
-//                jsonsend.put("gameId", gameId);
-//                jsonsend.put("tags", new JSONArray(tagList));
-//                Log.e(TAG, jsonsend.toString());
-//            } catch (JSONException e) {
-//                Log.d(TAG, e.toString());
-//            }
-//
-//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-//                    url, jsonsend, new Response.Listener<JSONObject>() {
-//                @Override
-//                public void onResponse(JSONObject response) {
-//                    try {
-//                        Log.d(TAG, "hintGET response: " + response);
-//                        String res = response.get("hint").toString();
-//                        if ("BAD_TAG".equals(res)) {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Wrong tag, try again :(", Toast.LENGTH_SHORT);
-//                            toast.setGravity(Gravity.CENTER, 0, 0);
-//                            toast.show();
-//                            tagList.remove(tagList.size() - 1);
-//                        }
-//                        else if ("CONGRATULATIONS! YOU WIN".equals(res)){
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
-//                            toast.setGravity(Gravity.CENTER, 0, 0);
-//                            toast.show();
-//                            hint.setText(res);
-//                            gameStart = false;
-//                        }
-//                        else {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT);
-//                            toast.setGravity(Gravity.CENTER, 0, 0);
-//                            toast.show();
-//                            hint.setText(res);
-//                        }
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    Log.d(TAG, error.toString());
-//                }
-//            });
-//            queue.add(jsonObjectRequest);
-//        }
 //    }
 
     @Override
@@ -244,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             if (MIME_TEXT_PLAIN.equals(type)) {
 
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-                new NdefReaderTask().execute(tag);
+                new ScanHint.NdefReaderTask().execute(tag);
             } else {
                 Log.d(TAG, "Wrong mime type: " + type);
             }
