@@ -82,12 +82,7 @@ public class JoinGame extends AppCompatActivity {
                                 gameDisplayTextView.setText(gameText);
                                 gameDisplayTextView.setVisibility(View.VISIBLE);
 
-                                Intent intent = new Intent();
-                                intent.setClass(JoinGame.this, GameHints.class);
-                                intent.putExtra("Game", (Parcelable) mGame);
-                                // intent.putExtra("Team", (Parcelable) team?);
-                                intent.putExtra("Hint", (Serializable) tags);
-                                startActivity(intent);
+                                goToSignInActivity(mGame, teams, tags);
 
                             } catch(JSONException e){
                                 e.printStackTrace();
@@ -95,8 +90,6 @@ public class JoinGame extends AppCompatActivity {
                                 toast.setGravity(Gravity.CENTER, 0, 0);
                                 toast.show();
                             }
-
-                            goToSignInActivity(mGame);
                         }
 
                         @Override
@@ -112,16 +105,22 @@ public class JoinGame extends AppCompatActivity {
     }
 
     //method to switch activity
-    void goToSignInActivity(Game game)
+    void goToSignInActivity(Game game, List<Team> team, List<NFCTag> tags)
     {
-        Intent intent = new Intent(this, SignInActivity.class);
+        /*Intent intent = new Intent(this, SignInActivity.class);
 
         intent.putExtra("Game_id", Long.toString(game.getId()));
         intent.putExtra("Game_remote_id", Long.toString(game.getRemote_id()));
         intent.putExtra("Game_username", game.getUsername());
         intent.putExtra("Game_name", game.getName());
-        intent.putExtra("Game_time_end", Long.toString(game.getTime_end()));
+        intent.putExtra("Game_time_end", Long.toString(game.getTime_end()));*/
 
+        Intent intent = new Intent();
+        intent.setClass(JoinGame.this, SignInActivity.class);
+        intent.putExtra("Game", (Parcelable) mGame);
+        intent.putExtra("Team", (Serializable) team);
+        intent.putExtra("Hint", (Serializable) tags);
+        intent.putExtra("end_time", mGame.getTime_end());
         startActivity(intent);
     }
 }
