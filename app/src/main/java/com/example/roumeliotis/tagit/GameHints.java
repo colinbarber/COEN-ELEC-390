@@ -36,7 +36,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     private Team team;
     private Game game;
     private ServerHelper server = new ServerHelper();
-    ArrayList<Long> hintsTagged = new ArrayList();
+    private ArrayList<Long> hintsTagged = new ArrayList();
 
 
     protected void onCreate(Bundle savedInstanceState) {

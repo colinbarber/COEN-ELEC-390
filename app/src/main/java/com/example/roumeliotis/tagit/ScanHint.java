@@ -36,9 +36,10 @@ public class ScanHint extends AppCompatActivity {
 
     private NFCTag hint;
     private Team team;
-    //private Game game;
+    private Game game;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
+    private GameManager gm;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +50,12 @@ public class ScanHint extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        gm = new GameManager(ScanHint.this);
+
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
-        //game = (Game) intent.getParcelableExtra("Game");
+        game = (Game) intent.getParcelableExtra("Game");
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -81,9 +84,9 @@ public class ScanHint extends AppCompatActivity {
                     String message = response.getString("message");
                     if("tag added".equals(message)){
                         Intent intent = new Intent(ScanHint.this, GameHints.class);
-                        //intent.putExtra("Game", (Parcelable) game);
-                        //intent.putExtra("Team", (Serializable) team);
-                        //intent.putExtra("Hint", (Serializable) hint);
+                        intent.putExtra("Game", (Parcelable) game);
+                        intent.putExtra("Team", (Serializable) team);
+                        intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
                         startActivity(intent);
                     }
                     else if(message.equals("tag already found")){
