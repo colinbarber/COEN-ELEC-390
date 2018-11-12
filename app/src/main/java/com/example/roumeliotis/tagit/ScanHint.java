@@ -34,11 +34,12 @@ public class ScanHint extends AppCompatActivity {
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private ServerHelper server = new ServerHelper();
 
-    NFCTag hint;
-    Team team;
-    Game game;
+    private NFCTag hint;
+    private Team team;
+    private Game game;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
+    private GameManager gm;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +50,14 @@ public class ScanHint extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        gm = new GameManager(ScanHint.this);
+
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = (Game) intent.getParcelableExtra("Game");
+
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         hintView = findViewById(R.id.hintView);
         hintView.setText(hint.toString());
@@ -60,6 +65,7 @@ public class ScanHint extends AppCompatActivity {
     }
     protected void onResume(){
         super.onResume();
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         setupForegroundDispatch(this, mNfcAdapter);
     }
 
@@ -70,19 +76,20 @@ public class ScanHint extends AppCompatActivity {
 
     protected void handleNFC(String result){
         //TODO
-        server.pushTeamScore(team.getId(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
+        server.pushTeamScore(team.getRemote_id(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
+                    Log.d(TAG,response.toString());
                     String message = response.getString("message");
-                    if(message == "tag added"){
+                    if("tag added".equals(message)){
                         Intent intent = new Intent(ScanHint.this, GameHints.class);
                         intent.putExtra("Game", (Parcelable) game);
                         intent.putExtra("Team", (Serializable) team);
-                        intent.putExtra("Hint", (Serializable) hint);
+                        intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
                         startActivity(intent);
                     }
-                    else if(message == "tag already found"){
+                    else if(message.equals("tag already found")){
                         Toast toast=Toast.makeText(getApplicationContext(),"Tag already found",Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
@@ -120,6 +127,7 @@ public class ScanHint extends AppCompatActivity {
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void setupForegroundDispatch(final Activity activity, NfcAdapter adapter) {
+        Log.d(TAG,"setupForegroundDispatch()");
         final Intent intent = new Intent(activity.getApplicationContext(), activity.getClass());
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
@@ -138,14 +146,15 @@ public class ScanHint extends AppCompatActivity {
             throw new RuntimeException("Check your mime type.");
         }
 
-        //adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
+        adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
     }
 
     /**
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
-        //adapter.disableForegroundDispatch(activity);
+        Log.d(TAG,"setupForegroundDispatch()");
+        adapter.disableForegroundDispatch(activity);
     }
 
     protected void handleIntent(Intent intent){
