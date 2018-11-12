@@ -68,6 +68,7 @@ public class ScanHint extends AppCompatActivity {
     }
     protected void onResume(){
         super.onResume();
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         setupForegroundDispatch(this, mNfcAdapter);
     }
 
