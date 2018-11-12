@@ -124,6 +124,7 @@ public class ScanHint extends AppCompatActivity {
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void setupForegroundDispatch(final Activity activity, NfcAdapter adapter) {
+        Log.d(TAG,"setupForegroundDispatch()");
         final Intent intent = new Intent(activity.getApplicationContext(), activity.getClass());
         intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
@@ -149,6 +150,7 @@ public class ScanHint extends AppCompatActivity {
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
+        Log.d(TAG,"setupForegroundDispatch()");
         adapter.disableForegroundDispatch(activity);
     }
 
