@@ -79,8 +79,11 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                     for (int i = 0; i < len; i++) {
                         hintsTagged.add(Long.parseLong(jsonArray.get(i).toString()));
                     }
-
-                    if (hintsTagged.containsAll(tags)) {
+                    ArrayList<Long> alltagid = new ArrayList();
+                    for(int i=0; i<tags.size(); i++){
+                        alltagid.add(tags.get(i).getRemote_id());
+                    }
+                    if (hintsTagged.containsAll(alltagid)) {
                         countDownTimer.cancel();
                         Intent intent = new Intent(GameHints.this, GameWon.class);
                         startActivity(intent);
