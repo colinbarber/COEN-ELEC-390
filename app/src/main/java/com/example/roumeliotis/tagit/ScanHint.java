@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ScanHint extends AppCompatActivity {
@@ -34,9 +35,9 @@ public class ScanHint extends AppCompatActivity {
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private ServerHelper server = new ServerHelper();
 
-    NFCTag hint;
-    Team team;
-    Game game;
+    private ArrayList<NFCTag> hint;
+    private Team team;
+    private Game game;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
 
@@ -50,7 +51,7 @@ public class ScanHint extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
-        hint = (NFCTag) intent.getSerializableExtra("Hint");
+        hint = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = (Game) intent.getParcelableExtra("Game");
 
