@@ -26,7 +26,6 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ScanHint extends AppCompatActivity {
@@ -35,9 +34,9 @@ public class ScanHint extends AppCompatActivity {
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private ServerHelper server = new ServerHelper();
 
-    private ArrayList<NFCTag> hint;
+    private NFCTag hint;
     private Team team;
-    private Game game;
+    //private Game game;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
 
@@ -51,9 +50,9 @@ public class ScanHint extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent intent = getIntent();
-        hint = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
+        hint = (NFCTag) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
-        game = (Game) intent.getParcelableExtra("Game");
+        //game = (Game) intent.getParcelableExtra("Game");
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -80,11 +79,11 @@ public class ScanHint extends AppCompatActivity {
                 try {
                     Log.d(TAG,response.toString());
                     String message = response.getString("message");
-                    if(message.equals("tag added")){
+                    if("tag added".equals(message)){
                         Intent intent = new Intent(ScanHint.this, GameHints.class);
-                        intent.putExtra("Game", (Parcelable) game);
-                        intent.putExtra("Team", (Serializable) team);
-                        intent.putExtra("Hint", (Serializable) hint);
+                        //intent.putExtra("Game", (Parcelable) game);
+                        //intent.putExtra("Team", (Serializable) team);
+                        //intent.putExtra("Hint", (Serializable) hint);
                         startActivity(intent);
                     }
                     else if(message.equals("tag already found")){
