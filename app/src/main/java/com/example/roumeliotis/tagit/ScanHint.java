@@ -16,14 +16,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,8 +27,6 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 public class ScanHint extends AppCompatActivity {
 
