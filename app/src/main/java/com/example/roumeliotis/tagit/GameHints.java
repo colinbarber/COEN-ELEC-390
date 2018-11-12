@@ -3,6 +3,7 @@ package com.example.roumeliotis.tagit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -28,12 +29,14 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
 
     private TextView CountDown;
     private ListView HintView;
+    private FloatingActionButton update;
+
     private CountDownTimer countDownTimer;
     private ArrayList<NFCTag> tags;
     private Team team;
     private Game game;
     private ServerHelper server = new ServerHelper();
-    ArrayList<Long> hintsTagged = new ArrayList<Long>(Arrays.asList(1L, 2L, 3L));
+    ArrayList<Long> hintsTagged = new ArrayList();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,39 +48,48 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         team = (Team) intent.getSerializableExtra("Team");
         game = intent.getParcelableExtra("Game");
 
+        update = findViewById(R.id.button);
         HintView = findViewById(R.id.hint_list);
         CountDown = findViewById(R.id.count_down);
         HintView.setOnItemClickListener(this);
 
         //initialise count down
         startCountDown();
-
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fetchHintsSetList();
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        setHintsInListView();
+        fetchHintsSetList();
     }
 
-    public void fetchHints() {
-        server.fetchTeamScore(team.getId(), GameHints.this, new VolleyCallback() {
+    public void fetchHintsSetList() {
+        server.fetchTeamScore(team.getRemote_id(), GameHints.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("hints_id");
-                    if (jsonArray != null) {
-                        int len = jsonArray.length();
-                        for (int i = 0; i < len; i++) {
-                            hintsTagged.add(Long.parseLong(jsonArray.get(i).toString()));
-                        }
+                    int len = jsonArray.length();
+                    for (int i = 0; i < len; i++) {
+                        hintsTagged.add(Long.parseLong(jsonArray.get(i).toString()));
                     }
-                    if (hintsTagged.containsAll(tags)) {
+                    ArrayList<Long> alltagid = new ArrayList();
+                    for(int i=0; i<tags.size(); i++){
+                        alltagid.add(tags.get(i).getRemote_id());
+                    }
+                    if (hintsTagged.containsAll(alltagid)) {
                         countDownTimer.cancel();
                         Intent intent = new Intent(GameHints.this, GameWon.class);
                         startActivity(intent);
+                    }else{
+                        HintView.setAdapter(new HintAdapter(GameHints.this, tags, hintsTagged));
                     }
-                    // TODO display all hints that have been found in a textview
 
 
                 } catch (JSONException e) {
@@ -108,14 +120,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         startActivity(intent);
     }
 
-    public void setHintsInListView() {
-        List<NFCTag> hints = tags;
-        ArrayAdapter<NFCTag> adapter = new ArrayAdapter<NFCTag>(this,
-                android.R.layout.simple_list_item_1, hints);
-        HintView.setAdapter(adapter);
-    }
-
-    //starts countdown
+    //Handles countdown
     private void startCountDown() {
         long timeremainingatstart = game.getTime_end() - Calendar.getInstance().getTimeInMillis();
 
