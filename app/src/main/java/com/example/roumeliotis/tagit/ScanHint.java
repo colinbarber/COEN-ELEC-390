@@ -60,6 +60,8 @@ public class ScanHint extends AppCompatActivity {
         team = (Team) intent.getSerializableExtra("Team");
         game = (Game) intent.getParcelableExtra("Game");
 
+        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
+
         hintView = findViewById(R.id.hintView);
         hintView.setText(hint.toString());
 
@@ -76,19 +78,20 @@ public class ScanHint extends AppCompatActivity {
 
     protected void handleNFC(String result){
         //TODO
-        server.pushTeamScore(team.getId(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
+        server.pushTeamScore(team.getRemote_id(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
+                    Log.d(TAG,response.toString());
                     String message = response.getString("message");
-                    if(message == "tag added"){
+                    if(message.equals("tag added")){
                         Intent intent = new Intent(ScanHint.this, GameHints.class);
                         intent.putExtra("Game", (Parcelable) game);
                         intent.putExtra("Team", (Serializable) team);
                         intent.putExtra("Hint", (Serializable) hint);
                         startActivity(intent);
                     }
-                    else if(message == "tag already found"){
+                    else if(message.equals("tag already found")){
                         Toast toast=Toast.makeText(getApplicationContext(),"Tag already found",Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();
@@ -144,14 +147,14 @@ public class ScanHint extends AppCompatActivity {
             throw new RuntimeException("Check your mime type.");
         }
 
-        //adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
+        adapter.enableForegroundDispatch(activity, pendingIntent, filters, techList);
     }
 
     /**
      * @param adapter The {@link NfcAdapter} used for the foreground dispatch.
      */
     public static void stopForegroundDispatch(final Activity activity, NfcAdapter adapter) {
-        //adapter.disableForegroundDispatch(activity);
+        adapter.disableForegroundDispatch(activity);
     }
 
     protected void handleIntent(Intent intent){
