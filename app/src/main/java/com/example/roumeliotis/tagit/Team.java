@@ -1,6 +1,8 @@
 package com.example.roumeliotis.tagit;
 
-public class Team {
+import java.io.Serializable;
+
+public class Team implements Serializable{
     private long id = -1;
     private long game_id = -1;
     private long remote_id = -1;
@@ -53,5 +55,10 @@ public class Team {
 
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    @Override
+    public String toString(){
+        return this.name;
     }
 }

@@ -42,7 +42,7 @@ public class ServerHelper {
                     long game_id = manager.insertGame(game);
 
                     for(int i = 0; i < jsonTeamIds.length(); i++){
-                        manager.insertTeam(new Team(-1, game_id, jsonTagIds.getLong(i),jsonTeamNames.getString(i),jsonTeamColours.getString(i)));
+                        manager.insertTeam(new Team(-1, game_id, jsonTeamIds.getLong(i),jsonTeamNames.getString(i),jsonTeamColours.getString(i)));
                     }
 
                     for (int i = 0; i < jsonTagIds.length(); i++){

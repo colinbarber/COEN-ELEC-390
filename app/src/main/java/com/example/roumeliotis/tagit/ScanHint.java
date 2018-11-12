@@ -11,11 +11,20 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -23,8 +32,11 @@ public class ScanHint extends AppCompatActivity {
 
     public static final String TAG = "ScanHint";
     public static final String MIME_TEXT_PLAIN = "text/plain";
+    private ServerHelper server = new ServerHelper();
 
     NFCTag hint;
+    Team team;
+    Game game;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
 
@@ -39,6 +51,8 @@ public class ScanHint extends AppCompatActivity {
 
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
+        team = (Team) intent.getSerializableExtra("Team");
+        game = (Game) intent.getParcelableExtra("Game");
 
         hintView = findViewById(R.id.hintView);
         hintView.setText(hint.toString());
@@ -56,34 +70,44 @@ public class ScanHint extends AppCompatActivity {
 
     protected void handleNFC(String result){
         //TODO
-    }
+        server.pushTeamScore(team.getId(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    String message = response.getString("message");
+                    if(message == "tag added"){
+                        Intent intent = new Intent(ScanHint.this, GameHints.class);
+                        intent.putExtra("Game", (Parcelable) game);
+                        intent.putExtra("Team", (Serializable) team);
+                        intent.putExtra("Hint", (Serializable) hint);
+                        startActivity(intent);
+                    }
+                    else if(message == "tag already found"){
+                        Toast toast=Toast.makeText(getApplicationContext(),"Tag already found",Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
+                    else{
+                        Toast toast=Toast.makeText(getApplicationContext(),"Bad tag",Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
 
-    //TODO REMOVE
-//    public void hintGET(String url){
-//        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
-//                url,
-//                null, new Response.Listener<JSONObject>() {
-//            @Override
-//            public void onResponse(JSONObject response) {
-//                try {
-//                    gameStart = true;
-//                    Toast toast=Toast.makeText(getApplicationContext(),"New Game started!",Toast.LENGTH_SHORT);
-//                    toast.setGravity(Gravity.CENTER, 0, 0);
-//                    toast.show();
-//                    Log.d(TAG, "hintGET response: "+response);
-//                    hint.setText(response.get("hint").toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, new Response.ErrorListener(){
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                Log.d(TAG,error.toString());
-//            }
-//        });
-//        queue.add(jsonObjectRequest);
-//    }
+                } catch(JSONException e){
+                    e.printStackTrace();
+                    Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+            }
+            @Override
+            public void onError(VolleyError error) {
+                Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+        });
+    }
 
     @Override
     protected void onNewIntent(Intent intent){

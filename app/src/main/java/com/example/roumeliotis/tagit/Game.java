@@ -2,6 +2,7 @@ package com.example.roumeliotis.tagit;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class Game implements Parcelable {
@@ -26,6 +27,7 @@ public class Game implements Parcelable {
         username = in.readString();
         name = in.readString();
         team_id = in.readInt();
+        time_end = new Date(in.readLong());
     }
 
     public static final Creator<Game> CREATOR = new Creator<Game>() {
@@ -100,6 +102,8 @@ public class Game implements Parcelable {
         parcel.writeString(username);
         parcel.writeString(name);
         parcel.writeInt(team_id);
-        // TODO time_end
+        parcel.writeLong(time_end.getTime());
     }
+
+
 }

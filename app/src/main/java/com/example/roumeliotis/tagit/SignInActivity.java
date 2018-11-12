@@ -1,6 +1,7 @@
 package com.example.roumeliotis.tagit;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,10 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity{
 
     public static final String TAG = "SignInActivity";
     EditText EditUser;
@@ -30,6 +32,10 @@ public class SignInActivity extends AppCompatActivity {
     GameManager gameManager;
     String PlayerText;
 
+    private List<Team> teams;
+    private Team myTeam;
+    private Game game;
+    private List<NFCTag> tags;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,26 +49,32 @@ public class SignInActivity extends AppCompatActivity {
         gameManager = new GameManager(this);
 
         //get Game from previous screen
-        Bundle GameInfo = getIntent().getExtras();
+        //Bundle
+        Intent GameInfo = getIntent();
         if(GameInfo != null){
-            long id = Long.parseLong(GameInfo.getString("Game_id"));
-            long remote_id = Long.parseLong(GameInfo.getString("Game_remote_id"));
-            String username = GameInfo.getString("Game_username");
-            String name = GameInfo.getString("Game_name");
-            long  time_end = Long.parseLong(GameInfo.getString("Game_time_end"));
+            game = GameInfo.getParcelableExtra("Game");
+            teams = (List<Team>) GameInfo.getSerializableExtra("Team");
+            tags = (List<NFCTag>) GameInfo.getSerializableExtra("Hint");
+
+            long id = game.getId();
+            long remote_id = game.getRemote_id();
+            String username = game.getUsername();
+            String name = game.getName();
+            long  time_end = GameInfo.getLongExtra("end_time", 0);
 
             mGame = new Game(id, remote_id, username, name, time_end);
         }
 
         //get teams for spinner
-        List<Team> TeamList= gameManager.getTeamsByGameID(mGame.getId());
+        /*List<Team> TeamList= gameManager.getTeamsByGameID(mGame.getId());
         final String[] teams = new String[TeamList.size()];
         for(int i = 0; i< TeamList.size(); i++){
             teams[i] = TeamList.get(i).getName();
-        }
+        }*/
+
 
         //set up spinner
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this,
                 android.R.layout.simple_spinner_item, teams);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,18 +82,21 @@ public class SignInActivity extends AppCompatActivity {
         TeamSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                myTeam = (Team) parent.getItemAtPosition(position);
+                Log.d(TAG, "Team " + myTeam.toString() + " selected");
                 //log when team selected
+                /*// TODO make it work for any given number of teams that the creator wants
                 switch (position) {
                     case 0:
-                        Log.d(TAG, "Team " + teams[0] + " selected");
+                        Log.d(TAG, "Team " + teams[0].toString() + " selected");
                         break;
                     case 1:
-                        Log.d(TAG, "Team " + teams[1] + " selected");
+                        Log.d(TAG, "Team " + teams[1].toString() + " selected");
                         break;
                     case 2:
-                        Log.d(TAG, "Team " + teams[2] + " selected");
+                        Log.d(TAG, "Team " + teams[2].toString() + " selected");
                         break;
-                }
+                }*/
             }
 
             @Override
@@ -102,16 +117,17 @@ public class SignInActivity extends AppCompatActivity {
                 PlayerDisplay.setVisibility(View.VISIBLE);
 
                 //use when next activity is done
-                //goToNextActivity(mGame, mUsername, mTeam);
+                goToNextActivity();
             }
         });
     }
 
     //to use with next activity
-    void goToNextActivity(Game game, String username, String team_name)
+    void goToNextActivity()
     {
         Intent intent = new Intent(this, SignInActivity.class);
 
+        /*
         //pass game
         intent.putExtra("Game_id", Long.toString(game.getId()));
         intent.putExtra("Game_remote_id", Long.toString(game.getRemote_id()));
@@ -122,8 +138,11 @@ public class SignInActivity extends AppCompatActivity {
         //pass player information
         intent.putExtra("Player_username", username);
         intent.putExtra("Player_team", team_name);
+        */
+        intent.setClass(this, GameHints.class);
+        intent.putExtra("Game", (Parcelable) game);
+        intent.putExtra("Team", (Serializable) myTeam);
+        intent.putExtra("Hint", (Serializable) tags);
         startActivity(intent);
     }
-
-
 }

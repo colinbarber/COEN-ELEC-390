@@ -19,6 +19,19 @@
         android:textColor="@color/colorWhite"
         android:textSize="30dp" />
 
+    <TextView
+        android:id="@+id/count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="D:H:M:S"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp" />
+
     <ListView
         android:id="@+id/hint_list"
         android:layout_width="match_parent"
@@ -28,5 +41,18 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="@color/colorPrimary" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/button"
+        android:layout_width="75dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:backgroundTint="@android:color/transparent"
+        android:src="@android:drawable/stat_notify_sync_noanim"
+         />
+
 
 </RelativeLayout>
