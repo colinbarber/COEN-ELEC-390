@@ -12,11 +12,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/tagitroundlaunder"
+        android:icon="@drawable/tagitroundlauncher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/tagitroundlaunder"
+        android:roundIcon="@drawable/tagitroundlauncher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".MainActivity"
             android:label="TAGit">
