@@ -9,10 +9,17 @@ import android.nfc.NdefRecord;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,6 +34,7 @@ import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import android.nfc.NfcAdapter;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
     public static final String MIME_TEXT_PLAIN = "text/plain";
-
+    private ActionBarDrawerToggle toggle;
+    private DrawerLayout drawerLayout;
     protected Button joinGameButton;
     protected Button createGameButton;
     private TextView hint;
@@ -54,7 +63,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        drawerLayout  = (DrawerLayout) findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        if(getSupportActionBar() != null){ getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
+        if(getActionBar() != null){
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         hint = findViewById(R.id.hint);
         gameManager = new GameManager(this);
 
@@ -76,7 +96,36 @@ public class MainActivity extends AppCompatActivity {
                 goToCreateGameActivity();
             }
         });
-
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        if(true){
+                            switch (menuItem.getItemId()) {
+                                case R.id.CreateGameDM:
+                                    Log.d(TAG, "CreateGame Menu Item Clicked");
+                                    goToCreateGameActivity();
+                                    drawerLayout.closeDrawers();
+                                    return true;
+                                case R.id.JoinGameDM:
+                                    Log.d(TAG, "JoinGame Menu Item Clicked");
+                                    goToJoinGameActivity();
+                                    drawerLayout.closeDrawers();
+                                    return true;
+                                case R.id.MainDM:
+                                    Log.d(TAG, "MainActivity Menu Item Clicked");
+                                    Intent i = new Intent(MainActivity.this, MainActivity.class);
+                                    startActivity(i);
+                                    drawerLayout.closeDrawers();
+                                    return true;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
 
 //        mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 //        //Ensure that device is nfc compatible
@@ -91,6 +140,16 @@ public class MainActivity extends AppCompatActivity {
 //
 //        handleIntent(getIntent());
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     void goToJoinGameActivity(){
         Log.d(TAG, "Go to Join Game Activity");
         Intent intent = new Intent(MainActivity.this, JoinGame.class);
