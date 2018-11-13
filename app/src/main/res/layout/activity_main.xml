@@ -28,14 +28,14 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        android:background="@color/colorBackground">
+        android:background="@drawable/appbackground">
 
         <ImageView
-            android:layout_width="340dp"
-            android:layout_height="147dp"
+            android:layout_width="330dp"
+            android:layout_height="140dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/tagittxtlogo" />
 
         <Button
@@ -43,7 +43,7 @@
             android:layout_width="214dp"
             android:layout_height="89dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/joingame_button"
+            android:background="@drawable/join_game"
             android:elevation="0dp"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
@@ -57,7 +57,7 @@
             android:layout_height="89dp"
             android:layout_below="@+id/joinGameButton"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/creategame_button"
+            android:background="@drawable/create_game"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textColorLink="@color/colorPrimary"
