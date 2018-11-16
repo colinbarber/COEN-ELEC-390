@@ -1,0 +1,252 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+MERGED from [com.android.support:design:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/efe7d3e04116079b862d2e893539c743/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0394c01401dd497e263d8941d7cd70ad/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/william/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/6926557eb4f4c45522c8d45f9bc64147/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6a878d21a7f14e9021986ae656a0413d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c338a3db363ad242d289aa839d071bb9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a83d8779202632cd487d4e4a5fc5db4b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/835dd7a50ba59084017181b4f8ff9d47/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/58cfdd14b2291e6a7c3c1169b0bf7f5f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/85816ae5b512dc3d3cf4b0b29ddd2b50/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/da8a1f7539c6ca1cf0d48c2d9637b910/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8bb03f009dc904ada6c68b3725f72dc7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/abca40be0a075848153699616cde9653/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6f3b55b019cf3c5304a8eac5afb81860/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/c39f27e749af130f6ddd8e4437379caf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/44b9ead3dfd2da6608c9019812dab796/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/4466003f3e0fcd7b177ab28e976bdf16/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/23f02014290ec7d8b93421b1d5e830a7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7b3e9db02a90bb524b9438438d6a7370/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/fe55c8bd28a483cae54d5d36fecd3cd9/AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/6ecd11781da242e9f5c8d3da7da5f583/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/64ff3630e5e4afb41d5a14d99d2c8fc5/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/29aaf93204a959286141f5b8b87999d7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/70bfcb394a71fdcb790e9937891d9018/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/1b84b5b8d9057369298207a3197c298e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/7609727bbf31aed1cea550f764aee3db/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/354faa712a50413c6cdf021cba330e5b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/2b2e7cdb805bf5636442d189cef651b8/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/1b706e34386eeaa2f0ce531a470fc00b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/39a6e8eb3024241f08dea57b33efa949/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9f968b41de197c607ff4e390acc957bf/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+	package
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:3:5-44
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:1-86:12
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:6:5-79
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.NFC
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:7:5-62
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:7:22-59
+uses-feature#android.hardware.nfc
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:9:5-57
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:9:19-54
+application
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:13:5-84:19
+MERGED from [com.android.support:design:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/efe7d3e04116079b862d2e893539c743/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/efe7d3e04116079b862d2e893539c743/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/william/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/6926557eb4f4c45522c8d45f9bc64147/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/william/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/6926557eb4f4c45522c8d45f9bc64147/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/fe55c8bd28a483cae54d5d36fecd3cd9/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/fe55c8bd28a483cae54d5d36fecd3cd9/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:18:9-35
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:16:9-41
+	android:roundIcon
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:17:9-56
+	android:icon
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:15:9-51
+	android:allowBackup
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:14:9-35
+	android:theme
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:19:9-40
+activity#com.example.roumeliotis.tagit.MainActivity
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:20:9-35:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:22:13-34
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:21:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:26:27-74
+intent-filter#action:name:android.nfc.action.NDEF_DISCOVERED+category:name:android.intent.category.DEFAULT+data:mimeType:text/plain
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:28:13-34:29
+action#android.nfc.action.NDEF_DISCOVERED
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:29:25-74
+category#android.intent.category.DEFAULT
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:31:17-76
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:31:27-73
+data
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:33:17-55
+	android:mimeType
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:33:23-52
+uses-library#org.apache.http.legacy
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:37:9-39:40
+	android:required
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:39:13-37
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:38:13-50
+activity#com.example.roumeliotis.tagit.CreateGame
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:41:9-47:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:43:13-40
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:42:13-39
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:44:13-46:47
+	android:value
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:46:17-44
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:45:17-63
+activity#com.example.roumeliotis.tagit.JoinGame
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:48:9-54:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:50:13-38
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:49:13-37
+activity#com.example.roumeliotis.tagit.SignInActivity
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:55:9-61
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:55:19-49
+activity#com.example.roumeliotis.tagit.GameHints
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:56:9-62:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:58:13-39
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:57:13-38
+activity#com.example.roumeliotis.tagit.GameWon
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:63:9-69:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:65:13-37
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:64:13-36
+activity#com.example.roumeliotis.tagit.GameOver
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:70:9-76:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:72:13-38
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:71:13-37
+activity#com.example.roumeliotis.tagit.ScanHint
+ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:77:9-83:20
+	android:label
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:79:13-38
+	android:name
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml:78:13-37
+uses-sdk
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/efe7d3e04116079b862d2e893539c743/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/efe7d3e04116079b862d2e893539c743/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0394c01401dd497e263d8941d7cd70ad/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0394c01401dd497e263d8941d7cd70ad/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/william/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/6926557eb4f4c45522c8d45f9bc64147/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/william/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/6926557eb4f4c45522c8d45f9bc64147/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6a878d21a7f14e9021986ae656a0413d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/6a878d21a7f14e9021986ae656a0413d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c338a3db363ad242d289aa839d071bb9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/c338a3db363ad242d289aa839d071bb9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a83d8779202632cd487d4e4a5fc5db4b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/a83d8779202632cd487d4e4a5fc5db4b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/835dd7a50ba59084017181b4f8ff9d47/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/835dd7a50ba59084017181b4f8ff9d47/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/58cfdd14b2291e6a7c3c1169b0bf7f5f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/58cfdd14b2291e6a7c3c1169b0bf7f5f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/85816ae5b512dc3d3cf4b0b29ddd2b50/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/85816ae5b512dc3d3cf4b0b29ddd2b50/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/da8a1f7539c6ca1cf0d48c2d9637b910/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/da8a1f7539c6ca1cf0d48c2d9637b910/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8bb03f009dc904ada6c68b3725f72dc7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8bb03f009dc904ada6c68b3725f72dc7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/abca40be0a075848153699616cde9653/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/abca40be0a075848153699616cde9653/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6f3b55b019cf3c5304a8eac5afb81860/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/6f3b55b019cf3c5304a8eac5afb81860/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/c39f27e749af130f6ddd8e4437379caf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/c39f27e749af130f6ddd8e4437379caf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/44b9ead3dfd2da6608c9019812dab796/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/44b9ead3dfd2da6608c9019812dab796/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/4466003f3e0fcd7b177ab28e976bdf16/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/4466003f3e0fcd7b177ab28e976bdf16/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/23f02014290ec7d8b93421b1d5e830a7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/23f02014290ec7d8b93421b1d5e830a7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7b3e9db02a90bb524b9438438d6a7370/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/7b3e9db02a90bb524b9438438d6a7370/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/9cae72708cf7f0dcdc09cf1119dc9d93/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/fe55c8bd28a483cae54d5d36fecd3cd9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/fe55c8bd28a483cae54d5d36fecd3cd9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/6ecd11781da242e9f5c8d3da7da5f583/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/6ecd11781da242e9f5c8d3da7da5f583/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/64ff3630e5e4afb41d5a14d99d2c8fc5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/64ff3630e5e4afb41d5a14d99d2c8fc5/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/29aaf93204a959286141f5b8b87999d7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/29aaf93204a959286141f5b8b87999d7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/70bfcb394a71fdcb790e9937891d9018/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/70bfcb394a71fdcb790e9937891d9018/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/1b84b5b8d9057369298207a3197c298e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/1b84b5b8d9057369298207a3197c298e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/7609727bbf31aed1cea550f764aee3db/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/7609727bbf31aed1cea550f764aee3db/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/354faa712a50413c6cdf021cba330e5b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/354faa712a50413c6cdf021cba330e5b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/2b2e7cdb805bf5636442d189cef651b8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/william/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/2b2e7cdb805bf5636442d189cef651b8/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/1b706e34386eeaa2f0ce531a470fc00b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/1b706e34386eeaa2f0ce531a470fc00b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/39a6e8eb3024241f08dea57b33efa949/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/39a6e8eb3024241f08dea57b33efa949/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9f968b41de197c607ff4e390acc957bf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/william/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/9f968b41de197c607ff4e390acc957bf/AndroidManifest.xml:20:5-44
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		ADDED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/src/main/AndroidManifest.xml
