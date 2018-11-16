@@ -84,10 +84,12 @@ def create_game():
                 tag_ids=to_comma_separated_str(tag_ids),
                 time_end=end_time)
     db.session.add(game)
+    db.session.flush()
+    game.name = str(game.name + str(game.id))
     db.session.commit()
     return jsonify(
         {
-            "message": "success"
+            "message": game.name
         })
 
 
