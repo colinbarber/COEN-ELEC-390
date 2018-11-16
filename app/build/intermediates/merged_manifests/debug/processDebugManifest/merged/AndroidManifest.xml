@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.roumeliotis.tagit"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="24"
+        android:targetSdkVersion="28" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature android:name="android.hardware.nfc" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@drawable/tagitroundlaunder"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/tagitroundlaunder"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.roumeliotis.tagit.MainActivity"
+            android:label="TAGit" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.example.roumeliotis.tagit.CreateGame"
+            android:label="CREATE GAME" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CreateGame" />
+        </activity>
+        <activity
+            android:name="com.example.roumeliotis.tagit.JoinGame"
+            android:label="JOIN GAME" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".JoinGame" />
+        </activity>
+        <activity android:name="com.example.roumeliotis.tagit.SignInActivity" />
+        <activity
+            android:name="com.example.roumeliotis.tagit.GameHints"
+            android:label="Game Hints" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameHints" />
+        </activity>
+        <activity
+            android:name="com.example.roumeliotis.tagit.GameWon"
+            android:label="Game Won" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameWon" />
+        </activity>
+        <activity
+            android:name="com.example.roumeliotis.tagit.GameOver"
+            android:label="Game Over" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GameOver" />
+        </activity>
+        <activity
+            android:name="com.example.roumeliotis.tagit.ScanHint"
+            android:label="Scan Hint" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ScanHint" />
+        </activity>
+    </application>
+
+</manifest>

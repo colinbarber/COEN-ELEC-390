@@ -1,0 +1,4 @@
+#Mon Nov 12 15:39:31 EST 2018
+base.0=/Users/william/Desktop/Semester6/COEN390/TAGit/client/COEN-ELEC-390/app/build/intermediates/transforms/dexMerger/debug/8
+path.0=classes.dex
+renamed.0=classes.dex
