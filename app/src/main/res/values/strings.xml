@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TagIt</string>
+    <string name="app_name">TAGit</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="title_activity_test">TestActivity</string>

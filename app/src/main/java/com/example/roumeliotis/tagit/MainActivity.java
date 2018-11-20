@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.Tag;
@@ -23,7 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+//import android.support.v7.widget.Toolbar;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -64,10 +65,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout  = (DrawerLayout) findViewById(R.id.drawer_layout);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar);
+         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+       // TextView textCustomTitle = (TextView) findViewById(R.id.navbar_title);
+
+
+        // Set
+        //textCustomTitle.setTypeface(customFont);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -116,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
                                     return true;
                                 case R.id.MainDM:
                                     Log.d(TAG, "MainActivity Menu Item Clicked");
-                                    Intent i = new Intent(MainActivity.this, MainActivity.class);
-                                    startActivity(i);
+//                                    Intent i = new Intent(MainActivity.this, MainActivity.class);
+//                                    startActivity(i);
                                     drawerLayout.closeDrawers();
                                     return true;
                             }
@@ -144,7 +156,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START);
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
