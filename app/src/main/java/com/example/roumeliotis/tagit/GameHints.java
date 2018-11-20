@@ -122,6 +122,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
 
     //Handles countdown
     private void startCountDown() {
+        //java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.roumeliotis.tagit/com.example.roumeliotis.tagit.GameHints}: java.lang.NullPointerException: Attempt to invoke virtual method 'long com.example.roumeliotis.tagit.Game.getTime_end()' on a null object reference
         long timeremainingatstart = game.getTime_end() - Calendar.getInstance().getTimeInMillis();
 
         if (timeremainingatstart > 0) {

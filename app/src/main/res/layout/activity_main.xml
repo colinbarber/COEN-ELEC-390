@@ -14,11 +14,23 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:text="TAGit"
         android:id="@+id/toolbar"
         android:layout_width="4dp"
         android:layout_height="3dp"
-        android:background="@color/colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+        android:minHeight="12dp"
+        android:fontFamily="@font/teko_light"
+        android:visibility="visible"
+        app:theme="@style/NavBar"
+        app:titleTextColor="#FFFFFF">
+        <TextView
+            android:id="@+id/navbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TAGit"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:fontFamily="@font/teko_light"/>
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
@@ -46,8 +58,6 @@
             android:background="@drawable/join_game"
             android:elevation="0dp"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textColorLink="@color/colorPrimary"
             android:textSize="40dp"
             android:typeface="monospace" />
 
@@ -59,8 +69,6 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/create_game"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textColorLink="@color/colorPrimary"
             android:textSize="40dp"
             android:typeface="monospace" />
 
@@ -82,19 +90,19 @@
             -->
 
     </RelativeLayout>
+
     <android.support.design.widget.NavigationView
-        app:headerLayout="@layout/header"
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
-        android:padding="0dp"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        app:itemTextColor="@color/colorGrey"
-        app:itemIconTint="@color/colorGrey"
-        android:fitsSystemWindows="true"
         android:layout_gravity="start"
-        app:menu="@menu/drawer_view">
-    </android.support.design.widget.NavigationView>
+        android:background="@color/colorWhite"
+        android:fitsSystemWindows="true"
+        android:padding="0dp"
+        app:headerLayout="@layout/header"
+        app:itemIconTint="@color/colorGrey"
+        app:itemTextColor="@color/colorGrey"
+        app:menu="@menu/drawer_view"></android.support.design.widget.NavigationView>
 
 
 </android.support.v4.widget.DrawerLayout>

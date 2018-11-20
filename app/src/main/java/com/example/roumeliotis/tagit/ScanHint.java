@@ -45,10 +45,10 @@ public class ScanHint extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_hint);
 
-        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mytoolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mytoolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         gm = new GameManager(ScanHint.this);
 
@@ -60,7 +60,9 @@ public class ScanHint extends AppCompatActivity {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         hintView = findViewById(R.id.hintView);
-        hintView.setText(hint.toString());
+        if (hint != null) {
+            hintView.setText(hint.toString());
+        }
 
     }
     protected void onResume(){

@@ -1,15 +1,23 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="NavBar" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/teko_medium</item>
+        <item name="actionBarSize">20dp</item>
+        <item name="android:textColorSecondary">@color/colorWhite</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/colorGrey</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
 
 </resources>
