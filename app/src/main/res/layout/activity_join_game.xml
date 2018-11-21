@@ -9,23 +9,33 @@
 
     <EditText
         android:id="@+id/enter_game_name_edittext"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="148dp"
+        android:backgroundTint="#00DDFF"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz -_1234567890"
+        android:fontFamily="@font/teko_regular"
         android:hint="Enter Game Name"
         android:inputType="text"
-        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz -_1234567890"
-        android:maxLength="100"/>
+        android:maxLength="20"
+        android:selectAllOnFocus="false"
+        android:textAlignment="center"
+        android:textCursorDrawable="@null"
+        android:textSize="40dp"
+        android:textStyle="normal"
+        android:typeface="normal" />
 
     <Button
         android:id="@+id/get_game_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/enter_game_name_edittext"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="get game" />
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/getgame_button"
+        android:text=" " />
 
     <TextView
         android:id="@+id/game_display_textview"
