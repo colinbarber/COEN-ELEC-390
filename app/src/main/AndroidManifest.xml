@@ -19,7 +19,7 @@
         android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".MainActivity"
-            android:label="TAGit">
+            android:label=" ">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -81,6 +81,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ScanHint" />
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
