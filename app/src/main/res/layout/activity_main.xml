@@ -88,9 +88,7 @@
             ONLY TO BRING TO TEST PAGE
             TODO DELETE
             -->
-
     </RelativeLayout>
-
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"

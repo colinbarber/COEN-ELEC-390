@@ -41,6 +41,7 @@ public class SignInActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
         EditUser = (EditText) findViewById(R.id.username_edit_text);
         SaveButton = findViewById(R.id.savebtn);
         TeamText = (TextView) findViewById(R.id.team_text);
@@ -74,10 +75,12 @@ public class SignInActivity extends AppCompatActivity{
 
 
         //set up spinner
-        ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this,
-                android.R.layout.simple_spinner_item, teams);
+       // ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this,
+         //       android.R.layout.simple_spinner_item, teams);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this, R.layout.spinner_item, teams);
+
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         TeamSpinner.setAdapter(adapter);
         TeamSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
