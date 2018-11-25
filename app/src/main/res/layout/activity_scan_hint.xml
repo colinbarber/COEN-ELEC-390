@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/appbackground"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -25,7 +25,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30dp" />
+        android:fontFamily="@font/teko_regular"
+        android:textColor="@color/colorWhite"
+        android:textSize="35dp" />
 
 </RelativeLayout>

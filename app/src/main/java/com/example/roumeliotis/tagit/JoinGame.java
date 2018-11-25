@@ -1,11 +1,16 @@
 package com.example.roumeliotis.tagit;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,9 +58,17 @@ public class JoinGame extends AppCompatActivity {
             public void onClick(View v) {
                 String name = getGameEditText.getText().toString().trim();
                 if(name.equals("")){
-                    Toast toast=Toast.makeText(getApplicationContext(),"Enter a game name",Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER, 0, 0);
-                    toast.show();
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layoutToast = inflater.inflate(R.layout.toast,
+                            (ViewGroup) findViewById(R.id.toast_layout));
+                    TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                    textToast.setText("Enter a Game Name");
+                    Toast toastEmptyName = new Toast(getApplicationContext());
+                    toastEmptyName.setGravity(Gravity.CENTER, 0, 0);
+                    toastEmptyName.setDuration(Toast.LENGTH_SHORT);
+                    toastEmptyName.setView(layoutToast);
+                    getGameEditText.startAnimation(shakeError());
+                    toastEmptyName.show();
                 }
                 else{
                     serverHelper.fetchGame(name, getApplicationContext(), new VolleyCallback() {
@@ -94,9 +107,17 @@ public class JoinGame extends AppCompatActivity {
 
                         @Override
                         public void onError(VolleyError error) {
-                            Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
+                            LayoutInflater inflater = getLayoutInflater();
+                            View layoutToast = inflater.inflate(R.layout.toast,
+                                    (ViewGroup) findViewById(R.id.toast_layout));
+                            TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                            textToast.setText("Invalid Game ID");
+                            Toast toastWrongName = new Toast(getApplicationContext());
+                            toastWrongName.setGravity(Gravity.CENTER, 0, 0);
+                            toastWrongName.setDuration(Toast.LENGTH_SHORT);
+                            toastWrongName.setView(layoutToast);
+                            getGameEditText.startAnimation(shakeError());
+                            toastWrongName.show();
                         }
                     });
                 }
@@ -121,5 +142,11 @@ public class JoinGame extends AppCompatActivity {
         intent.putExtra("Team", (Serializable) team);
         intent.putExtra("Hint", (Serializable) tags);
         startActivity(intent);
+    }
+    public TranslateAnimation shakeError() {
+        TranslateAnimation shake = new TranslateAnimation(0, 10, 0, 0);
+        shake.setDuration(500);
+        shake.setInterpolator(new CycleInterpolator(7));
+        return shake;
     }
 }
