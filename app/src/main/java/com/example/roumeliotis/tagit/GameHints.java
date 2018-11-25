@@ -3,6 +3,7 @@ package com.example.roumeliotis.tagit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -38,6 +39,10 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     private ServerHelper server = new ServerHelper();
     private ArrayList<Long> hintsTagged = new ArrayList();
 
+    private Handler mHandler;
+    private Runnable refresh;
+    private int REFRESH_TIME = 15000; //in milliseconds
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +66,19 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                 fetchHintsSetList();
             }
         });
+
+
+        //Set up auto refresh
+        this.mHandler = new Handler();
+        refresh = new Runnable() {
+            @Override
+            public void run() {
+                fetchHintsSetList();
+                mHandler.postDelayed(refresh, REFRESH_TIME);
+            }
+        };
+
+        this.mHandler.postDelayed(refresh,REFRESH_TIME);
     }
 
     @Override
