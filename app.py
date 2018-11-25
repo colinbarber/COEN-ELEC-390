@@ -1,7 +1,7 @@
 import datetime
 
 from flask import request, render_template, url_for, redirect
-from TAGit.Exception import InvalidUsage
+from TAGit.exception import InvalidUsage
 from flask_expects_json import expects_json
 from flask import jsonify
 
