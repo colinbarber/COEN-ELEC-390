@@ -22,6 +22,7 @@
         android:layout_centerInParent="true"
         android:text="You Lose!"
         android:textAlignment="center"
+        android:fontFamily="@font/teko_regular"
         android:textColor="@color/colorWhite"
         android:textSize="80dp" />
 

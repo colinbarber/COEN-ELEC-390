@@ -16,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +54,7 @@ public class ScanHint extends AppCompatActivity {
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         gm = new GameManager(ScanHint.this);
+
 
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
@@ -91,14 +95,30 @@ public class ScanHint extends AppCompatActivity {
                         startActivity(intent);
                     }
                     else if(message.equals("tag already found")){
-                        Toast toast=Toast.makeText(getApplicationContext(),"Tag already found",Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+
+                        LayoutInflater inflater = getLayoutInflater();
+                        View layoutToast = inflater.inflate(R.layout.toast,
+                                (ViewGroup) findViewById(R.id.toast_layout));
+                        TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                        textToast.setText("Tag Already Found");
+                        Toast tagFoundToast = new Toast(getApplicationContext());
+                        tagFoundToast.setGravity(Gravity.CENTER, 0, 0);
+                        tagFoundToast.setDuration(Toast.LENGTH_SHORT);
+                        tagFoundToast.setView(layoutToast);
+                        tagFoundToast.show();
                     }
                     else{
-                        Toast toast=Toast.makeText(getApplicationContext(),"Bad tag",Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+
+                        LayoutInflater inflater = getLayoutInflater();
+                        View layoutToast = inflater.inflate(R.layout.toast,
+                                (ViewGroup) findViewById(R.id.toast_layout));
+                        TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                        textToast.setText("Wrong Tag!");
+                        Toast wrongTagToast = new Toast(getApplicationContext());
+                        wrongTagToast.setGravity(Gravity.CENTER, 0, 0);
+                        wrongTagToast.setDuration(Toast.LENGTH_SHORT);
+                        wrongTagToast.setView(layoutToast);
+                        wrongTagToast.show();
                     }
 
                 } catch(JSONException e){

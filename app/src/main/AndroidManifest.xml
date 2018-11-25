@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="TAGit">
+            android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -62,7 +62,7 @@
         </activity>
         <activity
             android:name=".ScanHint"
-            android:label="Scan Hint">
+            android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ScanHint" />
