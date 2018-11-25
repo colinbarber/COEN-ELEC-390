@@ -77,7 +77,6 @@ public class ScanHint extends AppCompatActivity {
     }
 
     protected void handleNFC(String result){
-        //TODO
         server.pushTeamScore(team.getRemote_id(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
