@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import datetime
 
 from flask import request, render_template, url_for, redirect
@@ -5,7 +6,7 @@ from TAGit.exception import InvalidUsage
 from flask_expects_json import expects_json
 from flask import jsonify
 
-from TAGit._init_ import app
+from TAGit.__init__ import app
 from TAGit.models.games import Game
 from TAGit.app_helper import *
 from TAGit.schema import create_game_schema

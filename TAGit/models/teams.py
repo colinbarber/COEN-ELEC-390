@@ -1,4 +1,4 @@
-from TAGit._init_ import db
+from TAGit.__init__ import db
 
 
 # this is a python representation of the Team table in the database
