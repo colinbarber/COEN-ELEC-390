@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Enter the following to create/edit a new game</h2>
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<div>
+
+				{{ form.name.label }}
+				{% if form.name.errors %}
+                    {{ form.name }}
+                    <div class="">
+                        {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.name }}
+                {% endif %}
+
+			</div>
+            <div>
+                {{ form.username.label }}
+				{% if form.username.errors %}
+                    {{ form.username }}
+                    <div class="">
+                        {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.username }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.endtime.label }}
+				{% if form.endtime.errors %}
+                    {{ form.endtime }}
+                    <div class="">
+                        {% for error in form.endtime.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.endtime }}
+                {% endif %}
+            </div>
+            <div>
+                {{ form.teams.label }}
+				{% if form.teams.errors %}
+                    {% for teams in form.teams %}
+                        {{ forms.render_field(team.name) }}
+                    {% endfor %}
+                    <div class="">
+                        {% for error in form.teams.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.teams }}
+                {% endif %}
+            </div>
+			<div>
+				{{ form.colours.label }}
+				{% if form.colours.errors %}
+                    {{ form.colours }}
+                    <div class="">
+                        {% for error in form.colours.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.colours }}
+                {% endif %}
+			</div>
+			<div>
+				{{ form.hints.label }}
+				{% if form.hints.errors %}
+                    {{ form.hints }}
+                    <div class="">
+                        {% for error in form.hints.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.hints }}
+                {% endif %}
+			</div>
+		</fieldset>
+		<div>
+			{{ form.submit }}
+		</div>
+	</form>
+{% endblock content %}

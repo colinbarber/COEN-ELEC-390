@@ -2,7 +2,7 @@ from logging.config import dictConfig
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from config import LOCAL_DATABASE_URI
+from config import LOCAL_DATABASE_URI, secret_key
 
 dictConfig({
     'version': 1,
@@ -23,5 +23,6 @@ dictConfig({
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = LOCAL_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = secret_key
 
 db = SQLAlchemy(app)
