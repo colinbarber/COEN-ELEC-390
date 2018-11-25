@@ -137,7 +137,7 @@ public class SignInActivity extends AppCompatActivity{
 
                     PlayerText = "Username : " + mUsername + "\nTeam : " + mTeam;
                     PlayerDisplay.setText(PlayerText);
-                    PlayerDisplay.setVisibility(View.VISIBLE);
+                    PlayerDisplay.setVisibility(View.INVISIBLE);
                     //use when next activity is done
                     goToNextActivity();
                 }

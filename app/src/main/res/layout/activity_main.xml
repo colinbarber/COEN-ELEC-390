@@ -61,17 +61,6 @@
             android:textSize="40dp"
             android:typeface="monospace" />
 
-        <Button
-            android:id="@+id/createGameButton"
-            android:layout_width="214dp"
-            android:layout_height="89dp"
-            android:layout_below="@+id/joinGameButton"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/create_game"
-            android:textAlignment="center"
-            android:textSize="40dp"
-            android:typeface="monospace" />
-
         <TextView
             android:id="@+id/hint"
             android:layout_width="120dp"
