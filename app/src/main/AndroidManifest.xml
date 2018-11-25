@@ -5,64 +5,43 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.NFC" />
-
     <uses-feature android:name="android.hardware.nfc" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/tagitroundlauncher"
-        android:label=""
+        android:label="TAGit"
         android:roundIcon="@drawable/tagitroundlauncher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label=" ">
+            android:label="TAGit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
-
-        <activity
-            android:name=".CreateGame"
-            android:label=" ">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CreateGame" />
-        </activity>
         <activity
             android:name=".JoinGame"
             android:label=" ">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".JoinGame" />
         </activity>
-        <activity android:name=".SignInActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SignInActivity" />
+        <activity
+            android:name=".SignInActivity"
+            android:label=" ">
         </activity>
         <activity
             android:name=".GameHints"
-            android:label="Game Hints">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GameHints" />
+            android:label=" ">
         </activity>
         <activity
             android:name=".GameWon"

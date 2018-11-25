@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="2dp"
+    android:paddingBottom="0dp"
     android:paddingTop="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
@@ -14,20 +14,20 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:text="TAGit"
+        android:text=" "
         android:id="@+id/toolbar"
         android:layout_width="4dp"
         android:layout_height="3dp"
         android:minHeight="12dp"
         android:fontFamily="@font/teko_light"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:theme="@style/NavBar"
         app:titleTextColor="#FFFFFF">
         <TextView
             android:id="@+id/navbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TAGit"
+            android:text=" "
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:fontFamily="@font/teko_light"/>
@@ -78,6 +78,7 @@
             TODO DELETE
             -->
     </RelativeLayout>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
