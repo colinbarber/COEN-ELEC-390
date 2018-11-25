@@ -46,7 +46,8 @@
         android:layout_alignStart="@+id/username_edit_text"
         android:popupBackground="@android:color/transparent"
         android:layout_marginTop="170dp"
-        />
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="40dp"/>
 
     <Button
         android:id="@+id/savebtn"
