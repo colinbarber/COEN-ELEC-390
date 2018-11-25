@@ -5,7 +5,7 @@ from TAGit.Exception import InvalidUsage
 from flask_expects_json import expects_json
 from flask import jsonify
 
-from TAGit._init_ import app
+from TAGit.__init__ import app
 from TAGit.models.games import Game
 from TAGit.app_helper import *
 from TAGit.schema import create_game_schema

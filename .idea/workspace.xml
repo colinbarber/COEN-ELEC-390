@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22773108-7dec-4726-a818-50b67364b71f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COEN-ELEC-390.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/Exception.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/Exception.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/_init_.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/app_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/app_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/models/games.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/models/games.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/models/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/models/tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TAGit/models/teams.py" beforeDir="false" afterPath="$PROJECT_DIR$/TAGit/models/teams.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="11" />
-          <entry key="dummy" value="7" />
+          <entry key="dummy" value="9" />
           <entry key="gitignore" value="7" />
           <entry key="md" value="1360" />
           <entry key="py" value="8503" />
@@ -72,7 +73,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="1360" />
-          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="8514" />
         </counts>
       </usages-collector>
@@ -80,7 +81,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
@@ -89,21 +90,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+              <caret line="187" column="21" selection-start-line="187" selection-start-column="21" selection-end-line="187" selection-end-column="21" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1543166591159" expanded="true" signature="6734:6860" ph="..." />
+                <marker date="1543168742341" expanded="true" signature="6735:6861" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/_init_.py">
+        <entry file="file://$PROJECT_DIR$/TAGit/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
@@ -237,18 +238,6 @@
               <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
               <item name="COEN-ELEC-390" type="462c0819:PsiDirectoryNode" />
               <item name="TAGit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COEN-ELEC-390" type="462c0819:PsiDirectoryNode" />
-              <item name="TAGit" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COEN-ELEC-390" type="462c0819:PsiDirectoryNode" />
-              <item name="TAGit" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
@@ -449,14 +438,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1702432" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3662375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.25301206" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.2746988" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.2746988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39638555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -660,7 +648,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/_init_.py">
+    <entry file="file://$PROJECT_DIR$/TAGit/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
@@ -700,7 +688,7 @@
           <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1541558483346" expanded="true" signature="988:1232" ph="..." />
+            <marker date="1543168742320" expanded="true" signature="990:1234" ph="..." />
           </folding>
         </state>
       </provider>
@@ -723,13 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23445">
           <caret line="1580" column="24" selection-start-line="1580" selection-start-column="8" selection-end-line="1580" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -763,11 +744,18 @@
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+          <caret line="187" column="21" selection-start-line="187" selection-start-column="21" selection-end-line="187" selection-end-column="21" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1543166591159" expanded="true" signature="6734:6860" ph="..." />
+            <marker date="1543168742341" expanded="true" signature="6735:6861" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

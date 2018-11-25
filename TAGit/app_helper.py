@@ -1,4 +1,4 @@
-from TAGit._init_ import db
+from TAGit.__init__ import db
 from TAGit.models.tags import Tag
 from TAGit.models.teams import Team
 

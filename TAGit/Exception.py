@@ -2,7 +2,7 @@ import traceback
 from flask import jsonify
 from jsonschema import ValidationError
 from werkzeug.exceptions import HTTPException, BadRequest
-from TAGit._init_ import app
+from TAGit.__init__ import app
 
 
 class InvalidUsage(Exception):
