@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/appbackground"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="191dp"
+        android:layout_height="115dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
-        android:text="HINTS"
+        android:text=""
+        android:background="@drawable/hints_logo"
+        android:fontFamily="@font/teko_light"
         android:textAlignment="center"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorAccent"
         android:textSize="30dp" />
 
     <TextView
@@ -28,6 +29,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:text="D:H:M:S"
+        android:fontFamily="@font/teko_regular"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="20dp" />
@@ -40,7 +42,7 @@
         android:layout_below="@id/hint"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        android:background="@color/colorPrimary" />
+        android:background="#a8212121" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button"
