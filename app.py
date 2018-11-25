@@ -16,8 +16,9 @@ from TAGit.form import GameForm
 @app.route('/', methods=['GET'])
 def games():
     app.logger.info("IP address: " + str(request.url))
-    games = Game.query.all()
-    return render_template('games.html', Games=games, title="Games")
+    current_games = Game.query.all()
+    return render_template('games.html', Games=current_games, title="Games")
+
 
 # returns a json containing the info of this game
 @app.route('/game/<string:game_name>', methods=['GET'])
@@ -63,6 +64,7 @@ def get_team_scores(team_id):
     )
 
 
+"""
 # Puts a new game in the db if the json passed is valid
 @app.route('/game', methods=['PUT'])
 @expects_json(create_game_schema)
@@ -91,6 +93,7 @@ def create_game():
         {
             "message": game.name
         })
+"""
 
 
 @app.route('/new_game', methods=['GET', 'POST'])
@@ -152,6 +155,55 @@ def get_teams_score(game_id):
         "team_ids": team_ids,
         "team_scores": team_score
     })
+
+
+# returns the an array with the team ids of a game and an array containing the scores
+@app.route("/game_top_three/<int:game_id>", methods=['GET'])
+def get_top_3(game_id):
+    app.logger.info(str(request.url))
+    app.logger.info("Game id: " + str(game_id))
+    game = Game.query.get(game_id)
+    team_ids = to_int(game.team_ids.split(","))
+    team_score = get_score_from_team_id(team_ids=team_ids)
+    if len(team_score) == 1:
+        return jsonify({
+            "winner_ids": [team_ids],
+            "team_score": [team_score]
+        })
+    elif len(team_score) == 2:
+        if team_score[0] > team_score[1]:
+            return jsonify({
+                "winner_ids": [team_ids[0], team_ids[1]],
+                "team_score": [team_score[0], team_score[1]]
+            })
+        return jsonify({
+            "winner_ids": [team_ids[1], team_ids[0]],
+            "team_score": [team_score[1], team_score[0]]
+        })
+    else:
+        team_score_objects = []
+        i = 0
+        while i < len(team_score):
+            team_score_objects.append(TeamScore(t_id=team_ids[i], score=team_score[i]))
+            i = i + 1
+        team_score_objects.sort(key=lambda x: x.score, reverse=True)
+        return jsonify({
+            "winner_ids": [team_score_objects[0].team_id,
+                           team_score_objects[1].team_id,
+                           team_score_objects[2].team_id],
+            "team_score": [team_score_objects[0].score,
+                           team_score_objects[1].score,
+                           team_score_objects[2].score]
+        })
+
+
+class TeamScore:
+    team_id = 0
+    score = 0
+
+    def __init__(self, t_id, score):
+        self.team_id = t_id
+        self.score = score
 
 
 if __name__ == '__main__':
