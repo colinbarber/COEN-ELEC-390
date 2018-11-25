@@ -25,7 +25,8 @@
         android:textCursorDrawable="@null"
         android:textSize="40dp"
         android:textStyle="normal"
-        android:typeface="normal" />
+        android:typeface="normal"
+        android:singleLine="true"/>
 
     <Button
         android:id="@+id/get_game_button"
