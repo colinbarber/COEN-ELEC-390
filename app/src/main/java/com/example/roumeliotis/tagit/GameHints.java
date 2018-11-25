@@ -78,13 +78,19 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
             }
         };
 
-        this.mHandler.postDelayed(refresh,REFRESH_TIME);
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume(){
+        super.onResume();
         fetchHintsSetList();
+        this.mHandler.postDelayed(refresh, REFRESH_TIME);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        this.mHandler.removeCallbacks(refresh);
     }
 
     public void fetchHintsSetList() {
