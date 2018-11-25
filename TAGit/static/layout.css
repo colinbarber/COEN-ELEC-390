@@ -1,0 +1,83 @@
+body{
+	background-color:white;
+}
+p{
+    color: darkgrey;
+}
+div{
+    color: black;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: dimgray;
+}
+li {
+    float: right;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li.dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+p{
+ 	color:black;
+  	padding-top:0%;
+  	padding-left:0%;
+  	font-style: oblique;
+  	font-size:50px;
+  }
+span{ 
+ 	color:white; 
+  } 
+table {
+    font-family: "Courier New", sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th {
+    border: 1px solid #000000;
+	text-align: left;
+	padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+h2{
+    color: #FFFFFF;
+}
+label{
+    color: #000000;
+}
+a{
+    text-decoration: none;
+}

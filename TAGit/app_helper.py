@@ -52,9 +52,24 @@ def to_int(my_list):
 
 
 # takes in a list of tag ids and returns a toggle containing a list of their hints and a list of their tags
-def get_hint_and_tag(ids):
+def get_tag(ids):
     hints = []
     for i in ids:
         tag = Tag.query.get(i)
         hints.append(tag.hint)
     return hints
+
+
+# takes a list of team ids and returns there corresponding score
+def get_score_from_team_id(team_ids):
+    scores = []
+    for team_id in team_ids:
+        team = Team.query.get(team_id)
+        points = team.points
+        if points is None:
+            scores.append(0)
+        else:
+            hints_found = to_int(points.split(","))
+            scores.append(len(hints_found))
+    return scores
+

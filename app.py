@@ -1,5 +1,6 @@
+import datetime
 
-from flask import request
+from flask import request, render_template, url_for, redirect
 from TAGit.Exception import InvalidUsage
 from flask_expects_json import expects_json
 from flask import jsonify
@@ -8,16 +9,15 @@ from TAGit._init_ import app
 from TAGit.models.games import Game
 from TAGit.app_helper import *
 from TAGit.schema import create_game_schema
+from TAGit.form import GameForm
 
 
 # default route
 @app.route('/', methods=['GET'])
-def default():
+def games():
     app.logger.info("IP address: " + str(request.url))
-    return jsonify(
-        {
-            "message": "hello world"
-        })
+    games = Game.query.all()
+    return render_template('games.html', Games=games, title="Games")
 
 # returns a json containing the info of this game
 @app.route('/game/<string:game_name>', methods=['GET'])
@@ -28,7 +28,7 @@ def get_game(game_name):
     if game is None:
         raise InvalidUsage(message='Game not found', status_code=404)
     hint_ids = to_int(game.tag_ids.split(","))
-    hint_tag = get_hint_and_tag(hint_ids)
+    hint_tag = get_tag(hint_ids)
     team_ids = to_int(game.team_ids.split(","))
     team = get_team(game.team_ids.split(","))
     return jsonify(
@@ -93,6 +93,29 @@ def create_game():
         })
 
 
+@app.route('/new_game', methods=['GET', 'POST'])
+def new_game():
+    app.logger.info(str(request.url))
+    form = GameForm()
+    if form.validate_on_submit():
+        team_ids = create_team(form.teams.data, form.colours.data)
+        tag_ids = create_tag(form.hints.data)
+        dt_obj = datetime.strptime(form.endtime.data,
+                                   '%d.%m.%Y %H:%M:%S,%f')
+        millisec = dt_obj.timestamp() * 1000
+        game = Game(name=form.name.data,
+                    user_name=form.username.data,
+                    team_ids=to_comma_separated_str(team_ids),
+                    tag_ids=to_comma_separated_str(tag_ids),
+                    time_end=millisec)
+        db.session.add(game)
+        db.session.flush()
+        game.name = str(game.name + str(game.id))
+        db.session.commit()
+        return redirect(url_for('new_games'))
+    return render_template('new_game.html', form=form, title="New Game")
+
+
 # Posts the hint that has been found as found by the team
 @app.route('/hint/<int:team_id>/<int:tag_id>', methods=['POST'])
 def put_team_hint(team_id, tag_id):
@@ -114,6 +137,20 @@ def put_team_hint(team_id, tag_id):
     db.session.commit()
     return jsonify({
         "message": "tag added"
+    })
+
+
+# returns the an array with the team ids of a game and an array containing the scores
+@app.route("/game_teams_scores/<int:game_id>", methods=['GET'])
+def get_teams_score(game_id):
+    app.logger.info(str(request.url))
+    app.logger.info("Game id: " + str(game_id))
+    game = Game.query.get(game_id)
+    team_ids = to_int(game.team_ids.split(","))
+    team_score = get_score_from_team_id(team_ids=team_ids)
+    return jsonify({
+        "team_ids": team_ids,
+        "team_scores": team_score
     })
 
 

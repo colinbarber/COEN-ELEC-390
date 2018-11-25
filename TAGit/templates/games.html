@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form action="{{ url_for('new_game') }}"><input type="submit" value="Add game"></form>
+    <input type="text" id="myInput" onkeyup="tableSearch()" placeholder="Search for games..">
+    <table id="sortTable">
+        <tr>
+            <th onclick="sortTable(0)">id</th>
+            <th onclick="sortTable(1)">Name</th>
+            <th onclick="sortTable(1)">UserName</th>
+            <th onclick="sortTable(2)">endtime</th>
+            <th onclick="sortTable(3)">Teams</th>
+            <th onclick="sortTable(5)">Hints</th>
+        </tr>
+        {% block content2 %}
+            {% for game in Games %}
+                <tr>
+                    <td>{{ game.id }}</td>
+                    <td>{{ game.name }}</td>
+                    <td>{{ game.user_name }}</td>
+                    <td>{{ game.time_end }}</td>
+                    <td>{{ game.team_ids }}</td>
+                    <td>{{ game.tag_ids }}</td>
+                </tr>
+            {% endfor %}
+        {% endblock content2 %}
+    </table>
+{% endblock content %}
