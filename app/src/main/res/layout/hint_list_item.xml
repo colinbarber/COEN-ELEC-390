@@ -9,8 +9,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        android:fontFamily="@font/teko_light"
         android:text="Hint"/>
 
     <ImageView

@@ -5,13 +5,19 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -113,14 +119,29 @@ public class SignInActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Log.d(TAG, "Save Button Clicked");
                 mUsername = EditUser.getText().toString();
-                mTeam = TeamSpinner.getSelectedItem().toString();
+                if (mUsername.equals("")){
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layoutToast = inflater.inflate(R.layout.toast,
+                            (ViewGroup) findViewById(R.id.toast_layout));
+                    TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                    textToast.setText("Enter a Username");
+                    Toast toastEmptyUsername = new Toast(getApplicationContext());
+                    toastEmptyUsername.setGravity(Gravity.CENTER, 0, 0);
+                    toastEmptyUsername.setDuration(Toast.LENGTH_SHORT);
+                    toastEmptyUsername.setView(layoutToast);
+                    EditUser.startAnimation(shakeError());
+                    toastEmptyUsername.show();
+                }
+                else{
+                    mTeam = TeamSpinner.getSelectedItem().toString();
 
-                PlayerText = "Username : " + mUsername + "\nTeam : " + mTeam;
-                PlayerDisplay.setText(PlayerText);
-                PlayerDisplay.setVisibility(View.VISIBLE);
+                    PlayerText = "Username : " + mUsername + "\nTeam : " + mTeam;
+                    PlayerDisplay.setText(PlayerText);
+                    PlayerDisplay.setVisibility(View.VISIBLE);
+                    //use when next activity is done
+                    goToNextActivity();
+                }
 
-                //use when next activity is done
-                goToNextActivity();
             }
         });
     }
@@ -147,5 +168,11 @@ public class SignInActivity extends AppCompatActivity{
         intent.putExtra("Team", (Serializable) myTeam);
         intent.putExtra("Hint", (Serializable) tags);
         startActivity(intent);
+    }
+    public TranslateAnimation shakeError() {
+        TranslateAnimation shake = new TranslateAnimation(0, 10, 0, 0);
+        shake.setDuration(500);
+        shake.setInterpolator(new CycleInterpolator(7));
+        return shake;
     }
 }
