@@ -267,4 +267,18 @@ public class MainActivity extends AppCompatActivity {
     protected void handleNFC(String result){
         // does nothing on this page
     }
+
+    // remove back button functionality
+    @Override
+    public void onBackPressed() {
+        if (!shouldAllowBack()) {
+            // do nothing
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private Boolean shouldAllowBack() {
+        return false;
+    }
 }

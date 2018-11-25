@@ -152,6 +152,23 @@ public class JoinGame extends AppCompatActivity {
         return shake;
     }
 
+    // remove back button functionality
+    @Override
+    public void onBackPressed() {
+        if (!shouldAllowBack()) {
+            // do nothing
+        } else {
+            Log.d(TAG, "Go to MainActivity");
+            Intent intent = new Intent(JoinGame.this, MainActivity.class);
+            startActivity(intent);
+            super.onBackPressed();
+        }
+    }
+
+    private Boolean shouldAllowBack() {
+        return true;
+    }
+
     /* *** Handle NFC Tagging *** */
 
     protected void onResume(){

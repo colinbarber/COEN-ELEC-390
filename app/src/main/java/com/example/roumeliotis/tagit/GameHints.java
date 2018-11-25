@@ -13,10 +13,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -43,8 +49,9 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private TextView CountDown;
     private ListView HintView;
-    private FloatingActionButton update;
     private NfcAdapter mNfcAdapter;
+    private ActionBarDrawerToggle toggle;
+    private DrawerLayout drawerLayout;
 
     private CountDownTimer countDownTimer;
     private ArrayList<NFCTag> tags;
@@ -61,26 +68,47 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_hints);
+        drawerLayout  = findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        if(getSupportActionBar() != null){ getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
+        if(getActionBar() != null){
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        // Add Nav Bar
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        menuItem.setChecked(true);
+                        if(true){
+                            switch (menuItem.getItemId()) {
+                                case R.id.JoinGameDM:
+                                    Log.d(TAG, "JoinGame Menu Item Clicked");
+                                    goToJoinGameActivity();
+                                    drawerLayout.closeDrawers();
+                                    return true;
+                            }
+                        }
+                        return true;
+                    }
+                }
+        );
 
         Intent intent = getIntent();
         tags = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = intent.getParcelableExtra("Game");
 
-        update = findViewById(R.id.button);
         HintView = findViewById(R.id.hint_list);
         CountDown = findViewById(R.id.count_down);
         HintView.setOnItemClickListener(this);
 
         //initialise count down
         startCountDown();
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fetchHintsSetList();
-            }
-        });
-
 
         //Set up auto refresh
         this.mHandler = new Handler();
@@ -94,6 +122,26 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         //start NFC adapter
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         handleIntent(getIntent());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    drawerLayout.openDrawer(GravityCompat.START);
+                }
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    void goToJoinGameActivity(){
+        Log.d(TAG, "Go to Join Game Activity");
+        Intent intent = new Intent(GameHints.this, JoinGame.class);
+        startActivity(intent);
     }
 
     @Override
