@@ -51,7 +51,7 @@ public class ScanHint extends AppCompatActivity {
     private SoundEffects tagHitSound;
     private SoundEffects tagFoundSound;
     private NFCTag hint;
-    private Long hint_id;
+    private String hint_id;
     private Team team;
     private Game game;
     private String username;
@@ -87,8 +87,12 @@ public class ScanHint extends AppCompatActivity {
         hint = (NFCTag) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = intent.getParcelableExtra("Game");
-        username = intent.getStringExtra(username);
-        hint_id = hint.getRemote_id();
+        username = intent.getStringExtra("username");
+        hint_id = intent.getStringExtra("hint_id");
+
+        if (hint == null) {
+            hint = new NFCTag(0,0,0,"");
+        }
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -153,7 +157,6 @@ public class ScanHint extends AppCompatActivity {
                         intent.putExtra("Game", (Parcelable) game);
                         intent.putExtra("Team", (Serializable) team);
                         intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
-                        //take a picture then return
                         intent.putExtra("username", username);
                         tagHitSound.playTagHitSound();
                         startActivity(intent);
@@ -320,7 +323,8 @@ public class ScanHint extends AppCompatActivity {
         protected void onPostExecute(String result) {
             if (result != null) {
                 Log.e(TAG,"Result: "+result);
-                if (result.equals(hint_id.toString())) {
+                Log.e(TAG,"hint_id: "+hint_id);
+                if (result.equals(hint_id)) {
                     handleNFC(result);
                 }
                 else {
@@ -362,6 +366,7 @@ public class ScanHint extends AppCompatActivity {
             //add to db
             imageManager.insertImage(byteArray, hint.toString());
         }
+        Log.e(TAG,"picture taken");
     }
 
     //method to switch activity

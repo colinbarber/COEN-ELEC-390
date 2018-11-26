@@ -70,9 +70,6 @@
         <activity
             android:name=".ScanHint"
             android:label="">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ScanHint" />
         </activity>
 
         <meta-data

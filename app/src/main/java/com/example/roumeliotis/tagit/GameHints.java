@@ -112,6 +112,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         game = intent.getParcelableExtra("Game");
         username = intent.getStringExtra("username");
 
+
         //Displaying User Name & Team Name/Colour on top of hints list
         UserNameText = findViewById(R.id.username_text);
         TeamNameText = findViewById(R.id.teamname_text);
@@ -189,6 +190,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         fetchHintsSetList();
         this.mHandler.postDelayed(refresh, REFRESH_TIME);
         setupForegroundDispatch(this, mNfcAdapter);
+        UserNameText.setText(username);  //USERNAME
     }
 
     @Override
@@ -245,11 +247,12 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     //set on click so that an item can be clicked
     public void onItemClick(AdapterView<?> hints, View v, int position, long id) {
         NFCTag hint = (NFCTag) hints.getItemAtPosition(position);
-        Long hint_id = hint.getId();
+        Long hint_id = hint.getRemote_id();
+        String hintStr = hint_id.toString();
         Intent intent = new Intent();
         intent.setClass(this, ScanHint.class);
         intent.putExtra("username", username);
-        intent.putExtra("hint_id", hint_id.toString());
+        intent.putExtra("hint_id", hintStr);
         intent.putExtra("Hint", hint);
         intent.putExtra("Team", team);
         intent.putExtra("Game", game);
