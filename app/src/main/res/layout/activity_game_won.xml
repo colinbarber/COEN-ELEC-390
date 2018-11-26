@@ -18,6 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:src="@drawable/tagittxtlogo" />
+
     <TextView
         android:id="@+id/hint"
         android:layout_width="wrap_content"
@@ -31,12 +32,13 @@
 
     <ListView
         android:id="@+id/winningTeamsOver"
-        android:layout_width="289dp"
-        android:layout_height="156dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/hint"
-        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="54dp"
         android:layout_marginTop="0dp"
-        android:background="@color/colorAccent" />
+        android:background="#9900ddff" />
 
 </RelativeLayout>

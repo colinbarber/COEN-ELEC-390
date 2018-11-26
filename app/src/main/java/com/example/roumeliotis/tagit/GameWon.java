@@ -25,6 +25,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameWon extends AppCompatActivity {
@@ -34,12 +35,16 @@ public class GameWon extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     private ServerHelper server = new ServerHelper();
     private Team team;
+    private Game game;
     GameManager gameManager;
     ListView winningTeams;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_won);
+
+        Intent intent = getIntent();
+        game = intent.getParcelableExtra("Game");
 
         gameManager = new GameManager(this);
         winningTeams = findViewById(R.id.winningTeamsOver);
@@ -202,16 +207,16 @@ public class GameWon extends AppCompatActivity {
     }
 
     public void setWinningTeams() {
-        server.getTeamRanking(team.getRemote_id(), GameWon.this, new VolleyCallback() {
+        server.getTeamRanking(game.getRemote_id(), GameWon.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
                 try {
-                    JSONArray jsonArray = response.getJSONArray("team_ids");
-                    Team team_arr[] = new Team[jsonArray.length()];
+                    JSONArray jsonArray = response.getJSONArray("winner_ids");
+                    String team_arr[] = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
-                        team_arr[i] = gameManager.getTeamByRemoteID(jsonArray.getLong(i));
+                        team_arr[i] = gameManager.getTeamByRemoteID(jsonArray.getLong(i)).toString();
                     }
-                    ArrayAdapter<Team> itemsAdapter = new ArrayAdapter<Team>(GameWon.this, R.layout.spinner_item, team_arr);
+                    ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(GameWon.this, R.layout.spinner_item, team_arr);
                     winningTeams.setAdapter(itemsAdapter);
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -121,17 +121,10 @@ public class ServerHelper {
     }
 
     public void getTeamRanking(final long game_remote_id, final Context context, final VolleyCallback callback) {
-        final JsonObjectRequest request = new JsonObjectRequest(Method.GET, base_url + "game_teams_scores/" + game_remote_id, null, new Response.Listener<JSONObject>() {
+        final JsonObjectRequest request = new JsonObjectRequest(Method.GET, base_url + "game_top_three/" + game_remote_id, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                try {
-                    GameManager gm = new GameManager(context);
-                    JSONArray teams_arr = response.getJSONArray("team_ids");
-                    //JSONArray teamsScores_arr = response.getJSONArray("team_scores");
-                    callback.onSuccess(response);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                callback.onSuccess(response);
             }
         }, new Response.ErrorListener() {
             @Override
