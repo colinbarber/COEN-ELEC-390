@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
+    android:textAlignment="center"
     android:textSize="24dp"
     android:background="@android:color/transparent"
     android:popupBackground="@android:color/transparent"
     android:fontFamily="@font/teko_regular"
+    android:textColor="@color/colorWhite"
     />
