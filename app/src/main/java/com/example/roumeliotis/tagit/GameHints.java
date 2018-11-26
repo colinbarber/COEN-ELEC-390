@@ -215,6 +215,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                             countDownTimer.cancel();
                         }
                         Intent intent = new Intent(GameHints.this, GameWon.class);
+                        intent.putExtra("Game", game);
                         gameWonSound.playGameWinSound();
                         startActivity(intent);
                     }else{
@@ -292,6 +293,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         gameLostSound.playLoseGameSound();
         Intent intent = new Intent();
         intent.setClass(this, GameOver.class);
+        intent.putExtra("Game", game);
         startActivity(intent);
     }
 

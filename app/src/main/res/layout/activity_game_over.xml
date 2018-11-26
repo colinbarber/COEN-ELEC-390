@@ -26,4 +26,15 @@
         android:textColor="@color/colorWhite"
         android:textSize="80dp" />
 
+    <ListView
+        android:id="@+id/winningTeamsOver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/hint"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginTop="0dp"
+        android:background="#9900ddff" />
+
 </RelativeLayout>
