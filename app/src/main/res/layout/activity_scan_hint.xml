@@ -7,6 +7,26 @@
     android:background="@drawable/appbackground"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/image"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:text="VIEW PICTURE" />
+
+
     <TextView
         android:id="@+id/scanHint"
         android:layout_width="wrap_content"

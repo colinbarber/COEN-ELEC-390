@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.SoundPool;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -13,6 +15,8 @@ import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.provider.MediaStore;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -20,6 +24,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +35,13 @@ import com.android.volley.VolleyError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.List;
+
+import static android.view.View.VISIBLE;
 
 public class ScanHint extends AppCompatActivity {
 
@@ -48,10 +59,19 @@ public class ScanHint extends AppCompatActivity {
     private TextView hintView;
     private GameManager gm;
 
+    ImageManager imageManager;
+    Button takeImageButton;
+    ImageView mImageView;
+    Bitmap currentImage;
+    static final int REQUEST_TAKE_PICTURE = 1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_hint);
+        takeImageButton = findViewById(R.id.image_button);
+        mImageView = findViewById(R.id.image);
+        imageManager = new ImageManager(this);
+
 //        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(mytoolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -77,11 +97,43 @@ public class ScanHint extends AppCompatActivity {
             hintView.setText(hint.toString());
         }
 
+        //set imageview onclick listener (not working?)
+        if(currentImage != null){
+            mImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToImageActivity(currentImage);
+                }
+            });
+        }
+
+        if(imageManager.isEmpty(hint.toString())==false){
+            Log.d(TAG, "Not empty");
+            byte[] previousImage = imageManager.getImageByHint(hint.toString());
+            currentImage = BitmapFactory.decodeByteArray(previousImage, 0, previousImage.length);
+            mImageView.setImageBitmap(currentImage);
+        }
+
     }
     protected void onResume(){
         super.onResume();
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         setupForegroundDispatch(this, mNfcAdapter);
+        //set button visibility
+        if(currentImage!=null){
+            takeImageButton.setVisibility(VISIBLE);
+        }
+        else
+            takeImageButton.setVisibility(View.GONE);
+
+        takeImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //dispatchTakePictureIntent();
+                goToImageActivity(currentImage);
+            }
+        });
+
     }
 
     protected void onPause(){
@@ -101,6 +153,7 @@ public class ScanHint extends AppCompatActivity {
                         intent.putExtra("Game", (Parcelable) game);
                         intent.putExtra("Team", (Serializable) team);
                         intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
+                        //take a picture then return
                         intent.putExtra("username", username);
                         tagHitSound.playTagHitSound();
                         startActivity(intent);
@@ -285,5 +338,39 @@ public class ScanHint extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_TAKE_PICTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == REQUEST_TAKE_PICTURE && resultCode == RESULT_OK) {
+            //place in image view
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mImageView.setImageBitmap(imageBitmap);
+            currentImage = imageBitmap;
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            //add to db
+            imageManager.insertImage(byteArray, hint.toString());
+        }
+    }
+
+    //method to switch activity
+    void goToImageActivity(Bitmap image) {
+        Intent intent = new Intent();
+        intent.setClass(ScanHint.this, FullScreenImageActivity.class);
+        Bundle extras = new Bundle();
+        extras.putParcelable("BitmapImage", image);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }
