@@ -1,16 +1,11 @@
 <html>
 <head>
-    {% if title %}
-        <title>TAGit - {{ title }}</title>
-    {% else %}
-        <title>TAGit</title>
-    {% endif %}
+
+    <title>TAGit</title>
+
     <link rel="stylesheet" type="text/css" href="../static/layout.css">
 </head>
 <body>
-    <ul>
-        <li> <a href="{{ url_for('games') }}">Games</a></li>
-    </ul>
     {% block content %}{% endblock content %}
     <script src="/static/tableSort.js"></script>
     <script src="/static/tableSearch.js"></script>
