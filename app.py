@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from flask import request, render_template, url_for, redirect
 from TAGit.exception import InvalidUsage
 from flask import jsonify
@@ -24,11 +22,6 @@ def games():
         team_name.append(team[0])
         colours.append(team[1])
     return render_template('games.html', Games=current_games, Hints=hint_tag, Teams=team_name, Colours=colours, title="Games")
-
-
-@app.route('/<string:page_name>')
-def static_page(page_name):
-    return render_template('%s.html' % page_name)
 
 
 # returns a json containing the info of this game
