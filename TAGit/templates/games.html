@@ -6,10 +6,13 @@
         <tr>
             <th onclick="sortTable(0)">id</th>
             <th onclick="sortTable(1)">Name</th>
-            <th onclick="sortTable(1)">UserName</th>
-            <th onclick="sortTable(2)">endtime</th>
-            <th onclick="sortTable(3)">Teams</th>
-            <th onclick="sortTable(5)">Hints</th>
+            <th onclick="sortTable(2)">UserName</th>
+            <th onclick="sortTable(3)">endtime</th>
+            <th onclick="sortTable(4)">Team Names</th>
+            <th onclick="sortTable(5)">Team Colour</th>
+            <th onclick="sortTable(6)">Team Ids</th>
+            <th onclick="sortTable(7)">Hints</th>
+            <th onclick="sortTable(8)">Tags</th>
         </tr>
         {% block content2 %}
             {% for game in Games %}
@@ -18,7 +21,10 @@
                     <td>{{ game.name }}</td>
                     <td>{{ game.user_name }}</td>
                     <td>{{ game.time_end }}</td>
+                    <td>{{ Teams[loop.index0]}}</td>
+                    <td>{{ Colours[loop.index0]}}</td>
                     <td>{{ game.team_ids }}</td>
+                    <td>{{ Hints[loop.index0] }}</td>
                     <td>{{ game.tag_ids }}</td>
                 </tr>
             {% endfor %}
