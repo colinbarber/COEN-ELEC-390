@@ -62,6 +62,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     private ArrayList<NFCTag> tags;
     private Team team;
     private Game game;
+    private String username;
     private ServerHelper server = new ServerHelper();
     private ArrayList<Long> hintsTagged = new ArrayList();
 
@@ -109,11 +110,12 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         tags = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = intent.getParcelableExtra("Game");
+        username = intent.getStringExtra("username");
 
         //Displaying User Name & Team Name/Colour on top of hints list
         UserNameText = findViewById(R.id.username_text);
         TeamNameText = findViewById(R.id.teamname_text);
-        UserNameText.setText("");  //USERNAME
+        UserNameText.setText(username);  //USERNAME
         int teamColor=0;
 
         switch(team.getColour()){
