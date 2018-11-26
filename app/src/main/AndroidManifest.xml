@@ -5,8 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.NFC" />
+
     <uses-feature android:name="android.hardware.nfc" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -20,33 +26,35 @@
             android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
         <activity
             android:name=".JoinGame"
-            android:label=" ">
-        </activity>
+            android:label=" "></activity>
         <activity
             android:name=".SignInActivity"
-            android:label=" ">
-        </activity>
+            android:label=" "></activity>
         <activity
             android:name=".GameHints"
-            android:label=" ">
-        </activity>
+            android:label=" "></activity>
         <activity
             android:name=".GameWon"
             android:label=""
-            android:parentActivityName="com.example.roumeliotis.tagit.MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GameWon" />
@@ -54,11 +62,10 @@
         <activity
             android:name=".GameOver"
             android:label=""
-            android:parentActivityName="com.example.roumeliotis.tagit.MainActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GameOver" />
-
         </activity>
         <activity
             android:name=".ScanHint"
@@ -71,6 +78,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <activity
+            android:name=".FullScreenImageActivity"
+            android:label="@string/title_activity_full_screen_image"></activity>
     </application>
 
 </manifest>
