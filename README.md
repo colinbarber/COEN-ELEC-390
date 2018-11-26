@@ -8,11 +8,12 @@ https://coen390-a-team.herokuapp.com
 ***
 | endpoint                              | type   | Function                                                       |
 | --------------------------------------|--------|----------------------------------------------------------------|
-| /                                     | GET    | return hello world in a json                                   |
+| /                                     | GET    | Brings you to the a webpage to view the games                  |
+| /new_game                             | GET    | Brings you to the a webpage to add a new game                  |
 | /game/\<string:game_name\>            | GET    | returns a json containing the info of this game                |
 | /team_score/\<int:team_id\>           | GET    | returns an array containing the hint_id of the hint that the team has found |
 | /hint/\<int:team_id\>/\<int:tag_id\>  | POST   | Posts the hint that has been found as found by the team        |
-| /game                                 | PUT    | Puts a new game in the db if the json passed is valid          |
+| /game_top_three/\<int:game_id\>       | GET    | returns a json containing the top 3 teams of the game id sent  |
 
 
 <br><br>
@@ -78,37 +79,18 @@ or
 ```
 <br><br>
 ***
-The PUT game endpoint will expect
+The GET top 3 team endpoint will return
 ```
 {
-    "name": "bitch",
-    "username": "jn",
-    "endtime": 1514825676008,
-    "teams": [
-        "team1",
-        "team2",
-        "team3"
+    "team_score": [
+        3,
+        2,
+        1
     ],
-    "colours": [
-        "color1",
-        "color2",
-        "color3"
-    ],
-    "hints": [
-        "EV basment",
-        "ECA office",
-        "Roof of hall"
-    ],
-    "tags": [
-        "1h3w4",
-        "3h4iw8",
-        "3h4j5"
+    "winner_ids": [
+        87,
+        88,
+        86
     ]
-}
-```
-And Return
-```
-{
-    "message": "success"
 }
 ```
