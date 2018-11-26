@@ -245,8 +245,11 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     //set on click so that an item can be clicked
     public void onItemClick(AdapterView<?> hints, View v, int position, long id) {
         NFCTag hint = (NFCTag) hints.getItemAtPosition(position);
+        Long hint_id = hint.getId();
         Intent intent = new Intent();
         intent.setClass(this, ScanHint.class);
+        intent.putExtra("username", username);
+        intent.putExtra("hint_id", hint_id.toString());
         intent.putExtra("Hint", hint);
         intent.putExtra("Team", team);
         intent.putExtra("Game", game);
