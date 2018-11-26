@@ -41,6 +41,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
+import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class ScanHint extends AppCompatActivity {
@@ -59,6 +60,7 @@ public class ScanHint extends AppCompatActivity {
     private TextView hintView;
     private GameManager gm;
     String RESULT;
+    pl.droidsonroids.gif.GifImageView spinner;
 
     ImageManager imageManager;
     Button takeImageButton;
@@ -71,6 +73,7 @@ public class ScanHint extends AppCompatActivity {
         setContentView(R.layout.activity_scan_hint);
         takeImageButton = findViewById(R.id.image_button);
         mImageView = findViewById(R.id.image);
+        spinner = findViewById(R.id.spinner);
         imageManager = new ImageManager(this);
 
 //        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -117,6 +120,8 @@ public class ScanHint extends AppCompatActivity {
             byte[] previousImage = imageManager.getImageByHint(hint.toString());
             currentImage = BitmapFactory.decodeByteArray(previousImage, 0, previousImage.length);
             mImageView.setImageBitmap(currentImage);
+            spinner.setVisibility(GONE);
+
         }
 
     }
@@ -129,7 +134,7 @@ public class ScanHint extends AppCompatActivity {
             takeImageButton.setVisibility(VISIBLE);
         }
         else
-            takeImageButton.setVisibility(View.GONE);
+            takeImageButton.setVisibility(GONE);
 
         takeImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -369,6 +374,7 @@ public class ScanHint extends AppCompatActivity {
             imageManager.insertImage(byteArray, hint.toString());
         }
         Log.e(TAG,"picture taken");
+        spinner.setVisibility(GONE);
         handleNFC(RESULT);
     }
 

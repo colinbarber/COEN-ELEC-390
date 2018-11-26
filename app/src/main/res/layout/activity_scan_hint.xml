@@ -11,9 +11,11 @@
         android:id="@+id/image"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
         android:layout_centerVertical="true"/>
 
     <Button
@@ -52,6 +54,7 @@
         android:textSize="35dp" />
 
     <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/spinner"
         android:layout_width="213dp"
         android:layout_height="290dp"
         android:layout_alignParentBottom="true"
