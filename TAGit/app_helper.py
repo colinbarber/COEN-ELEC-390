@@ -27,7 +27,7 @@ def create_tag(hints):
         db.session.add(tag)
         db.session.flush()
         tag_id.append(tag.id)
-    db.session.commit()
+    db.session.commit() # TODO change commit to flush and test
     return tag_id
 
 
@@ -39,7 +39,7 @@ def create_team(team_names, colours):
         db.session.add(team)
         db.session.flush()
         team_id.append(team.id)
-    db.session.commit()
+    db.session.commit() # TODO change commit to flush and test
     return team_id
 
 

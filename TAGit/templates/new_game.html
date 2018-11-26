@@ -1,6 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>Enter the following to create/edit a new game</h2>
+    <ul>
+        <li> <a href="{{ url_for('games') }}">Games</a></li>
+    </ul>
+    <h2>Enter the following to create a new game</h2>
 	<form method="POST" action="">
         {{ form.hidden_tag() }}
 		<fieldset id="myfeildset">
