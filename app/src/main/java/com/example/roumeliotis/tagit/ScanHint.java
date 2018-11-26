@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.SoundPool;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -36,7 +37,8 @@ public class ScanHint extends AppCompatActivity {
     public static final String TAG = "ScanHint";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private ServerHelper server = new ServerHelper();
-
+    private SoundEffects tagHitSound;
+    private SoundEffects tagFoundSound;
     private NFCTag hint;
     private Team team;
     private Game game;
@@ -44,10 +46,10 @@ public class ScanHint extends AppCompatActivity {
     private TextView hintView;
     private GameManager gm;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_hint);
-
 //        Toolbar mytoolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(mytoolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,6 +57,9 @@ public class ScanHint extends AppCompatActivity {
 
         gm = new GameManager(ScanHint.this);
 
+        //Sound Effects
+        tagHitSound = new SoundEffects(this);
+        tagFoundSound = new SoundEffects(this);
 
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
@@ -92,6 +97,7 @@ public class ScanHint extends AppCompatActivity {
                         intent.putExtra("Game", (Parcelable) game);
                         intent.putExtra("Team", (Serializable) team);
                         intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
+                        tagHitSound.playTagHitSound();
                         startActivity(intent);
                     }
                     else if(message.equals("tag already found")){
@@ -106,6 +112,7 @@ public class ScanHint extends AppCompatActivity {
                         tagFoundToast.setDuration(Toast.LENGTH_SHORT);
                         tagFoundToast.setView(layoutToast);
                         tagFoundToast.show();
+                        tagFoundSound.playAlreadyTaggedSound();
                     }
                     else{
 

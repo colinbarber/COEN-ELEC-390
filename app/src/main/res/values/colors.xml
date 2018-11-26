@@ -3,7 +3,13 @@
     <color name="colorPrimary">#212121</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorGrey">#545454</color>
     <color name="colorBackground">#373737</color>
     <color name="colorAccent">#00ddff</color>
+    <color name="ColorPink">#FC4CBB</color>
+    <color name="ColorBlue">#4C9FFC</color>
+    <color name="ColorPurple">#A70BE9 </color>
+    <color name="ColorRed">#F82C2C</color>
+    <color name="ColorGreen">#22E761</color>
+    <color name="ColorOrange">#FF890F</color>
+    <color name="colorGrey">#545454</color>
 </resources>

@@ -39,18 +39,18 @@
     android:background="@drawable/appbackground"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/hint"
-        android:layout_width="191dp"
-        android:layout_height="115dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        android:background="@drawable/hints_logo"
-        android:fontFamily="@font/teko_light"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp" />
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="191dp"
+            android:layout_height="115dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/hints_logo"
+            android:fontFamily="@font/teko_light"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="30dp" />
 
     <TextView
         android:id="@+id/count_down"
@@ -76,8 +76,31 @@
         android:layout_marginTop="0dp"
         android:background="#a8212121" />
 
+        <TextView
+            android:id="@+id/username_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/count_down"
+            android:layout_marginStart="19dp"
+            android:fontFamily="@font/teko_regular"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:text="" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/teamname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/hint"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/teko_regular"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:text="" />
+
+
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
