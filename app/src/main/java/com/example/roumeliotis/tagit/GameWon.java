@@ -13,7 +13,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.android.volley.VolleyError;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
@@ -23,11 +32,17 @@ public class GameWon extends AppCompatActivity {
     public static final String TAG = "GameWon";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private NfcAdapter mNfcAdapter;
-
+    private ServerHelper server = new ServerHelper();
+    private Team team;
+    GameManager gameManager;
+    ListView winningTeams;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_won);
+
+        gameManager = new GameManager(this);
+        winningTeams = findViewById(R.id.winningTeamsOver);
 
         //start NFC adapter
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -39,6 +54,7 @@ public class GameWon extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         setupForegroundDispatch(this, mNfcAdapter);
+        setWinningTeams();
     }
 
     protected void onPause(){
@@ -183,5 +199,33 @@ public class GameWon extends AppCompatActivity {
 
     private Boolean shouldAllowBack() {
         return true;
+    }
+
+    public void setWinningTeams() {
+        server.getTeamRanking(team.getRemote_id(), GameWon.this, new VolleyCallback() {
+            @Override
+            public void onSuccess(JSONObject response) {
+                try {
+                    JSONArray jsonArray = response.getJSONArray("team_ids");
+                    Team team_arr[] = new Team[jsonArray.length()];
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        team_arr[i] = gameManager.getTeamByRemoteID(jsonArray.getLong(i));
+                    }
+                    ArrayAdapter<Team> itemsAdapter = new ArrayAdapter<Team>(GameWon.this, R.layout.spinner_item, team_arr);
+                    winningTeams.setAdapter(itemsAdapter);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+            }
+            @Override
+            public void onError(VolleyError error) {
+                Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+            }
+        });
     }
 }

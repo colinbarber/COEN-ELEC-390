@@ -176,6 +176,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                     if (hintsTagged.containsAll(alltagid)) {
                         countDownTimer.cancel();
                         Intent intent = new Intent(GameHints.this, GameWon.class);
+                        intent.putExtra("Game", game);
                         startActivity(intent);
                     }else{
                         HintView.setAdapter(new HintAdapter(GameHints.this, tags, hintsTagged));
@@ -253,6 +254,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     private void goToGameOver() {
         Intent intent = new Intent();
         intent.setClass(this, GameOver.class);
+        intent.putExtra("Game", game);
         startActivity(intent);
     }
 

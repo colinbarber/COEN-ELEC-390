@@ -29,4 +29,14 @@
         android:fontFamily="@font/teko_regular"
         android:textSize="80dp" />
 
+    <ListView
+        android:id="@+id/winningTeamsOver"
+        android:layout_width="289dp"
+        android:layout_height="156dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/hint"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent" />
+
 </RelativeLayout>
