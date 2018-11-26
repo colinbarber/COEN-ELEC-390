@@ -50,6 +50,7 @@ public class JoinGame extends AppCompatActivity {
     String gameText;
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
+    ImageManager imageManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,7 @@ public class JoinGame extends AppCompatActivity {
         gameDisplayTextView = findViewById(R.id.game_display_textview);
         serverHelper = new ServerHelper();
         gameManager = new GameManager(this);
+        imageManager = new ImageManager(this);
 
         gameText="";
 
@@ -102,7 +104,6 @@ public class JoinGame extends AppCompatActivity {
                                 for (int i = 0; i<tags.size(); i++){
                                     gameText+= tags.get(i).getHint()+"\n";
                                 }
-
                                 goToSignInActivity(mGame, teams, tags);
 
                             } catch(JSONException e){

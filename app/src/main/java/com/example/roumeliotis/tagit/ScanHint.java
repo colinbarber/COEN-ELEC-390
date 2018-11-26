@@ -58,6 +58,7 @@ public class ScanHint extends AppCompatActivity {
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
     private GameManager gm;
+    String RESULT;
 
     ImageManager imageManager;
     Button takeImageButton;
@@ -322,10 +323,11 @@ public class ScanHint extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
+                RESULT = result;
                 Log.e(TAG,"Result: "+result);
                 Log.e(TAG,"hint_id: "+hint_id);
                 if (result.equals(hint_id)) {
-                    handleNFC(result);
+                    dispatchTakePictureIntent();
                 }
                 else {
                     LayoutInflater inflater = getLayoutInflater();
@@ -367,6 +369,7 @@ public class ScanHint extends AppCompatActivity {
             imageManager.insertImage(byteArray, hint.toString());
         }
         Log.e(TAG,"picture taken");
+        handleNFC(RESULT);
     }
 
     //method to switch activity
