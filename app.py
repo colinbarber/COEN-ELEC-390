@@ -1,15 +1,12 @@
-#!/usr/bin/python3
-import datetime
+from datetime import datetime
 
 from flask import request, render_template, url_for, redirect
 from TAGit.exception import InvalidUsage
-from flask_expects_json import expects_json
 from flask import jsonify
 
 from TAGit.__init__ import app
 from TAGit.models.games import Game
 from TAGit.app_helper import *
-from TAGit.schema import create_game_schema
 from TAGit.form import GameForm
 
 
@@ -18,7 +15,20 @@ from TAGit.form import GameForm
 def games():
     app.logger.info("IP address: " + str(request.url))
     current_games = Game.query.all()
-    return render_template('games.html', Games=current_games, title="Games")
+    hint_tag = []
+    team_name = []
+    colours = []
+    for i in range(len(current_games)):
+        hint_tag.append(get_tag(to_int(current_games[i].tag_ids.split(","))))
+        team = get_team(current_games[i].team_ids.split(","))
+        team_name.append(team[0])
+        colours.append(team[1])
+    return render_template('games.html', Games=current_games, Hints=hint_tag, Teams=team_name, Colours=colours, title="Games")
+
+
+@app.route('/<string:page_name>')
+def static_page(page_name):
+    return render_template('%s.html' % page_name)
 
 
 # returns a json containing the info of this game
@@ -65,48 +75,14 @@ def get_team_scores(team_id):
     )
 
 
-"""
-# Puts a new game in the db if the json passed is valid
-@app.route('/game', methods=['PUT'])
-@expects_json(create_game_schema)
-def create_game():
-    app.logger.info(str(request.url))
-    content = request.get_json()
-    app.logger.info("Game name of hints requested", content)
-    g_name = content["name"]
-    u_name = content["username"]
-    end_time = content["endtime"]
-    teams = content["teams"]
-    colours = content["colours"]
-    hints = content["hints"]
-    team_ids = create_team(teams, colours)
-    tag_ids = create_tag(hints)
-    game = Game(name=g_name,
-                user_name=u_name,
-                team_ids=to_comma_separated_str(team_ids),
-                tag_ids=to_comma_separated_str(tag_ids),
-                time_end=end_time)
-    db.session.add(game)
-    db.session.flush()
-    game.name = str(game.name + str(game.id))
-    db.session.commit()
-    return jsonify(
-        {
-            "message": game.name
-        })
-"""
-
-
 @app.route('/new_game', methods=['GET', 'POST'])
 def new_game():
     app.logger.info(str(request.url))
     form = GameForm()
     if form.validate_on_submit():
-        team_ids = create_team(form.teams.data, form.colours.data)
-        tag_ids = create_tag(form.hints.data)
-        dt_obj = datetime.strptime(form.endtime.data,
-                                   '%d.%m.%Y %H:%M:%S,%f')
-        millisec = dt_obj.timestamp() * 1000
+        team_ids = create_team(form.teams.data.split(","), form.colours.data.split(","))
+        tag_ids = create_tag(form.hints.data.split(","))
+        millisec = form.endtime.data.timestamp() * 1000
         game = Game(name=form.name.data,
                     user_name=form.username.data,
                     team_ids=to_comma_separated_str(team_ids),
@@ -116,7 +92,7 @@ def new_game():
         db.session.flush()
         game.name = str(game.name + str(game.id))
         db.session.commit()
-        return redirect(url_for('new_games'))
+        return redirect(url_for('games'))
     return render_template('new_game.html', form=form, title="New Game")
 
 
@@ -209,3 +185,56 @@ class TeamScore:
 
 if __name__ == '__main__':
     app.run()
+
+"""
+# Puts a new game in the db if the json passed is valid
+@app.route('/game', methods=['PUT'])
+@expects_json(create_game_schema)
+def create_game():
+    app.logger.info(str(request.url))
+    content = request.get_json()
+    app.logger.info("Game name of hints requested", content)
+    g_name = content["name"]
+    u_name = content["username"]
+    end_time = content["endtime"]
+    teams = content["teams"]
+    colours = content["colours"]
+    hints = content["hints"]
+    team_ids = create_team(teams, colours)
+    tag_ids = create_tag(hints)
+    game = Game(name=g_name,
+                user_name=u_name,
+                team_ids=to_comma_separated_str(team_ids),
+                tag_ids=to_comma_separated_str(tag_ids),
+                time_end=end_time)
+    db.session.add(game)
+    db.session.flush()
+    game.name = str(game.name + str(game.id))
+    db.session.commit()
+    return jsonify(
+        {
+            "message": game.name
+        })
+
+    @app.route('/new_game', methods=['GET', 'POST'])
+def new_game(team_names, colours, hints):
+    app.logger.info(str(request.url))
+    form = GameForm()
+    if form.validate_on_submit():
+        team_ids = create_team(team_names, colours)
+        tag_ids = create_tag(hints)
+        dt_obj = datetime.strptime(form.endtime.data,
+                                   '%d.%m.%Y %H:%M:%S,%f')
+        millisec = dt_obj.timestamp() * 1000
+        game = Game(name=form.name.data,
+                    user_name=form.username.data,
+                    team_ids=to_comma_separated_str(team_ids),
+                    tag_ids=to_comma_separated_str(tag_ids),
+                    time_end=millisec)
+        db.session.add(game)
+        db.session.flush()
+        game.name = str(game.name + str(game.id))
+        db.session.commit()
+        return redirect(url_for('games'))
+    return render_template('game.html', form=form, title="New Game")
+"""

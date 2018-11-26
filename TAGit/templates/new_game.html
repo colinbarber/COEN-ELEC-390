@@ -2,10 +2,9 @@
 {% block content %}
     <h2>Enter the following to create/edit a new game</h2>
 	<form method="POST" action="">
-		{{ form.hidden_tag() }}
-		<fieldset>
+        {{ form.hidden_tag() }}
+		<fieldset id="myfeildset">
 			<div>
-
 				{{ form.name.label }}
 				{% if form.name.errors %}
                     {{ form.name }}
@@ -17,7 +16,6 @@
                 {% else %}
                     {{ form.name }}
                 {% endif %}
-
 			</div>
             <div>
                 {{ form.username.label }}
@@ -33,7 +31,7 @@
                 {% endif %}
             </div>
             <div>
-                {{ form.endtime.label }}
+                <label for="endtime">End Time (ex: 2018-09-26 15:30)</label>
 				{% if form.endtime.errors %}
                     {{ form.endtime }}
                     <div class="">
@@ -41,16 +39,14 @@
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
-                {% else %}
+                 {% else %}
                     {{ form.endtime }}
                 {% endif %}
             </div>
             <div>
-                {{ form.teams.label }}
+                <label for="teams">Comma Seperated List Of Teams (x,y,z)</label>
 				{% if form.teams.errors %}
-                    {% for teams in form.teams %}
-                        {{ forms.render_field(team.name) }}
-                    {% endfor %}
+                    {{ form.teams }}
                     <div class="">
                         {% for error in form.teams.errors %}
                             <span>{{ error }}</span>
@@ -60,8 +56,8 @@
                     {{ form.teams }}
                 {% endif %}
             </div>
-			<div>
-				{{ form.colours.label }}
+            <div>
+                <label for="colours">Comma Separated List Of Colours (x,y,z)</label>
 				{% if form.colours.errors %}
                     {{ form.colours }}
                     <div class="">
@@ -72,9 +68,9 @@
                 {% else %}
                     {{ form.colours }}
                 {% endif %}
-			</div>
-			<div>
-				{{ form.hints.label }}
+            </div>
+            <div>
+                <label for="hints">Comma Separated List Of Hints (x,y,z)</label>
 				{% if form.hints.errors %}
                     {{ form.hints }}
                     <div class="">
@@ -85,10 +81,104 @@
                 {% else %}
                     {{ form.hints }}
                 {% endif %}
-			</div>
+            </div>
+            <!--
+            <div>
+                <table class="ui table">
+                    <thead>
+                    <th>Team Name</th>
+                    <th>Team Colour</th>
+                    <th>
+                        <button onclick="Addteam()">add</button>
+                    </th>
+                    </thead>
+                    <tbody id="team_table">
+
+                    </tbody>
+                </table>
+            </div>
+			<div>
+                <table class="ui table">
+                    <thead>
+                    <th>Hint</th>
+                    <th>Hint Name</th>
+                    <th>
+                        <button onclick="Addhint()">add</button>
+                    </th>
+                    </thead>
+                    <tbody id="hint_table">
+
+                    </tbody>
+                </table>
+            </div>-->
 		</fieldset>
-		<div>
-			{{ form.submit }}
+        <div>
+            {{ form.submit }}
 		</div>
-	</form>
+        	</form>
 {% endblock content %}
+
+        <!--<script>
+            let teamcounter = 0;
+            function Addteam() {
+                var teamtable = document.getElementById("team_table");
+                var row = teamtable.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var nameinput = document.createElement("input");
+                nameinput.setAttribute("id", "teams-"+teamcounter);
+                nameinput.setAttribute("name", "team-"+teamcounter);
+                nameinput.setAttribute("type", "text");
+                var colourinput = document.createElement("input");
+                colourinput.setAttribute("id", "colour"+teamcounter);
+                colourinput.setAttribute("name", "colour"+teamcounter);
+                colourinput.setAttribute("type", "text");
+                cell1.appendChild(nameinput);
+                cell2.appendChild(colourinput);
+                cell3.innerHTML = "team "+teamcounter;
+                teamcounter++;
+            }
+
+            let hintcounter = 0;
+            function Addhint() {
+                var hinttable = document.getElementById("hint_table");
+                var hintrow = hinttable.insertRow(0);
+                var hintcell1 = hintrow.insertCell(0);
+                var hintcell2 = hintrow.insertCell(1);
+                var hintinput = document.createElement("input");
+                hintinput.setAttribute("id", "hint-"+hintcounter);
+                hintinput.setAttribute("name", "hint-"+hintcounter);
+                hintinput.setAttribute("type", "text");
+                hintcell1.innerHTML = hintcounter;
+                hintcell2.appendChild(hintinput);
+                hintcounter++;
+            }
+
+            function team_names(){
+                var table = document.getElementById("team_table");
+                var arr = [];
+                for (var r = 0, n = table.rows.length; r < n; r++) {
+                    arr[r] = table.rows[r].cells[0].innerHTML;
+                }
+                return arr;
+            }
+
+            function team_colours(){
+                var table = document.getElementById("team_table");
+                var arr = [];
+                for (var r = 0, n = table.rows.length; r < n; r++) {
+                    arr[r] = table.rows[r].cells[1].innerHTML;
+                }
+                return arr;
+            }
+
+            function hints(){
+                var table = document.getElementById("hint_table");
+                var arr = [];
+                for (var r = 0, n = table.rows.length; r < n; r++) {
+                    arr[r] = table.rows[r].cells[1].innerHTML;
+                }
+                return arr;
+            }
+        </script>-->
