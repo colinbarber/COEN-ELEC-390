@@ -39,14 +39,17 @@ public class HintAdapter extends ArrayAdapter<NFCTag> {
         TextView name = (TextView) listItem.findViewById(R.id.text_view_hint);
         name.setText(currentTag.getHint());
 
-        ImageView image = (ImageView) listItem.findViewById(R.id.check_mark_image);
-        image.setImageResource(17301520);
-        if (foundTagsList.contains(currentTag.getRemote_id()))
-            image.setVisibility(listItem.VISIBLE);
-        else{
-            image.setVisibility(listItem.GONE);
+        ImageView imageCheck = (ImageView) listItem.findViewById(R.id.check_mark_image);
+        ImageView imageNoCheck = (ImageView) listItem.findViewById(R.id.nocheck_mark_image);
+        //image.setImageResource(17301520);
+        if (foundTagsList.contains(currentTag.getRemote_id())) {
+            imageCheck.setVisibility(listItem.VISIBLE);
+            imageNoCheck.setVisibility(listItem.GONE);
         }
-
+        else{
+            imageCheck.setVisibility(listItem.GONE);
+            imageNoCheck.setVisibility(listItem.VISIBLE);
+        }
         return listItem;
     }
 }

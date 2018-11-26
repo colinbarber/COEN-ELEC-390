@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -48,6 +49,10 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     public static final String TAG = "GameHints";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private TextView CountDown;
+    private TextView UserNameText;
+    private TextView TeamNameText;
+    private SoundEffects gameWonSound;
+    private SoundEffects gameLostSound;
     private ListView HintView;
     private NfcAdapter mNfcAdapter;
     private ActionBarDrawerToggle toggle;
@@ -57,6 +62,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     private ArrayList<NFCTag> tags;
     private Team team;
     private Game game;
+    private String username;
     private ServerHelper server = new ServerHelper();
     private ArrayList<Long> hintsTagged = new ArrayList();
 
@@ -72,6 +78,8 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        gameWonSound = new SoundEffects(this);
+        gameLostSound = new SoundEffects(this);
         if(getSupportActionBar() != null){ getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
         if(getActionBar() != null){
             getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -102,11 +110,42 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         tags = (ArrayList<NFCTag>) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
         game = intent.getParcelableExtra("Game");
+        username = intent.getStringExtra("username");
+
+        //Displaying User Name & Team Name/Colour on top of hints list
+        UserNameText = findViewById(R.id.username_text);
+        TeamNameText = findViewById(R.id.teamname_text);
+        UserNameText.setText(username);  //USERNAME
+        int teamColor=0;
+
+        switch(team.getColour()){
+            case "pink":
+                teamColor= getResources().getColor(R.color.ColorPink);
+                break;
+            case "blue":
+                teamColor= getResources().getColor(R.color.ColorBlue);
+                break;
+            case "purple":
+                teamColor= getResources().getColor(R.color.ColorPurple);
+                break;
+            case "green":
+                teamColor= getResources().getColor(R.color.ColorGreen);
+                break;
+            case "orange":
+                teamColor= getResources().getColor(R.color.ColorOrange);
+                break;
+            case "red":
+                teamColor= getResources().getColor(R.color.ColorRed);
+                break;
+            default:
+                teamColor= getResources().getColor(R.color.colorWhite);
+        }
+        TeamNameText.setText(team.toString());
+        TeamNameText.setTextColor(teamColor);
 
         HintView = findViewById(R.id.hint_list);
         CountDown = findViewById(R.id.count_down);
         HintView.setOnItemClickListener(this);
-
         //initialise count down
         startCountDown();
 
@@ -174,8 +213,12 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                         alltagid.add(tags.get(i).getRemote_id());
                     }
                     if (hintsTagged.containsAll(alltagid)) {
-                        countDownTimer.cancel();
+                        if (countDownTimer!=null){
+                            countDownTimer.cancel();
+                        }
                         Intent intent = new Intent(GameHints.this, GameWon.class);
+                        intent.putExtra("Game", game);
+                        gameWonSound.playGameWinSound();
                         startActivity(intent);
                     }else{
                         HintView.setAdapter(new HintAdapter(GameHints.this, tags, hintsTagged));
@@ -202,8 +245,11 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     //set on click so that an item can be clicked
     public void onItemClick(AdapterView<?> hints, View v, int position, long id) {
         NFCTag hint = (NFCTag) hints.getItemAtPosition(position);
+        Long hint_id = hint.getId();
         Intent intent = new Intent();
         intent.setClass(this, ScanHint.class);
+        intent.putExtra("username", username);
+        intent.putExtra("hint_id", hint_id.toString());
         intent.putExtra("Hint", hint);
         intent.putExtra("Team", team);
         intent.putExtra("Game", game);
@@ -240,9 +286,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                             .append(seconds).toString());
                 }
 
-                public void onFinish() {
-                    goToGameOver();
-                }
+                public void onFinish() { goToGameOver(); }
             };
             countDownTimer.start();
         } else {
@@ -251,8 +295,10 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
     }
 
     private void goToGameOver() {
+        gameLostSound.playLoseGameSound();
         Intent intent = new Intent();
         intent.setClass(this, GameOver.class);
+        intent.putExtra("Game", game);
         startActivity(intent);
     }
 

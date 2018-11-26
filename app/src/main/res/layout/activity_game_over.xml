@@ -8,22 +8,46 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/tagitLogo"
         android:layout_width="340dp"
         android:layout_height="147dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         android:src="@drawable/tagittxtlogo" />
-
     <TextView
         android:id="@+id/hint"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="154dp"
+        android:fontFamily="@font/teko_regular"
         android:text="You Lose!"
         android:textAlignment="center"
-        android:fontFamily="@font/teko_regular"
         android:textColor="@color/colorWhite"
-        android:textSize="80dp" />
+        android:textSize="75dp" />
 
+    <ListView
+        android:id="@+id/winningTeamsOver"
+        android:layout_width="120dp"
+        android:layout_height="209dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/leaderboard"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/colorAccent"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/leaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_below="@+id/hint"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/teko_light"
+        android:text="Leaderboard"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="28dp" />
 </RelativeLayout>

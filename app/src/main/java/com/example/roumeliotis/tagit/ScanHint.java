@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.SoundPool;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -47,10 +48,13 @@ public class ScanHint extends AppCompatActivity {
     public static final String TAG = "ScanHint";
     public static final String MIME_TEXT_PLAIN = "text/plain";
     private ServerHelper server = new ServerHelper();
-
+    private SoundEffects tagHitSound;
+    private SoundEffects tagFoundSound;
     private NFCTag hint;
+    private Long hint_id;
     private Team team;
     private Game game;
+    private String username;
     private NfcAdapter mNfcAdapter;
     private TextView hintView;
     private GameManager gm;
@@ -75,11 +79,16 @@ public class ScanHint extends AppCompatActivity {
 
         gm = new GameManager(ScanHint.this);
 
+        //Sound Effects
+        tagHitSound = new SoundEffects(this);
+        tagFoundSound = new SoundEffects(this);
 
         Intent intent = getIntent();
         hint = (NFCTag) intent.getSerializableExtra("Hint");
         team = (Team) intent.getSerializableExtra("Team");
-        game = (Game) intent.getParcelableExtra("Game");
+        game = intent.getParcelableExtra("Game");
+        username = intent.getStringExtra(username);
+        hint_id = hint.getRemote_id();
 
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -145,6 +154,8 @@ public class ScanHint extends AppCompatActivity {
                         intent.putExtra("Team", (Serializable) team);
                         intent.putExtra("Hint", (Serializable) gm.getTagsByGameID(game.getId()));
                         //take a picture then return
+                        intent.putExtra("username", username);
+                        tagHitSound.playTagHitSound();
                         startActivity(intent);
                     }
                     else if(message.equals("tag already found")){
@@ -159,6 +170,7 @@ public class ScanHint extends AppCompatActivity {
                         tagFoundToast.setDuration(Toast.LENGTH_SHORT);
                         tagFoundToast.setView(layoutToast);
                         tagFoundToast.show();
+                        tagFoundSound.playAlreadyTaggedSound();
                     }
                     else{
 
@@ -253,7 +265,7 @@ public class ScanHint extends AppCompatActivity {
     //Inner class that allows async handling of nfc tag reading asynchronously
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {
 
-        static final String TAG = "NdefReaderTask";
+        static final String TAG = "ScanHint";
 
         @Override
         protected String doInBackground(Tag... params) {
@@ -307,8 +319,23 @@ public class ScanHint extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
-                Log.d(TAG,"Result: "+result);
-                handleNFC(result);
+                Log.e(TAG,"Result: "+result);
+                if (result.equals(hint_id.toString())) {
+                    handleNFC(result);
+                }
+                else {
+                    LayoutInflater inflater = getLayoutInflater();
+                    View layoutToast = inflater.inflate(R.layout.toast,
+                            (ViewGroup) findViewById(R.id.toast_layout));
+                    TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
+                    textToast.setText("Wrong Tag");
+                    Toast tagFoundToast = new Toast(getApplicationContext());
+                    tagFoundToast.setGravity(Gravity.CENTER, 0, 0);
+                    tagFoundToast.setDuration(Toast.LENGTH_SHORT);
+                    tagFoundToast.setView(layoutToast);
+                    tagFoundToast.show();
+                    tagFoundSound.playAlreadyTaggedSound();
+                }
             }
         }
     }

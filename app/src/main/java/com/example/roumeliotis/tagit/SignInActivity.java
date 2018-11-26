@@ -181,6 +181,7 @@ public class SignInActivity extends AppCompatActivity{
         intent.putExtra("Player_team", team_name);
         */
         intent.setClass(this, GameHints.class);
+        intent.putExtra("username", mUsername);
         intent.putExtra("Game", (Parcelable) game);
         intent.putExtra("Team", (Serializable) myTeam);
         intent.putExtra("Hint", (Serializable) tags);

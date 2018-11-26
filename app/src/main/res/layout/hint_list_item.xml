@@ -12,17 +12,26 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="@font/teko_light"
+        android:textColor="@color/colorWhite"
         android:text="Hint"/>
 
     <ImageView
         android:id="@+id/check_mark_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_width="26dp"
+        android:layout_height="28dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        tools:background="@android:drawable/checkbox_on_background"
-       />
+        android:layout_alignTop="@+id/text_view_hint"
+        android:layout_marginEnd="13dp"
+        android:src="@drawable/checked_box" />
+
+    <ImageView
+        android:id="@+id/nocheck_mark_image"
+        android:layout_width="26dp"
+        android:layout_height="28dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/text_view_hint"
+        android:layout_marginEnd="13dp"
+        android:src="@drawable/unchecked_mark_image" />
+
 
 </RelativeLayout>
