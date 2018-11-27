@@ -68,7 +68,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
 
     private Handler mHandler;
     private Runnable refresh;
-    private int REFRESH_TIME = 15000; //in milliseconds
+    private int REFRESH_TIME = 5000; //in milliseconds
 
 
     protected void onCreate(Bundle savedInstanceState) {
