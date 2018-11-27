@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_width="240dp"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerVertical="true"/>
+
+    <Button
+        android:id="@+id/image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:text="VIEW PICTURE" />
+
+
+    <TextView
+        android:id="@+id/scanHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/scanhint_logo"
+        android:fontFamily="@font/teko_regular"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/hintView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="158dp"
+        android:fontFamily="@font/teko_regular"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="35dp" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/spinner"
+        android:layout_width="213dp"
+        android:layout_height="290dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="31dp"
+        android:src="@drawable/loading" />
+
+</RelativeLayout>

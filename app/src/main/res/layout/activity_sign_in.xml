@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
+    tools:context=".SignInActivity">
+
+    <EditText
+        android:id="@+id/username_edit_text"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:backgroundTint="#00DDFF"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz -_1234567890"
+        android:fontFamily="@font/teko_regular"
+        android:hint="Enter your Username"
+        android:inputType="text"
+        android:maxLength="20"
+        android:textAlignment="center"
+        android:textCursorDrawable="@null"
+        android:textSize="40dp"
+        android:singleLine="true"/>
+
+    <TextView
+        android:id="@+id/team_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/team_spinner"
+        android:layout_alignStart="@+id/username_edit_text"
+        android:layout_marginBottom="-169dp"
+        android:fontFamily="@font/teko_regular"
+        android:text="Select Team:"
+        android:textSize="30sp" />
+
+    <Spinner
+        android:id="@+id/team_spinner"
+        android:layout_width="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:fontFamily="@font/teko_regular"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/username_edit_text"
+        android:popupBackground="@android:color/transparent"
+        android:layout_marginTop="170dp"
+        android:spinnerMode="dropdown"
+        android:dropDownVerticalOffset="40dp"/>
+
+    <Button
+        android:id="@+id/savebtn"
+        android:layout_width="240dp"
+        android:layout_height="91dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="154dp"
+        android:background="@drawable/save_button"
+        android:text=""
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/player_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_below="@+id/savebtn"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
