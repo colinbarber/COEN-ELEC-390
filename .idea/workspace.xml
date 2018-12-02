@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22773108-7dec-4726-a818-50b67364b71f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/reset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,79 +14,80 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/COEN_ELEC_390$Unittests_in_test_app_py.coverage" NAME="Unittests in test_app.py Coverage Results" MODIFIED="1541786172526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/COEN_ELEC_390$Unittests_in_test_app_py.coverage" NAME="Unittests in test_app.py Coverage Results" MODIFIED="1543789852278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/COEN_ELEC_390$Unittests_for_test_app_TestViews_test_some_json.coverage" NAME="Unittests for test_app.TestViews.test_some_json Coverage Results" MODIFIED="1541636726793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/COEN_ELEC_390$coen390.coverage" NAME="coen390 Coverage Results" MODIFIED="1543252215276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COEN_ELEC_390$coen390.coverage" NAME="coen390 Coverage Results" MODIFIED="1543789168356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/COEN_ELEC_390$test_app.coverage" NAME="test_app Coverage Results" MODIFIED="1541631390718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TAGit/tests" />
     <SUITE FILE_PATH="coverage/COEN_ELEC_390$Unittests_in_app_py.coverage" NAME="Unittests in app.py Coverage Results" MODIFIED="1541634900526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/COEN_ELEC_390$games.coverage" NAME="games Coverage Results" MODIFIED="1543527841263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TAGit/models" />
+    <SUITE FILE_PATH="coverage/COEN_ELEC_390$reset.coverage" NAME="reset Coverage Results" MODIFIED="1543786582532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myAutoScrollToSource" value="true" />
+    <option name="myAutoScrollFromSource" value="true" />
+    <option name="myElementSize" value="353" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="coverage" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/templates/new_game.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/static/layout.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="210">
-                <caret line="14" column="115" selection-start-line="14" selection-start-column="115" selection-end-line="14" selection-end-column="115" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/tests/test_app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-466">
+              <caret line="188" column="17" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
+              <folding>
+                <element signature="e#1#16#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/wtforms/form.py">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/routing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="1579" selection-start-line="1579" selection-end-line="1579" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
-              <caret line="211" selection-start-line="211" selection-end-line="211" />
+              <caret line="1790" selection-start-line="1790" selection-end-line="1790" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/templates/layout.html">
+        <entry file="file://$PROJECT_DIR$/tests/reset.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+            <state relative-caret-position="240">
+              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <folding>
+                <element signature="e#1#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/templates/games.html">
+        <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TAGit/form.py">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="88" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1987">
+              <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -91,21 +95,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="130" column="41" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="41" />
+            <state relative-caret-position="1699">
+              <caret line="146" column="56" lean-forward="true" selection-start-line="146" selection-start-column="56" selection-end-line="146" selection-end-column="56" />
               <folding>
-                <element signature="e#2#63#0" expanded="true" />
-                <marker date="1543249460562" expanded="true" signature="5951:6077" ph="..." />
+                <element signature="e#0#61#0" expanded="true" />
+                <marker date="1543786803943" expanded="true" signature="5947:6073" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+        <entry file="file://$PROJECT_DIR$/TAGit/models/teams.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="180">
+              <caret line="12" column="43" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -113,8 +126,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TAGit/app_helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
+            <state relative-caret-position="330">
+              <caret line="66" selection-start-line="66" selection-end-line="66" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,8 +141,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -138,6 +154,7 @@
       <find>getHintAndTag</find>
       <find>to_int</find>
       <find>get_team</find>
+      <find>session</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,33 +179,33 @@
         <option value="$PROJECT_DIR$/TAGit/models/tags.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/tests/test_app.py" />
         <option value="$PROJECT_DIR$/TAGit/static/tableSort.js" />
         <option value="$PROJECT_DIR$/TAGit/static/addTeam.js" />
         <option value="$PROJECT_DIR$/TAGit/templates/new_game_t.html" />
         <option value="$PROJECT_DIR$/TAGit/form.py" />
-        <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/TAGit/app_helper.py" />
         <option value="$PROJECT_DIR$/TAGit/templates/layout.html" />
         <option value="$PROJECT_DIR$/TAGit/templates/games.html" />
         <option value="$PROJECT_DIR$/TAGit/templates/new_game.html" />
         <option value="$PROJECT_DIR$/TAGit/static/layout.css" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/TAGit/app_helper.py" />
+        <option value="$PROJECT_DIR$/tests/reset.py" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/tests/test_app.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="24" />
-    <option name="y" value="29" />
+    <option name="x" value="81" />
+    <option name="y" value="53" />
     <option name="width" value="1318" />
-    <option name="height" value="717" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,19 +221,13 @@
             <path>
               <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
               <item name="COEN-ELEC-390" type="462c0819:PsiDirectoryNode" />
-              <item name="TAGit" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="COEN-ELEC-390" type="b2602c69:ProjectViewProjectNode" />
-              <item name="COEN-ELEC-390" type="462c0819:PsiDirectoryNode" />
-              <item name="TAGit" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -229,13 +240,14 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/TAGit" />
+      <recent name="$PROJECT_DIR$/Server" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/TAGit/models" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,7 +262,51 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Flask server.coen390">
+  <component name="RunManager" selected="Python tests.Unittests in test_app.py">
+    <configuration name="games" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="COEN-ELEC-390" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TAGit/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TAGit/models/games.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="reset" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="COEN-ELEC-390" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/reset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="COEN-ELEC-390" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -303,21 +359,6 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in app.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <module name="COEN-ELEC-390" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/app.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="Unittests in test_app.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="COEN-ELEC-390" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -338,14 +379,16 @@
       <item itemvalue="Python.test_app" />
       <item itemvalue="Python tests.Unittests in test_app.py" />
       <item itemvalue="Python tests.Unittests for test_app.TestViews.test_some_json" />
-      <item itemvalue="Python tests.Unittests in app.py" />
+      <item itemvalue="Python.games" />
+      <item itemvalue="Python.reset" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Unittests in test_app.py" />
+        <item itemvalue="Python.reset" />
+        <item itemvalue="Python.games" />
         <item itemvalue="Python tests.Unittests for test_app.TestViews.test_some_json" />
         <item itemvalue="Python.test_app" />
-        <item itemvalue="Python tests.Unittests in app.py" />
       </list>
     </recent_temporary>
   </component>
@@ -360,43 +403,45 @@
       <option name="presentableId" value="Default" />
       <updated>1540260696401</updated>
       <workItem from="1543201388631" duration="16357000" />
+      <workItem from="1543347034719" duration="950000" />
+      <workItem from="1543527787683" duration="16963000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 28m 58s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 16h 57m 48s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 31m 26s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 03m 50s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 31m 49s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 10m 53s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 39m 35s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 11m 03s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 44m 15s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 13m 45s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 44m 44s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 16m 12s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.07 at 19h 45m 27s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 16m 46s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.09 at 09h 59m 34s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 19m 19s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.09 at 12h 47m 35s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 19m 40s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_app_py - 2018.11.09 at 12h 56m 13s.xml">
+    <history-entry file="Unittests_in_test_app_py - 2018.12.02 at 17h 30m 58s.xml">
       <configuration name="Unittests in test_app.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16357000" />
+    <option name="totallyTimeSpent" value="34270000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,14 +454,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49667773" visible="true" weight="0.21244635" />
-      <window_info id="Structure" order="1" sideWeight="0.50332224" side_tool="true" visible="true" weight="0.21244635" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4930748" visible="true" weight="0.21816881" />
+      <window_info id="Structure" order="1" sideWeight="0.5069252" side_tool="true" visible="true" weight="0.21816881" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.25301206" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.2746988" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.56506026" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39638555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -425,10 +469,11 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50043595" side_tool="true" weight="0.32827324" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32722145" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32650602" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32771084" />
-      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32827324" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32771084" />
       <window_info anchor="bottom" id="Inspection Results" order="14" weight="0.32866043" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -465,6 +510,28 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAGit/app_helper.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAGit/app_helper.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAGit/app_helper.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TAGit/app_helper.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -475,46 +542,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/ext/declarative/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6330">
-          <caret line="435" selection-start-line="435" selection-end-line="435" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/psycopg2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1545">
-          <caret line="121" column="46" selection-start-line="121" selection-start-column="46" selection-end-line="121" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/model.py" />
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/cli.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="323" selection-start-line="323" selection-end-line="323" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/serving.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="261" selection-start-line="261" selection-end-line="261" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/user.py" />
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/gunicorn/glogging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="263" column="8" selection-start-line="263" selection-start-column="8" selection-end-line="263" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TAGit/package.json" />
     <entry file="file://$PROJECT_DIR$/TAGit/schema.json" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/logging/__init__.py">
@@ -559,16 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/teams.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12345">
@@ -608,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="1812" selection-start-line="1812" selection-end-line="1812" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TAGit/schema.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -622,54 +632,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/models/tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/routing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23445">
-          <caret line="1580" column="24" selection-start-line="1580" selection-start-column="8" selection-end-line="1580" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/COEN-ELEC-390.iml" />
     <entry file="file://$PROJECT_DIR$/local.properties" />
-    <entry file="file://$PROJECT_DIR$/TAGit/models/games.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="15" selection-start-column="17" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#16#0" expanded="true" />
-            <marker date="1543168742320" expanded="true" signature="990:1234" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/jinja2/parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -701,13 +665,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/static/addTeam.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/static/addTeam.js" />
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask_wtf/form.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -715,34 +673,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/templates/new_game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/static/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/wtforms/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="3165">
           <caret line="211" selection-start-line="211" selection-end-line="211" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/form.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="88" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/app_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="41" column="62" selection-start-line="41" selection-start-column="62" selection-end-line="41" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -760,38 +708,312 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/templates/new_game.html">
+    <entry file="file://$PROJECT_DIR$/TAGit/form.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TAGit/static/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="130" column="41" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="41" />
+        <state relative-caret-position="60">
+          <caret line="4" column="88" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
           <folding>
-            <element signature="e#2#63#0" expanded="true" />
-            <marker date="1543249460562" expanded="true" signature="5951:6077" ph="..." />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/TAGit/models/games.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/TAGit/models/games.py</OriginalElement>
+          <nodes>
+            <node x="" y="">Model</node>
+            <node x="" y="">TAGit.models.games.Game</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="99.0" y="54.0" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://AlchemyModelDependency/#COEN-ELEC-390">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>AlchemyModelDependency</ID>
+          <OriginalElement>#COEN-ELEC-390</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="546.5" y="253.5" />
+          <SelectedNodes />
+          <Categories />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="115" selection-start-line="14" selection-start-column="115" selection-end-line="14" selection-end-column="115" />
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="28" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="28" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/TAGit">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/TAGit</OriginalElement>
+          <nodes>
+            <node x="928.0" y="89.0">app.TeamScore</node>
+            <node x="173.0" y="168.0">TAGit.form.GameForm</node>
+            <node x="363.0" y="168.0">TAGit.models.tags.Tag</node>
+            <node x="60.0" y="168.0">Exception</node>
+            <node x="0.0" y="247.0">TAGit.exception.InvalidUsage</node>
+            <node x="45.0" y="89.0">BaseException</node>
+            <node x="769.0" y="168.0">TAGit.models.games.Game</node>
+            <node x="591.9732142857143" y="89.0">Model</node>
+            <node x="556.0" y="168.0">TAGit.models.teams.Team</node>
+            <node x="595.0" y="0.0">object</node>
+            <node x="211.0000000000001" y="89.0">FlaskForm</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="TAGit.models.games.Game" target="Model">
+              <point x="-49.5" y="-14.5" />
+              <point x="818.5" y="138.0" />
+              <point x="649.4732142857143" y="138.0" />
+              <point x="23.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.models.teams.Team" target="object">
+              <point x="48.25" y="-14.5" />
+              <point x="700.75" y="148.0" />
+              <point x="683.4821428571429" y="148.0" />
+              <point x="683.4821428571429" y="69.0" />
+              <point x="640.0" y="69.0" />
+              <point x="10.0" y="14.5" />
+            </edge>
+            <edge source="Exception" target="BaseException">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="Model" target="object">
+              <point x="0.0" y="-14.5" />
+              <point x="626.4732142857143" y="69.0" />
+              <point x="630.0" y="69.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.models.teams.Team" target="Model">
+              <point x="-48.25" y="-14.5" />
+              <point x="604.25" y="148.0" />
+              <point x="626.4732142857143" y="148.0" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.models.tags.Tag" target="object">
+              <point x="-43.25" y="-14.5" />
+              <point x="406.25" y="148.0" />
+              <point x="428.47321428571433" y="148.0" />
+              <point x="428.47321428571433" y="69.0" />
+              <point x="620.0" y="69.0" />
+              <point x="-10.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.exception.InvalidUsage" target="Exception">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.models.tags.Tag" target="Model">
+              <point x="43.25" y="-14.5" />
+              <point x="492.75" y="138.0" />
+              <point x="603.4732142857143" y="138.0" />
+              <point x="-23.0" y="14.5" />
+            </edge>
+            <edge source="FlaskForm" target="object">
+              <point x="1.1368683772161603E-13" y="-14.5" />
+              <point x="258.0000000000002" y="59.0" />
+              <point x="610.0" y="59.0" />
+              <point x="-20.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.form.GameForm" target="FlaskForm">
+              <point x="1.1368683772161603E-13" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+            <edge source="BaseException" target="object">
+              <point x="0.0" y="-14.5" />
+              <point x="106.5" y="49.0" />
+              <point x="600.0" y="49.0" />
+              <point x="-30.0" y="14.5" />
+            </edge>
+            <edge source="TAGit.models.games.Game" target="object">
+              <point x="49.5" y="-14.5" />
+              <point x="917.5" y="59.0" />
+              <point x="650.0" y="59.0" />
+              <point x="20.0" y="14.5" />
+            </edge>
+            <edge source="app.TeamScore" target="object">
+              <point x="0.0" y="-14.5" />
+              <point x="991.5" y="49.0" />
+              <point x="660.0" y="49.0" />
+              <point x="30.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="260.0" y="125.0" />
+          <SelectedNodes>
+            <node>app.TeamScore</node>
+          </SelectedNodes>
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Python/#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/app.py">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Python</ID>
+          <OriginalElement>#/Users/william/Desktop/Semester6/COEN390/TAGit/COEN-ELEC-390/app.py</OriginalElement>
+          <nodes>
+            <node x="28.5" y="0.0">object</node>
+            <node x="0.0" y="79.0">app.TeamScore</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="app.TeamScore" target="object">
+              <point x="0.0" y="-14.5" />
+              <point x="0.0" y="14.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-243.0" y="40.5" />
+          <SelectedNodes>
+            <node>object</node>
+          </SelectedNodes>
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/games.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/tags.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+            <marker date="1543168742320" expanded="true" signature="990:1234" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/engine/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="1192" selection-start-line="1192" selection-end-line="1192" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3855">
+          <caret line="683" selection-start-line="683" selection-end-line="683" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/werkzeug/routing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="1579" selection-start-line="1579" selection-end-line="1579" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="1790" selection-start-line="1790" selection-end-line="1790" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/app_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TAGit/models/teams.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/reset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1699">
+          <caret line="146" column="56" lean-forward="true" selection-start-line="146" selection-start-column="56" selection-end-line="146" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+            <marker date="1543786803943" expanded="true" signature="5947:6073" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1987">
+          <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-466">
+          <caret line="188" column="17" selection-start-line="188" selection-start-column="17" selection-end-line="188" selection-end-column="17" />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

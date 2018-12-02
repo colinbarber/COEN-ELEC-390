@@ -137,8 +137,8 @@ def get_top_3(game_id):
     team_score = get_score_from_team_id(team_ids=team_ids)
     if len(team_score) == 1:
         return jsonify({
-            "winner_ids": [team_ids],
-            "team_score": [team_score]
+            "winner_ids": team_ids,
+            "team_score": team_score
         })
     elif len(team_score) == 2:
         if team_score[0] > team_score[1]:
