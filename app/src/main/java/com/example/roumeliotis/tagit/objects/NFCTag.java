@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.objects;
 
 import android.os.Parcel;
 

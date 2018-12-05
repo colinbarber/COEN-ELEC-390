@@ -1,8 +1,7 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
 import java.util.Date;
 
 public class Game implements Parcelable {

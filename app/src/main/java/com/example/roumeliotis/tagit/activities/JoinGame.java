@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.activities;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -10,7 +10,6 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,142 +19,122 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.android.volley.VolleyError;
+import com.example.roumeliotis.tagit.objects.Game;
+import com.example.roumeliotis.tagit.objects.NFCTag;
+import com.example.roumeliotis.tagit.R;
+import com.example.roumeliotis.tagit.server.ServerHelper;
+import com.example.roumeliotis.tagit.objects.Team;
+import com.example.roumeliotis.tagit.server.VolleyCallback;
+import com.example.roumeliotis.tagit.db.GameManager;
+import com.example.roumeliotis.tagit.db.ImageManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
-public class SignInActivity extends AppCompatActivity{
+public class JoinGame extends AppCompatActivity {
 
-    public static final String TAG = "SignInActivity";
-    EditText EditUser;
-    TextView TeamText;
-    TextView PlayerDisplay;
-    private Spinner TeamSpinner;
-    Button SaveButton = null;
+    private final String TAG = "joinGameActivity";
+    EditText getGameEditText;
+    Button getGameButton;
+    TextView gameDisplayTextView;
     Game mGame;
-    String mUsername;
-    String mTeam;
+    ServerHelper serverHelper;
     GameManager gameManager;
-    String PlayerText;
+    String gameText;
     private NfcAdapter mNfcAdapter;
     public static final String MIME_TEXT_PLAIN = "text/plain";
-
-    private List<Team> teams;
-    private Team myTeam;
-    private Game game;
-    private List<NFCTag> tags;
+    ImageManager imageManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_join_game);
 
-        EditUser = (EditText) findViewById(R.id.username_edit_text);
-        SaveButton = findViewById(R.id.savebtn);
-        TeamText = (TextView) findViewById(R.id.team_text);
-        PlayerDisplay = (TextView) findViewById(R.id.player_display);
-        TeamSpinner = (Spinner) findViewById(R.id.team_spinner);
+        getGameEditText = findViewById(R.id.enter_game_name_edittext);
+        getGameButton = findViewById(R.id.get_game_button);
+        gameDisplayTextView = findViewById(R.id.game_display_textview);
+        serverHelper = new ServerHelper();
         gameManager = new GameManager(this);
+        imageManager = new ImageManager(this);
 
+        gameText="";
 
-        //get Game from previous screen
-        //Bundle
-        Intent GameInfo = getIntent();
-        if(GameInfo != null){
-            game = GameInfo.getParcelableExtra("Game");
-            teams = (List<Team>) GameInfo.getSerializableExtra("Team");
-            tags = (List<NFCTag>) GameInfo.getSerializableExtra("Hint");
-
-            long id = game.getId();
-            long remote_id = game.getRemote_id();
-            String username = game.getUsername();
-            String name = game.getName();
-            long  time_end = GameInfo.getLongExtra("end_time", 0);
-
-            mGame = new Game(id, remote_id, username, name, time_end);
-        }
-
-        //get teams for spinner
-        /*List<Team> TeamList= gameManager.getTeamsByGameID(mGame.getId());
-        final String[] teams = new String[TeamList.size()];
-        for(int i = 0; i< TeamList.size(); i++){
-            teams[i] = TeamList.get(i).getName();
-        }*/
-
-
-        //set up spinner
-       // ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this,
-         //       android.R.layout.simple_spinner_item, teams);
-
-    ArrayAdapter<Team> adapter = new ArrayAdapter<Team>(this, R.layout.spinner_item, teams);
-
-        adapter.setDropDownViewResource(R.layout.spinner_item);
-        TeamSpinner.setAdapter(adapter);
-        TeamSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                myTeam = (Team) parent.getItemAtPosition(position);
-                Log.d(TAG, "Team " + myTeam.toString() + " selected");
-                //log when team selected
-                /*// TODO make it work for any given number of teams that the creator wants
-                switch (position) {
-                    case 0:
-                        Log.d(TAG, "Team " + teams[0].toString() + " selected");
-                        break;
-                    case 1:
-                        Log.d(TAG, "Team " + teams[1].toString() + " selected");
-                        break;
-                    case 2:
-                        Log.d(TAG, "Team " + teams[2].toString() + " selected");
-                        break;
-                }*/
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        SaveButton.setOnClickListener(new View.OnClickListener() {
+        getGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "Save Button Clicked");
-                mUsername = EditUser.getText().toString();
-                if (mUsername.equals("")){
+                String name = getGameEditText.getText().toString().trim();
+                if(name.equals("")){
                     LayoutInflater inflater = getLayoutInflater();
                     View layoutToast = inflater.inflate(R.layout.toast,
                             (ViewGroup) findViewById(R.id.toast_layout));
-                    TextView textToast = (TextView) layoutToast.findViewById(R.id.toast_text);
-                    textToast.setText("Enter a Username");
-                    Toast toastEmptyUsername = new Toast(getApplicationContext());
-                    toastEmptyUsername.setGravity(Gravity.CENTER, 0, 0);
-                    toastEmptyUsername.setDuration(Toast.LENGTH_SHORT);
-                    toastEmptyUsername.setView(layoutToast);
-                    EditUser.startAnimation(shakeError());
-                    toastEmptyUsername.show();
+                    TextView textToast = layoutToast.findViewById(R.id.toast_text);
+                    textToast.setText("Enter a Game Name");
+                    Toast toastEmptyName = new Toast(getApplicationContext());
+                    toastEmptyName.setGravity(Gravity.CENTER, 0, 0);
+                    toastEmptyName.setDuration(Toast.LENGTH_SHORT);
+                    toastEmptyName.setView(layoutToast);
+                    getGameEditText.startAnimation(shakeError());
+                    toastEmptyName.show();
                 }
                 else{
-                    mTeam = TeamSpinner.getSelectedItem().toString();
+                    serverHelper.fetchGame(name, getApplicationContext(), new VolleyCallback() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+                            try {
+                                mGame = gameManager.getGameByRemoteID(response.getLong("game_id"));
+                                gameText+= mGame.getName() +"\n" +
+                                        mGame.getUsername() +"\n"+
+                                        new Date(mGame.getTime_end()).toString() + "\n\n";
 
-                    PlayerText = "Username : " + mUsername + "\nTeam : " + mTeam;
-                    PlayerDisplay.setText(PlayerText);
-                    PlayerDisplay.setVisibility(View.INVISIBLE);
-                    //use when next activity is done
-                    goToNextActivity();
+                                List<Team> teams= gameManager.getTeamsByGameID(mGame.getId());
+                                for(int i = 0; i< teams.size(); i++){
+                                    gameText += teams.get(i).getName() + "\t" + teams.get(i).getColour() + "\n";
+                                }
+
+                                gameText+="\n\n";
+
+                                List<NFCTag> tags = gameManager.getTagsByGameID(mGame.getId());
+                                for (int i = 0; i<tags.size(); i++){
+                                    gameText+= tags.get(i).getHint()+"\n";
+                                }
+                                goToSignInActivity(mGame, teams, tags);
+
+                            } catch(JSONException e){
+                                e.printStackTrace();
+                                Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
+                            }
+                        }
+
+                        @Override
+                        public void onError(VolleyError error) {
+                            LayoutInflater inflater = getLayoutInflater();
+                            View layoutToast = inflater.inflate(R.layout.toast,
+                                    (ViewGroup) findViewById(R.id.toast_layout));
+                            TextView textToast = layoutToast.findViewById(R.id.toast_text);
+                            textToast.setText("Invalid Game ID");
+                            Toast toastWrongName = new Toast(getApplicationContext());
+                            toastWrongName.setGravity(Gravity.CENTER, 0, 0);
+                            toastWrongName.setDuration(Toast.LENGTH_SHORT);
+                            toastWrongName.setView(layoutToast);
+                            getGameEditText.startAnimation(shakeError());
+                            toastWrongName.show();
+                        }
+                    });
                 }
-
             }
         });
         //start NFC adapter
@@ -163,27 +142,12 @@ public class SignInActivity extends AppCompatActivity{
         handleIntent(getIntent());
     }
 
-    //to use with next activity
-    void goToNextActivity()
-    {
-        Intent intent = new Intent(this, SignInActivity.class);
-
-        /*
-        //pass game
-        intent.putExtra("Game_id", Long.toString(game.getId()));
-        intent.putExtra("Game_remote_id", Long.toString(game.getRemote_id()));
-        intent.putExtra("Game_username", game.getUsername());
-        intent.putExtra("Game_name", game.getName());
-        intent.putExtra("Game_time_end", Long.toString(game.getTime_end()));
-
-        //pass player information
-        intent.putExtra("Player_username", username);
-        intent.putExtra("Player_team", team_name);
-        */
-        intent.setClass(this, GameHints.class);
-        intent.putExtra("username", mUsername);
-        intent.putExtra("Game", (Parcelable) game);
-        intent.putExtra("Team", (Serializable) myTeam);
+    //method to switch activity pass game as intent
+    void goToSignInActivity(Game game, List<Team> team, List<NFCTag> tags) {
+        Intent intent = new Intent();
+        intent.setClass(JoinGame.this, SignInActivity.class);
+        intent.putExtra("Game", mGame);
+        intent.putExtra("Team", (Serializable) team);
         intent.putExtra("Hint", (Serializable) tags);
         startActivity(intent);
     }
@@ -192,6 +156,23 @@ public class SignInActivity extends AppCompatActivity{
         shake.setDuration(500);
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
+    }
+
+    // remove back button functionality
+    @Override
+    public void onBackPressed() {
+        if (!shouldAllowBack()) {
+            // do nothing
+        } else {
+            Log.d(TAG, "Go to MainActivity");
+            Intent intent = new Intent(JoinGame.this, MainActivity.class);
+            startActivity(intent);
+            super.onBackPressed();
+        }
+    }
+
+    private Boolean shouldAllowBack() {
+        return true;
     }
 
     /* *** Handle NFC Tagging *** */

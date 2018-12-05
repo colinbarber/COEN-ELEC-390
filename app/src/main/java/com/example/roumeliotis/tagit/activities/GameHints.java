@@ -1,10 +1,9 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.activities;
 
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -15,7 +14,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -26,12 +24,19 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.example.roumeliotis.tagit.objects.Game;
+import com.example.roumeliotis.tagit.adapter.HintAdapter;
+import com.example.roumeliotis.tagit.objects.NFCTag;
+import com.example.roumeliotis.tagit.R;
+import com.example.roumeliotis.tagit.server.ServerHelper;
+import com.example.roumeliotis.tagit.objects.SoundEffects;
+import com.example.roumeliotis.tagit.objects.Team;
+import com.example.roumeliotis.tagit.server.VolleyCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,7 +46,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class GameHints extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -264,7 +268,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
 
     //Handles countdown
     private void startCountDown() {
-        //java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.roumeliotis.tagit/com.example.roumeliotis.tagit.GameHints}: java.lang.NullPointerException: Attempt to invoke virtual method 'long com.example.roumeliotis.tagit.Game.getTime_end()' on a null object reference
+        //java.lang.RuntimeException: Unable to start activity ComponentInfo{com.example.roumeliotis.tagit/com.example.roumeliotis.tagit.activities.GameHints}: java.lang.NullPointerException: Attempt to invoke virtual method 'long com.example.roumeliotis.tagit.objects.Game.getTime_end()' on a null object reference
         long timeremainingatstart = game.getTime_end() - Calendar.getInstance().getTimeInMillis();
 
         if (timeremainingatstart > 0) {

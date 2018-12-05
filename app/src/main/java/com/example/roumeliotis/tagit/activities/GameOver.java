@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.activities;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -14,19 +14,23 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.example.roumeliotis.tagit.objects.Game;
+import com.example.roumeliotis.tagit.db.GameManager;
+import com.example.roumeliotis.tagit.R;
+import com.example.roumeliotis.tagit.server.ServerHelper;
+import com.example.roumeliotis.tagit.objects.Team;
+import com.example.roumeliotis.tagit.server.VolleyCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameOver extends AppCompatActivity {

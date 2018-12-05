@@ -1,8 +1,10 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.objects;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
+
+import com.example.roumeliotis.tagit.R;
 
 public class SoundEffects {
     private static SoundPool soundPool;

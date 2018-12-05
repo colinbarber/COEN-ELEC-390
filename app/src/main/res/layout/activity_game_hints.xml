@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:id="@+id/drawer_layout"
     android:background="@color/colorBackground"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,7 +37,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/appbackground"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
         <TextView
             android:id="@+id/hint"

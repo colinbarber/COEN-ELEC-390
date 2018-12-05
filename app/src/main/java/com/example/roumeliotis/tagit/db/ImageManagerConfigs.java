@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.db;
 
 public class ImageManagerConfigs {
     public static final int DATABASE_VERSION = 1;

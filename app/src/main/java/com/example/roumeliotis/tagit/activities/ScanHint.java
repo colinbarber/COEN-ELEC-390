@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.activities;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.SoundPool;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -16,9 +15,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.provider.MediaStore;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -26,11 +23,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
+import com.example.roumeliotis.tagit.objects.Game;
+import com.example.roumeliotis.tagit.objects.NFCTag;
+import com.example.roumeliotis.tagit.R;
+import com.example.roumeliotis.tagit.server.ServerHelper;
+import com.example.roumeliotis.tagit.objects.SoundEffects;
+import com.example.roumeliotis.tagit.objects.Team;
+import com.example.roumeliotis.tagit.server.VolleyCallback;
+import com.example.roumeliotis.tagit.db.GameManager;
+import com.example.roumeliotis.tagit.db.ImageManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +44,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
-import java.util.List;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;

@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.server;
 
 import com.android.volley.VolleyError;
 

@@ -1,9 +1,11 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.activities;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.app.Activity;
 import android.widget.ImageView;
+
+import com.example.roumeliotis.tagit.R;
 
 public class FullScreenImageActivity extends Activity {
 

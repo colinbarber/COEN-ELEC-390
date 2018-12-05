@@ -1,4 +1,4 @@
-package com.example.roumeliotis.tagit;
+package com.example.roumeliotis.tagit.db;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,6 +7,11 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.example.roumeliotis.tagit.objects.Game;
+import com.example.roumeliotis.tagit.objects.NFCTag;
+import com.example.roumeliotis.tagit.objects.Team;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
