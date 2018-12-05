@@ -120,6 +120,7 @@ public class ServerHelper {
         VolleySingleton.getInstance(context).addToQueue(request);
     }
 
+    // Get the top 3 teams with the highest scores from the database
     public void getTeamRanking(final long game_remote_id, final Context context, final VolleyCallback callback) {
         final JsonObjectRequest request = new JsonObjectRequest(Method.GET, base_url + "game_top_three/" + game_remote_id, null, new Response.Listener<JSONObject>() {
             @Override

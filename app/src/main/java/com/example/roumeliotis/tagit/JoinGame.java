@@ -137,7 +137,7 @@ public class JoinGame extends AppCompatActivity {
         handleIntent(getIntent());
     }
 
-    //method to switch activity
+    //method to switch activity pass game as intent
     void goToSignInActivity(Game game, List<Team> team, List<NFCTag> tags) {
         Intent intent = new Intent();
         intent.setClass(JoinGame.this, SignInActivity.class);

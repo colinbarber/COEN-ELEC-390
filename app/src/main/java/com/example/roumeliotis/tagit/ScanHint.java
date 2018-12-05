@@ -155,9 +155,11 @@ public class ScanHint extends AppCompatActivity {
         server.pushTeamScore(team.getRemote_id(), Long.parseLong(result), ScanHint.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
+                // Check to see if tag has previously been scanned or not
                 try {
                     Log.d(TAG,response.toString());
                     String message = response.getString("message");
+                    // When tag is added
                     if("tag added".equals(message)){
                         Intent intent = new Intent(ScanHint.this, GameHints.class);
                         intent.putExtra("Game", (Parcelable) game);
@@ -167,6 +169,7 @@ public class ScanHint extends AppCompatActivity {
                         tagHitSound.playTagHitSound();
                         startActivity(intent);
                     }
+                    // Tag that has already been scanned, notify the user
                     else if(message.equals("tag already found")){
 
                         LayoutInflater inflater = getLayoutInflater();
@@ -181,8 +184,8 @@ public class ScanHint extends AppCompatActivity {
                         tagFoundToast.show();
                         tagFoundSound.playAlreadyTaggedSound();
                     }
+                    // Wrong tag, notify the user
                     else{
-
                         LayoutInflater inflater = getLayoutInflater();
                         View layoutToast = inflater.inflate(R.layout.toast,
                                 (ViewGroup) findViewById(R.id.toast_layout));
@@ -194,7 +197,6 @@ public class ScanHint extends AppCompatActivity {
                         wrongTagToast.setView(layoutToast);
                         wrongTagToast.show();
                     }
-
                 } catch(JSONException e){
                     e.printStackTrace();
                     Toast toast=Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT);

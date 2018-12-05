@@ -147,6 +147,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         HintView = findViewById(R.id.hint_list);
         CountDown = findViewById(R.id.count_down);
         HintView.setOnItemClickListener(this);
+
         //initialise count down
         startCountDown();
 
@@ -178,6 +179,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         return super.onOptionsItemSelected(item);
     }
 
+    // Redirect to JoinGame page
     void goToJoinGameActivity(){
         Log.d(TAG, "Go to Join Game Activity");
         Intent intent = new Intent(GameHints.this, JoinGame.class);
@@ -200,10 +202,12 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
         this.mHandler.removeCallbacks(refresh);
     }
 
+    // Retrieves the list of hints for this given game and team
     public void fetchHintsSetList() {
         server.fetchTeamScore(team.getRemote_id(), GameHints.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
+                // Try to get all hints got the given game
                 try {
                     JSONArray jsonArray = response.getJSONArray("hints_id");
                     int len = jsonArray.length();
@@ -214,6 +218,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                     for(int i=0; i<tags.size(); i++){
                         alltagid.add(tags.get(i).getRemote_id());
                     }
+                    // Once all tags have been scanned, redirect to GameWon page
                     if (hintsTagged.containsAll(alltagid)) {
                         if (countDownTimer!=null){
                             countDownTimer.cancel();
@@ -225,8 +230,7 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                     }else{
                         HintView.setAdapter(new HintAdapter(GameHints.this, tags, hintsTagged));
                     }
-
-
+                    // Catch any exceptions
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
@@ -234,7 +238,6 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                     toast.show();
                 }
             }
-
             @Override
             public void onError(VolleyError error) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
@@ -292,11 +295,13 @@ public class GameHints extends AppCompatActivity implements AdapterView.OnItemCl
                 public void onFinish() { goToGameOver(); }
             };
             countDownTimer.start();
+            // If timer runs out of time, redirect to GameOver page
         } else {
             goToGameOver();
         }
     }
 
+    // Redirects to the GameOver page
     private void goToGameOver() {
         gameLostSound.playLoseGameSound();
         Intent intent = new Intent();

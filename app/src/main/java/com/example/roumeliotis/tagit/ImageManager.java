@@ -44,6 +44,7 @@ public class ImageManager extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    //add new image to the table
     public long insertImage(byte[] image, String hint){
         Log.d(TAG, "insertImage");
 
@@ -67,6 +68,7 @@ public class ImageManager extends SQLiteOpenHelper{
         return id;
     }
 
+    //return latest picture added to DB
     public byte[] getImageByHint(String hint){
 
         Log.d(TAG, "getGImageByHint");
@@ -92,6 +94,7 @@ public class ImageManager extends SQLiteOpenHelper{
         return image;
     }
 
+    //check if the db has items with the passed hint
     public boolean isEmpty(String hint){
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
 

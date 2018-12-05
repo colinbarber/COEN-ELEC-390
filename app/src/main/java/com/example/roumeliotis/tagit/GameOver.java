@@ -43,10 +43,10 @@ public class GameOver extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
-
         Intent intent = getIntent();
         game = intent.getParcelableExtra("Game");
 
+        // Display top three teams in ListView
         gameManager = new GameManager(this);
         winningTeams = findViewById(R.id.winningTeamsOver);
 
@@ -207,10 +207,12 @@ public class GameOver extends AppCompatActivity {
         return true;
     }
 
+    // Sets leaderboard for top 3 teams with highest scores
     public void setWinningTeams() {
         server.getTeamRanking(game.getRemote_id(), GameOver.this, new VolleyCallback() {
             @Override
             public void onSuccess(JSONObject response) {
+                // Retrieves top 3 teams with highest scores
                 try {
                     JSONArray jsonArray = response.getJSONArray("winner_ids");
                     String team_arr[] = new String[jsonArray.length()];
@@ -219,6 +221,7 @@ public class GameOver extends AppCompatActivity {
                     }
                     ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(GameOver.this, R.layout.spinner_item, team_arr);
                     winningTeams.setAdapter(itemsAdapter);
+                    //Exception handling
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast toast = Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT);
